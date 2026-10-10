@@ -2,7 +2,9 @@
 
 [返回微积分甲](../README.md) · [返回知识库](../../README.md)
 
-## 完整文档
+当前下列链接为已有 Markdown 旧稿。课程将依据 [AGENTS.md](../../AGENTS.md) 面向初学者重编为 LaTeX 与 PDF；整套重编尚未完成。
+
+## 旧版完整文档
 
 | 部分 | Markdown | PDF |
 | --- | --- | --- |
@@ -33,7 +35,7 @@
 
 [内容审核记录](审核记录.md)记录题干冲突、缺失条件、补解与解析修正。所有原始 PDF 保留在本地 `参考资料/`，不上传 GitHub。
 
-## PDF 重建
+## 旧版 PDF 重建
 
 在仓库根目录执行，需 Node.js 20 及以上与 Microsoft Edge：
 
@@ -43,4 +45,4 @@ node tools/pdf/assemble.mjs
 node tools/pdf/render.mjs "微积分甲/微积分甲1/01-知识讲义与例题.md" "微积分甲/微积分甲1/02-期末真题与解析.md"
 ```
 
-每章 Markdown 是编辑源；运行合并脚本更新完整文档，完整 PDF 与分章 PDF 均从相应 Markdown 渲染。
+上述命令仅用于现有旧稿。新编正文以 LaTeX 为编辑源；对应构建说明随验收后的重编版本更新。
