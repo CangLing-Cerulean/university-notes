@@ -5,6 +5,11 @@ __pycache__/
 *.pyc
 .venv/
 node_modules/
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
 
 # 编辑器与系统文件
 .vscode/

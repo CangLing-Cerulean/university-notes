@@ -1,0 +1,3143 @@
+% !TeX program = xelatex
+% 本文件完整、自包含；可用 XeLaTeX 或 Tectonic 编译。
+\documentclass[UTF8,fontset=fandol,12pt,oneside,openany]{ctexrep}
+\usepackage[a4paper,left=25mm,right=25mm,top=25mm,bottom=25mm,headheight=18pt,headsep=8mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,booktabs,longtable,array}
+\usepackage{tikz,enumitem,fancyhdr,needspace,microtype}
+\usetikzlibrary{arrows.meta,calc,patterns,positioning}
+\usepackage[hidelinks,unicode,bookmarksnumbered=true,hypertexnames=false]{hyperref}
+\newcommand{\R}{\mathbb R}
+\newcommand{\N}{\mathbb N^{+}}
+\newcommand{\dd}{\mathop{}\!\mathrm d}
+\newcommand{\ee}{\mathrm e}
+\theoremstyle{definition}
+\newtheorem{theorem}{定理}[chapter]
+\newtheorem{definition}[theorem]{定义}
+\newtheorem{proposition}[theorem]{命题}
+\newtheorem{lemma}[theorem]{引理}
+\newtheorem{corollary}[theorem]{推论}
+\newtheorem{example}{例}[chapter]
+\newtheorem{exercise}{练习}[chapter]
+\newtheorem*{remark}{注}
+\renewcommand{\proofname}{证明}
+\ctexset{
+ chapter={format=\centering\LARGE\bfseries,beforeskip=0pt,afterskip=22pt},
+ section={format=\Large\bfseries,beforeskip=20pt,afterskip=10pt},
+ subsection={format=\large\bfseries,beforeskip=14pt,afterskip=7pt},
+ paragraph={runin=false,format=\normalsize\bfseries,beforeskip=8pt,afterskip=4pt}}
+\setlength{\parindent}{2em}
+\setlength{\parskip}{.25em}
+\linespread{1.18}
+\setlist{itemsep=.2em,topsep=.4em,leftmargin=2em}
+\setlist[enumerate]{label=\arabic*.,ref=\arabic*}
+\setlength{\emergencystretch}{3em}
+\setlength{\LTpre}{.5em}
+\setlength{\LTpost}{.5em}
+\renewcommand{\arraystretch}{1.3}
+\widowpenalty=10000
+\clubpenalty=10000
+\predisplaypenalty=10000
+\raggedbottom
+\setcounter{tocdepth}{1}
+\setcounter{secnumdepth}{2}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small 微积分（甲）I}
+\fancyhead[R]{\small\nouppercase{\leftmark}}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{.35pt}
+\renewcommand{\chaptermark}[1]{\markboth{第\thechapter 章\quad #1}{}}
+\fancypagestyle{plain}{\fancyhf{}\fancyhead[L]{\small 微积分（甲）I}\fancyhead[R]{\small\nouppercase{\leftmark}}\fancyfoot[C]{\thepage}\renewcommand{\headrulewidth}{.35pt}}
+
+\hypersetup{pdftitle={微积分（甲）I：期末真题与解析},pdfauthor={CangLing-Cerulean}}
+\begin{document}
+\begin{titlepage}
+\centering
+\vspace*{28mm}
+{\Large 大学知识库\par}
+\vspace{15mm}
+{\Huge\bfseries 微积分（甲）I\par}
+\vspace{12mm}
+{\LARGE\bfseries 期末真题与解析\par}
+\vspace{12mm}
+\rule{.65\textwidth}{.5pt}
+\vfill
+{\large CangLing-Cerulean\par}
+\vspace{5mm}
+{2026 年 10 月\par}
+\vspace*{18mm}
+\end{titlepage}
+\pagenumbering{roman}
+\chapter*{阅读说明}
+\markboth{阅读说明}{}
+\addcontentsline{toc}{chapter}{阅读说明}
+本册按课程十三章归类历年真题，先呈现题目，再说明考点、思路及完整解析。建议先独立尝试，再阅读解析；跨章题注明所用工具。学年与题号沿用所提供汇编，尚未获得逐年原始试卷独立核验。题干疑点在相关题目和书末审核说明中明确列出。
+
+两册采用同一章节顺序：函数、数列极限、函数极限、连续性与间断点、导数与微分、
+微分中值定理、洛必达法则、泰勒公式、导数的应用、不定积分、定积分、定积分的应用、反常积分。
+记号 $\N$ 表示正整数集，$\R$ 表示实数集。凹凸性采用“凸（下凸）”表示图像在弦下方的约定，
+具体以定义不等式为准。
+
+\tableofcontents
+\clearpage
+\pagenumbering{arabic}
+\chapter{函数}
+\label{exam:01:chapter}
+\section{本章资料情况}
+现有已审核题库中，本章收录的独立期末真题为 $0$ 题。提供的真题汇编尚未发现按主要考查内容应单独归入本章的题目，因此本章保留资料缺口，不以自编题填充真题数量。
+
+定义域、复合函数、反函数、单调性、奇偶性、周期性及有界性会作为后续极限、导数与积分题的条件出现；相关题目按主要考点归入后续章节。学习本章后，可先完成知识讲义中的基础例题与分层练习；其中题目均为教学例题或自编练习，不附虚构学年和题号。
+
+
+\chapter{数列极限}
+\label{exam:02:chapter}
+
+本章保留题库全部11个来源ID，合并重复小问后编排10道独立题目。年份、题号沿用汇编标注，尚未取得逐年原卷核验；重复来源与题干疑点分别说明。涉及导数、泰勒、凸性及积分的解析供学完对应后续章节后使用。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2024-2025年·第14题}
+% EXAM-ID: 2024-2025-14
+\noindent 来源：《期末真题演练本》物理页7、33；《期末考试真题全解析》物理页9、59。
+
+\paragraph{题目}
+已知数列 $\{a_n\},\{b_n\}$ 满足 $e^{a_n}=a_n+e^{b_n}$，$0<a_n<1/n^2$。证明：
+
+(a) $0<b_n<3a_n^2/4$；
+
+(b) $\lim_{n\to\infty}(b_1/a_1+\cdots+b_n/a_n)$ 存在。
+\end{minipage}\par
+\paragraph{考点与思路}
+隐式等式先解出 $b_n=\ln(\ee^{a_n}-a_n)$。第一问要求对全部 $n$ 成立，不能只用 $a_n\to0$ 时的局部展开；需要在整个 $(0,1)$ 上作统一比较。第二问把结果除以正数 $a_n$，再给部分和找固定上界。本题使用第5章导数及第11章积分比较。
+
+\paragraph{解析}
+(a) 对 $0<a<1$，设 $B(a)=\ln(e^a-a)$，则 $b_n=B(a_n)$。因为 $e^a>1+a$，故 $B(a)>0$。为证明上界，令 \[
+q(a)=\left(\frac32a-1\right)e^a+1-\frac32a^2.
+\]有 $q(0)=0$，且 \[
+q'(a)=\left(\frac12+\frac32a\right)e^a-3a>\frac12-a+\frac32a^2>0,
+\]这里用了 $e^a>1+a$，而末尾二次多项式判别式为 $-2<0$。于是 $q(a)>0$，等价于 \[
+B'(a)=\frac{e^a-1}{e^a-a}<\frac32a.
+\]从 $0$ 到 $a$ 积分并用 $B(0)=0$，得 $B(a)<3a^2/4$。
+
+(b) 记 $S_n=\sum_{k=1}^n b_k/a_k$。因每项严格为正，$S_n$ 递增。第一问给出 $0<b_k/a_k<3/(4k^2)$。为给出无需级数理论的上界，对 $k\ge2$ 利用
+\[
+\frac1{k^2}\le\frac1{k(k-1)}=\frac1{k-1}-\frac1k.
+\]
+求和得
+\[
+0<S_n<\frac34\sum_{k=1}^n\frac1{k^2}
+\le\frac34\left(1+1-\frac1n\right)<\frac32.
+\]
+于是 $S_n$ 递增且有统一上界，单调有界定理保证其有限极限存在。无需先知道极限的具体值。
+
+\paragraph{结论}
+$0<b_n<\frac34a_n^2$，且 $\sum_{n=1}^{\infty}b_n/a_n$ 收敛。
+
+\paragraph{核验说明}
+原解析只用局部渐近关系说明充分大 $n$ 的上界，未证明全部 $n$。本条补齐对所有 $0<a<1$ 的严格导数比较；由该统一界证明部分和收敛。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2023-2024年·第14题}
+% EXAM-ID: 2023-2024-14
+\noindent 来源：《期末真题演练本》物理页7、33；《期末考试真题全解析》物理页9、10、59、60。
+
+\paragraph{题目}
+设 $0<a_1<1$，$a_{n+1}=a_n(1-a_n)$，$n=1,2,3,\ldots$：
+
+(a) 证明 $a_n<1/(n+1)$；
+
+(b) 证明数列 $\{na_n\}$ 收敛；
+
+(c) 计算 $\lim_{n\to+\infty}na_n$。
+
+\paragraph{题干待核} 原汇编条件存在疑点，以下保留原题，并区分反例与修订后可证结论。
+\end{minipage}\par
+\paragraph{考点与思路}
+先检查首项，避免归纳法掩盖初值条件不足。正确范围内，递推保持正性并严格减小；先建立 $a_n\to0$，随后把 $na_n$ 写成 $n/(1/a_n)$，因为倒数的差分恰好消去递推中的乘积。
+
+\paragraph{解析}
+(a) 原题对 $n=1$ 的主张不成立：取 $a_1=3/4$，则 $a_1>1/2$。正确可证的范围为 $n\ge2$。由递推得 $0<a_{n+1}<a_n<1$，且 $a_2=a_1(1-a_1)\le1/4<1/3$。若 $k\ge2$ 且 $a_k<1/(k+1)$，因为 $t(1-t)$ 在 $(0,1/2)$ 上递增，\[
+a_{k+1}<\frac1{k+1}\left(1-\frac1{k+1}\right)=\frac{k}{(k+1)^2}<\frac1{k+2}.
+\]最后一个不等式等价于 $k(k+2)<(k+1)^2$，两边相差 $1$，确实严格成立。因此结论对 $n\ge2$ 成立。
+
+(b)、(c) 数列 $a_n$ 正且递减，故有极限 $A\ge0$；在递推式中取极限得 $A=A(1-A)$，所以 $A^2=0$，即 $A=0$。于是 $1/a_n$ 严格递增趋于 $+\infty$。倒数差分的具体计算为
+\[
+\frac1{a_{n+1}}-\frac1{a_n}
+=\frac1{a_n(1-a_n)}-\frac1{a_n}
+=\frac1{1-a_n}.
+\]
+令 Stolz 定理的分子为 $n$、分母为 $1/a_n$，所有分母条件已满足，而且
+\[
+\frac{(n+1)-n}{1/a_{n+1}-1/a_n}=1-a_n\to1,
+\]故 $na_n=n/(1/a_n)\to1$，从而收敛且极限为 $1$。
+
+\paragraph{结论}
+(a) 仅对 $n\ge2$ 可证；(b) 收敛；(c) $1$。
+
+\paragraph{核验说明}
+演练本与解析本均缺少第一问的 $n\ge2$ 限制。现有初值条件不足以推出 $n=1$ 的结论；题目保留原式，解析给出反例和正确范围。第7页版本另列求极限一问，第33页版本只列前两问，这里收录完整版本。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2021-2022年·第4题}
+% EXAM-ID: 2021-2022-4
+\label{exam:02:2021-2022-4}
+\noindent 来源：《期末真题演练本》物理页9、12；《期末考试真题全解析》物理页12、16、17。
+
+\paragraph{题目}
+(1) 当 $x>0$ 时，证明 \[
+x-\frac{x^2}{2}<\ln(1+x)<x.
+\]
+
+(2) 求极限 \[
+\lim_{n\to\infty}\left(1+\frac1{n^2}\right)\left(1+\frac2{n^2}\right)\cdots\left(1+\frac n{n^2}\right).
+\]
+\end{minipage}\par
+\paragraph{考点与思路}
+连乘式的因子个数随 $n$ 改变，不能逐个取极限。取对数把乘积转为和，用第一问的上下界同时控制主项和累计误差。第一问使用第5章导数，最后使用第4章指数函数连续性。
+
+\paragraph{解析}
+(1) 令 $f(x)=x-\ln(1+x)$，则 $f(0)=0$，$f'(x)=x/(1+x)>0$，故 $\ln(1+x)<x$。令 $g(x)=\ln(1+x)-x+x^2/2$，则 $g(0)=0$，$g'(x)=x^2/(1+x)>0$，得下界。
+
+(2) 设乘积为 $P_n$，取对数并逐项应用(1)，\[
+\sum_{k=1}^n\left(\frac{k}{n^2}-\frac{k^2}{2n^4}\right)<\ln P_n<\sum_{k=1}^n\frac{k}{n^2}.
+\]右端 $n(n+1)/(2n^2)\to1/2$。左端与右端之差为 $n(n+1)(2n+1)/(12n^4)\to0$。夹逼得 $\ln P_n\to1/2$，故 $P_n\to\sqrt e$。
+
+\paragraph{结论}
+(1) 不等式成立；(2) $\sqrt e$。
+
+\paragraph{核验说明}
+演练本第9、12页是同一完整题，已去重合并；解析本第12页只列第二问，第16页为完整解析。按主要工具归入数列极限。主项 $\sum k/n^2$ 也可写为 $\sum_{k=1}^n(1/n)(k/n)$ 并联系第11章的黎曼和，本解采用题目不等式直接夹逼。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2021-2022年·第11题}
+% EXAM-ID: 2021-2022-11
+\noindent 来源：《期末真题演练本》物理页34；《期末考试真题全解析》物理页60。
+
+\paragraph{题目}
+函数 $f$ 在 $(0,1)$ 上有定义，满足差商单调递增（凸函数的差商性质）。对任意 $n\in\mathbb N^+$，定义
+\[
+a_n=(n+2)\left[f\left(\frac12\right)-f\left(\frac12-\frac1{n+2}\right)\right].
+\]
+证明 $\{a_n\}$ 收敛。
+\end{minipage}\par
+\paragraph{考点与思路}
+把给定式识别为固定右端点 $1/2$ 的割线斜率。左端点右移使斜率递增，但单调性还不足以收敛；另选右侧固定点 $3/4$，用外侧割线提供一个有限上界。所需割线斜率关系见知识讲义第4章“割线斜率控制连续性”，凸性的系统讨论见第9章。
+
+\paragraph{解析}
+令 $x_n=1/2-1/(n+2)$，则 $x_n\uparrow1/2$，且 $a_n=[f(1/2)-f(x_n)]/(1/2-x_n)$。由凸函数割线斜率性质，固定右端点时该斜率随左端点右移而递增，所以 $a_n$ 递增。再固定 $d=3/4$，同一性质给出
+\[
+a_n\le\frac{f(d)-f(1/2)}{d-1/2}=4[f(3/4)-f(1/2)].
+\]
+这是有限上界，故由单调有界准则 $\{a_n\}$ 收敛。
+
+\paragraph{结论}
+数列收敛。进一步，若 $x_n\le t\le x_{n+1}$，则三点割线性质把 $[f(1/2)-f(t)]/(1/2-t)$ 夹在 $a_n$ 与 $a_{n+1}$ 之间。当 $t\to(1/2)^-$ 时相应的 $n\to\infty$，夹逼说明所有左侧差商都有同一个有限极限。用第5章的术语说，该极限就是左导数 $f'_-(1/2)$。
+
+\paragraph{核验说明}
+用固定外侧割线给出上界，避免先引用待建立的单侧导数存在性。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2020-2021年·第4(1)题}
+% EXAM-ID: 2020-2021-4(1)
+\noindent 来源：《期末真题演练本》物理页12；《期末考试真题全解析》物理页15、16。
+
+\paragraph{题目}
+设 $a_1,\ldots,a_m$ 是 $m$ 个正实数，试求极限 \[
+\lim_{n\to+\infty}\sqrt[n]{a_1^n+\cdots+a_m^n}.
+\]
+\end{minipage}\par
+\paragraph{考点与思路}
+有限多个正数的幂和由最大的底数控制。先保留一个最大项作下界，再把每项都换成最大项作上界；固定项数 $m$ 的 $n$ 次方根趋于 $1$。
+
+\paragraph{解析}
+令 $A=\max\{a_1,\ldots,a_m\}>0$，则 $A^n\le\sum_{j=1}^m a_j^n\le mA^n$。取 $n$ 次根得 \[
+A\le\sqrt[n]{\sum_{j=1}^m a_j^n}\le A m^{1/n}.
+\]因固定 $m$ 满足 $m^{1/n}\to1$，由夹逼定理得极限为 $A$。
+
+\paragraph{结论}
+$\max\{a_1,\ldots,a_m\}$
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2019-2020年·第1题}
+% EXAM-ID: 2019-2020-1
+% EXAM-ID: 2019-2020-1(1)
+\label{exam:02:2019-2020-1}
+\noindent 来源：《期末真题演练本》物理页8、34；《期末考试真题全解析》物理页10、11、60。第34页及解析第60页仅重复列出第一问，此处合并为一个完整解析入口。
+
+\paragraph{题目}
+设数列 $\{a_n\}$ 满足 $a_1=1$，对任意 $n\in\mathbb Z^+$，$a_{n+1}=\sin a_n$。
+
+(1) 证明数列 $\{a_n\}$ 收敛并求其极限；
+
+(2) 计算 \[
+\lim_{n\to\infty}\left(\frac{a_{n+1}}{a_n}\right)^{6/a_n^2}.
+\]
+\end{minipage}\par
+\paragraph{考点与思路}
+先在 $(0,1]$ 上利用 $0<\sin t<t$ 证明递减有下界，才可以对递推式取极限。第二问属于底数趋于 $1$、指数趋于无穷的幂指型，先求对数极限；需要第8章有限阶泰勒公式及第4章连续性。
+
+\paragraph{解析}
+(1) 对 $0<t\le1$，$0<\sin t<t$，故 $0<a_{n+1}<a_n\le1$。数列递减有下界，极限 $A\in[0,1]$ 存在。由连续性 $A=\sin A$，利用正数时的严格不等式知只能 $A=0$。
+
+(2) 因 $a_n>0$ 且 $a_{n+1}>0$，幂指表达式可取实对数。由 $a_n\to0$ 和有限阶泰勒公式，
+\[
+\sin a_n=a_n-\frac{a_n^3}{6}+o(a_n^3),\qquad
+\frac{\sin a_n}{a_n}=1-\frac{a_n^2}{6}+o(a_n^2).
+\]
+设 $u_n=-a_n^2/6+o(a_n^2)$，则 $u_n\to0$ 且 $u_n=O(a_n^2)$。因为 $\ln(1+u)=u+o(u)$，有
+\[
+\ln\frac{\sin a_n}{a_n}=-\frac{a_n^2}{6}+o(a_n^2).
+\]
+因此
+\[
+\frac6{a_n^2}\ln\left(\frac{a_{n+1}}{a_n}\right)=\frac6{a_n^2}\left[-\frac16a_n^2+o(a_n^2)\right]\to-1.
+\]由指数函数连续性，所求极限为 $e^{-1}$。
+
+\paragraph{结论}
+(1) $a_n\to0$；(2) $e^{-1}$。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2018-2019年·第1题}
+% EXAM-ID: 2018-2019-1
+\noindent 来源：《期末真题演练本》物理页35、38；《期末考试真题全解析》物理页60、61、63。
+
+\paragraph{题目}
+设 $a_n=(1+1/n)^n$，$b_n=(1+1/n)^{n+1}$，已知 $\{a_n\}$ 递增、$\{b_n\}$ 递减。试用 $\varepsilon$ 定义证明：对任意 $n\in\mathbb Z^+$，
+\[
+\frac1{n+1}<\ln\left(1+\frac1n\right)<\frac1n.
+\]
+演练本第38页重复列出同一出处及不等式。
+\end{minipage}\par
+\paragraph{考点与思路}
+题目指定使用极限定义。先取得共同极限，再固定一个 $n$，用误差带反证该项不可能超过递增数列的极限或低于递减数列的极限，最后用严格单调性排除等号。对数只是把幂的不等式转回目标形式。
+
+\paragraph{解析}
+由 $a_n<b_n$ 及单调性知两列有界，从而有极限，且 $b_n/a_n=1+1/n\to1$，两极限相同，记为 $e$（自然对数的底数）。固定 $n$。若 $a_n>e$，取 $\varepsilon=(a_n-e)/2>0$；极限定义给出充分大的 $m>n$ 满足 $a_m<e+\varepsilon<a_n$，与递增矛盾，故 $a_n\le e$。严格递增又给出 $a_n<a_{n+1}\le e$。同理，若 $b_n<e$，取 $\varepsilon=(e-b_n)/2$，充分大的 $m>n$ 有 $b_m>e-\varepsilon>b_n$，与递减矛盾。因此 $b_n\ge e$；严格递减得 $b_n>b_{n+1}\ge e$。取对数得到 $n\ln(1+1/n)<1<(n+1)\ln(1+1/n)$，即所求两侧严格界。
+
+\paragraph{结论}
+$\frac1{n+1}<\ln(1+1/n)<\frac1n$。
+
+\paragraph{核验说明}
+解析本第63页用积分证明，未满足 epsilon 定义要求；已补写 epsilon 反证步骤。重复来源合并。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2018-2019年·第11题}
+% EXAM-ID: 2018-2019-11
+\noindent 来源：《期末真题演练本》物理页49；《期末考试真题全解析》物理页80。
+
+\paragraph{题目}
+设 $\{a_n\}$ 为实数列，$a$ 为实数。(a) 用 $\varepsilon$–$N$ 语言描述 $\{a_n\}$ 收敛于 $a$；(b) 用同样语言描述 $\{a_n\}$ 不收敛于 $a$。
+\end{minipage}\par
+\paragraph{考点与思路}
+按量词层级否定定义：任意误差变为某个误差，存在统一起点变为任意起点，全部尾部项变为至少一个坏项。题目中的 $a$ 已给定，不能将第二问解释为整个数列发散。
+
+\paragraph{解析}
+(a) 收敛于 $a$ 的定义为：
+\[
+\forall\varepsilon>0,\ \exists N\in\mathbb N^+,\ \forall n>N:\ |a_n-a|<\varepsilon.
+\]
+(b) 对上述命题逐层否定，依次交换全称与存在量词，并将严格不等式否定为大于等于：
+\[
+\exists\varepsilon_0>0,\ \forall N\in\mathbb N^+,\ \exists n>N:\ |a_n-a|\ge\varepsilon_0.
+\]
+这里描述的是不收敛于给定 $a$，可能仍收敛于另一个数。
+
+\paragraph{结论}
+收敛与不收敛于 $a$ 的量词表述如上。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2017-2018年·第4题}
+% EXAM-ID: 2017-2018-4
+\noindent 来源：《期末真题演练本》物理页3；《期末考试真题全解析》物理页3。
+
+\paragraph{题目}
+用 $\varepsilon$–$N$ 语言证明：\[
+\lim_{n\to+\infty}\frac{2n^2+1}{3n^2+4}=\frac23.
+\]
+\end{minipage}\par
+\paragraph{考点与思路}
+先算出与目标 $2/3$ 的误差，再用较简单的 $5/(9n^2)$ 放大。解出足够的 $n$，把实数阈值改成整数 $N$，按任意误差、选择起点、控制尾部的顺序书写。
+
+\paragraph{解析}
+给定任意 $\varepsilon>0$，有 \[
+\left|\frac{2n^2+1}{3n^2+4}-\frac23\right|=\frac{5}{3(3n^2+4)}<\frac{5}{9n^2}.
+\]取 $N=\left\lfloor\sqrt{5/(9\varepsilon)}\right\rfloor+1$。当整数 $n>N$ 时，$n>\sqrt{5/(9\varepsilon)}$，故上述差的绝对值小于 $\varepsilon$。由数列极限定义得证。
+
+\paragraph{结论}
+$\frac23$
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2017-2018年·第14题}
+% EXAM-ID: 2017-2018-14
+\noindent 来源：《期末真题演练本》物理页36；《期末考试真题全解析》物理页61。
+
+\paragraph{题目}
+(a) 设 $a_n=n!e^n/n^{n+1/2}$，证明 $\{a_n\}$ 单调递减；(b) 设 $b_n=a_ne^{-1/(4n)}$，证明 $\{b_n\}$ 单调递增，且 $\lim b_n=\lim a_n=\alpha>0$；(c) 利用 Wallis 公式证明 $\alpha=\sqrt{2\pi}$；(d) 证明 $n!\sim\sqrt{2\pi n}(n/e)^n$。
+\end{minipage}\par
+\paragraph{考点与思路}
+阶乘递推适合作相邻项比值并取对数。关键是把对数比表示成正积分，再估计其上界，同时解决两列单调性；两列相互夹住提供正下界。Wallis 公式属于第10--11章积分递推的后续工具，本题按题意引用它，不预先引用 Stirling 结论。
+
+\paragraph{解析}
+(a) 先消去阶乘与相同幂次：
+\[
+\frac{a_n}{a_{n+1}}
+=\ee^{-1}\left(1+\frac1n\right)^{n+1/2},
+\qquad
+d_n:=\ln\frac{a_n}{a_{n+1}}
+=\left(n+\frac12\right)\ln\left(1+\frac1n\right)-1.
+\]
+令 $z=1/(2n+1)\in(0,1)$，则 $n+1/2=1/(2z)$、$1+1/n=(1+z)/(1-z)$。利用积分恒等式
+\[
+\ln\frac{1+z}{1-z}=2\int_0^z\frac{\dd t}{1-t^2},
+\]
+得到
+\[
+d_n=\frac1z\int_0^z\left(\frac1{1-t^2}-1\right)\dd t
+=\frac1z\int_0^z\frac{t^2}{1-t^2}\dd t>0.
+\]
+积分区间内除零点外被积函数为正，所以 $a_n/a_{n+1}>1$，即 $a_n$ 严格递减。
+
+(b) 因 $0<t<z<1$，有 $1/(1-t^2)<1/(1-z^2)$，从而
+\[
+0<d_n<
+\frac1{z(1-z^2)}\int_0^z t^2\,\dd t
+=\frac{z^2}{3(1-z^2)}
+=\frac1{12n(n+1)}<\frac1{4n(n+1)}.
+\]
+现在按定义计算，指数符号要保留：
+\[
+\ln\frac{b_{n+1}}{b_n}
+=\ln\frac{a_{n+1}}{a_n}-\frac1{4(n+1)}+\frac1{4n}
+=-d_n+\frac1{4n(n+1)}>0.
+\]
+所以 $b_n$ 严格递增。又 $0<b_1\le b_n<a_n\le a_1$，故 $a_n$ 递减且有下界 $b_1$，$b_n$ 递增且有上界 $a_1$；两列均收敛到正数。由 $a_n/b_n=\ee^{1/(4n)}\to1$，两极限相同，记为 $\alpha$，并有 $\alpha\ge b_1>0$。
+(c) Wallis 公式给出
+\[
+\frac{(n!)^2\,2^{2n}}{(2n)!\sqrt n}\longrightarrow\sqrt\pi.
+\]
+直接代入 $n!=a_n n^{n+1/2}\ee^{-n}$ 以及 $(2n)!=a_{2n}(2n)^{2n+1/2}\ee^{-2n}$，左式等于
+\[
+\frac{a_n^2 n^{2n+1}\ee^{-2n}\,2^{2n}}
+{a_{2n}(2n)^{2n+1/2}\ee^{-2n}\sqrt n}
+=\frac{a_n^2}{\sqrt2\,a_{2n}}\longrightarrow\frac{\alpha^2}{\sqrt2\,\alpha}
+=\frac{\alpha}{\sqrt2}.
+\]
+分母的极限非零，因为上一问已证明 $\alpha>0$。与 Wallis 极限比较，得 $\alpha/\sqrt2=\sqrt\pi$，故 $\alpha=\sqrt{2\pi}$。
+(d) $a_n/\sqrt{2\pi}\to1$，等价于 $n!/\{\sqrt{2\pi n}(n/e)^n\}\to1$。
+
+\paragraph{结论}
+$\alpha=\sqrt{2\pi}$；$n!\sim\sqrt{2\pi n}(n/e)^n$。
+
+\paragraph{核验说明}
+解析本(b)指数比值符号错误且只称显然正不能推出极限正；(c)阶乘代入含未完成表达式。已给出明确估计、正下界及精确代入。
+
+
+\chapter{函数极限}
+\label{exam:03:chapter}
+本章保留已有题库的4道真题。学年、题号沿用资料汇编标签，尚未逐份核验原始试卷；资料定位中的页码均为PDF物理页码。本章没有审核记录中所列的题干条件疑点。涉及指数、对数的解析使用其基本连续性，相关理论见讲义第4章。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2020--2021学年·第2题}
+% EXAM-ID: 2020-2021-2
+\paragraph{来源}《期末真题演练本》第5页；《期末考试真题全解析》第6、7页。
+\paragraph{题目}试求极限
+\[
+\lim_{x\to0}\frac{\ee^{(x+1)^2}\sin x+x^2\cos(1/x)}{\ln(1+x)}.
+\]
+\end{minipage}\par
+\paragraph{考点与思路}分母与 $x$ 等价。分子主项含 $\sin x$，阶为 $x$；振荡项绝对值不超过 $x^2$，除以 $x$ 后趋于零。先提取共同尺度 $x$，能避免对无极限的 $\cos(1/x)$ 错用乘积法则。对应讲义第3章无穷小比较与重要极限部分。
+\paragraph{解析}在 $0<|x|<1/2$ 内，对数有定义且不为零。改写为
+\[
+\frac{x}{\ln(1+x)}
+\left[\ee^{(x+1)^2}\frac{\sin x}{x}+x\cos(1/x)\right].
+\]
+由基本等价量，$x/\ln(1+x)\to1$、$\sin x/x\to1$；由 $(x+1)^2\to1$ 及指数函数连续性，$\ee^{(x+1)^2}\to\ee$。振荡项满足
+\[
+|x\cos(1/x)|\le|x|\longrightarrow0.
+\]
+括号的极限为 $\ee\cdot1+0=\ee$，外因子的极限为 $1$，故所求极限为 $\ee$。这里不能把 $\cos(1/x)$ 的极限写为某个数；需要控制的是归一化后的整体项。
+\paragraph{结论}$\boxed{\ee}$。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2019--2020学年·第11题}
+% EXAM-ID: 2019-2020-11
+\paragraph{来源}《期末真题演练本》第3页；《期末考试真题全解析》第3、4页。
+\paragraph{题目}试用 $\varepsilon$--$\delta$ 语言描述 $\lim_{x\to x_0}f(x)=a$。
+\end{minipage}\par
+\paragraph{考点与思路}考查函数极限的严格定义。需要先交代定义域条件，再按“任意误差、存在半径、所有邻近点”的顺序写量词；去心条件排除中心值。对应讲义第3章函数极限定义部分。
+\paragraph{解析}设 $f$ 在 $x_0$ 的某个去心邻域内有定义。对于任意 $\varepsilon>0$，存在 $\delta>0$，使得对任意满足 $0<|x-x_0|<\delta$ 的 $x$，都有 $|f(x)-a|<\varepsilon$。若使用一般定义域 $D$ 的版本，须要求 $x_0$ 是 $D$ 的聚点，并将最后的任意 $x$ 限制在 $D$ 中。$\delta$ 可以随 $\varepsilon$ 改变，但选定后必须同时适用于范围内所有点。
+\paragraph{结论}
+\[
+\boxed{\forall\varepsilon>0,\ \exists\delta>0,\ \forall x:
+\quad0<|x-x_0|<\delta\ \Longrightarrow\ |f(x)-a|<\varepsilon.}
+\]
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2016--2017学年·第五题}
+% EXAM-ID: 2016-2017-五
+\paragraph{来源}《期末真题演练本》第3页；《期末考试真题全解析》第3页。
+\paragraph{题目}按定义证明 $\lim_{x\to1}x^2=1$。
+\end{minipage}\par
+\paragraph{考点与思路}误差因式分解为 $|x-1||x+1|$。先选一个固定邻域使第二因子有界，再按给定精度缩小邻域。题目要求定义证明，不能只说多项式连续。
+\paragraph{解析}任给 $\varepsilon>0$，取
+\[
+\delta=\min\left\{1,\frac\varepsilon3\right\}>0.
+\]
+当 $0<|x-1|<\delta$ 时，由 $\delta\le1$ 有
+$|x+1|\le|x-1|+2<3$。于是
+\[
+|x^2-1|=|x-1||x+1|<3|x-1|<3\delta\le\varepsilon.
+\]
+对任意误差都找到统一适用的正半径，由函数极限定义得证。最后一步即使 $3\delta=\varepsilon$，前面的严格不等号仍保证误差严格小于 $\varepsilon$。
+\paragraph{结论}$\boxed{\lim_{x\to1}x^2=1}$。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2015--2016学年·第7题}
+% EXAM-ID: 2015-2016-7
+\paragraph{来源}《期末真题演练本》第6页；《期末考试真题全解析》第8页。
+\paragraph{题目}求极限
+\[
+\lim_{x\to0}\frac{2\sin x+x^2\cos(1/x)}{(\ee^x+1)\ln(1+x)}.
+\]
+\end{minipage}\par
+\paragraph{考点与思路}把基本小量 $x$ 提出，分清分母中趋于非零常数的因子与趋于零的因子。振荡项在归一化后由夹逼消失。
+\paragraph{解析}在小去心邻域内表达式有定义，且等于
+\[
+\frac{x}{(\ee^x+1)\ln(1+x)}
+\left[2\frac{\sin x}{x}+x\cos(1/x)\right].
+\]
+由 $\ee^x+1\to2$、$\ln(1+x)/x\to1$，第一个因子趋于 $1/2$。括号内第一项趋于 $2$，第二项由
+$|x\cos(1/x)|\le|x|$ 趋于 $0$。所有运算法则所需的有限极限及非零分母极限均满足，所以原极限为 $(1/2)\cdot2=1$。
+\paragraph{结论}$\boxed{1}$。
+
+
+\chapter{连续性与间断点}
+\label{exam:04:chapter}
+
+本章保留题库中两道真题，均围绕割线斜率控制连续性。来源为《期末真题演练本》物理第38页；年份与题号沿用汇编标签，尚未逐份取得原始试卷核验。相关方法见讲义第4章“割线斜率控制连续性”；证明只使用代数恒等式和连续定义，不预设可导性。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2020--2021学年·第11题}
+% EXAM-ID: 2020-2021-11
+\paragraph{题目}
+设函数 $f$ 在 $(0,1)$ 上连续，且任意 $x_1<x_2<x_3$（三点均属 $(0,1)$）都有
+\[
+ \frac{f(x_2)-f(x_1)}{x_2-x_1}
+ <\frac{f(x_3)-f(x_2)}{x_3-x_2}.
+\]
+若 $a<b$ 且 $[a,b]\subset(0,1)$，证明存在 $L>0$，使任意 $t_1,t_2\in[a,b]$ 都满足
+\[
+ |f(t_2)-f(t_1)|\le L|t_2-t_1|.
+\]
+资料定位：演练本物理第38页；《期末考试真题全解析》物理第63页。已核对演练本页面图像。
+\end{minipage}\par
+\paragraph{考点与思路}
+目标中两个点都在变，直接使用它们的斜率不能产生统一的常数。由于 $[a,b]$ 严格位于 $(0,1)$ 内，可以在左右两侧选取固定点 $c,d$，将所有内部割线斜率夹在固定外侧割线斜率之间。原条件没有给导数，证明不需要求导。
+
+\paragraph{解析}
+记 $S(u,v)=(f(v)-f(u))/(v-u)$（$u<v$）。对 $u<v<w$，代数恒等式给出
+\[
+ S(u,w)=\frac{v-u}{w-u}S(u,v)+\frac{w-v}{w-u}S(v,w).
+\]
+原条件为 $S(u,v)<S(v,w)$，因此这个加权平均位于两者之间：
+\[
+ S(u,v)<S(u,w)<S(v,w).
+\]
+取固定点 $0<c<a<b<d<1$，并设
+\[
+ m=S(c,a)=\frac{f(a)-f(c)}{a-c},\qquad
+ M=S(b,d)=\frac{f(d)-f(b)}{d-b}.
+\]
+对 $a\le t_1<t_2\le b$，首先用三点 $c,t_1,t_2$ 得
+\[
+ S(c,t_1)<S(t_1,t_2).
+\]
+若 $t_1=a$，则 $S(c,t_1)=m$；若 $t_1>a$，由三点 $c,a,t_1$ 的加权平均关系得 $m<S(c,t_1)$。故总有 $m<S(t_1,t_2)$。
+
+再用三点 $t_1,t_2,d$ 得 $S(t_1,t_2)<S(t_2,d)$。若 $t_2=b$，则 $S(t_2,d)=M$；若 $t_2<b$，由三点 $t_2,b,d$ 得 $S(t_2,d)<S(b,d)=M$。故
+\[
+ m<S(t_1,t_2)<M.
+\]
+实数处于区间 $(m,M)$ 时，其绝对值不超过 $\max\{|m|,|M|\}$。取
+\[
+ L=1+\max\{|m|,|M|\}>0,
+\]
+便有
+\[
+ |f(t_2)-f(t_1)|
+ =|S(t_1,t_2)|(t_2-t_1)\le L|t_2-t_1|.
+\]
+当 $t_1=t_2$ 时两边均为零；当 $t_1>t_2$ 时交换两点即归于已证情形，证明完成。
+
+\paragraph{结论}
+可取 $\displaystyle L=1+\max\left\{\left|\frac{f(a)-f(c)}{a-c}\right|,\left|\frac{f(d)-f(b)}{d-b}\right|\right\}$，其中 $0<c<a<b<d<1$ 为任意固定外侧点。常数可随固定区间改变，但不随 $t_1,t_2$ 改变；证明也说明这种斜率条件本身已足以给出内部的局部 Lipschitz 控制。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2018--2019学年·第12题}
+% EXAM-ID: 2018-2019-12
+\paragraph{题目}
+设 $f$ 在 $(0,1)$ 上满足：对任意 $x_1<x_2<x_3$（三点均属 $(0,1)$），
+\[
+ \frac{f(x_2)-f(x_1)}{x_2-x_1}
+ \le\frac{f(x_3)-f(x_1)}{x_3-x_1}
+ \le\frac{f(x_3)-f(x_2)}{x_3-x_2}.
+\]
+取 $x_0\in(0,1)$，证明 $f$ 在 $x_0$ 处右连续。
+资料定位：演练本物理第38页；《期末考试真题全解析》物理第63、64页。已核对演练本页面图像。
+\end{minipage}\par
+\paragraph{考点与思路}
+右连续要求证明 $f(x)-f(x_0)\to0$（$x\to x_0^+$）。题设直接约束差商，适合把差商的绝对值统一控制，再乘以 $x-x_0$。必须同时建立上下界；单独得到一个上界不足以证明绝对值趋零。
+
+\paragraph{解析}
+固定 $0<a<x_0<b<1$，记
+\[
+ K_1=\frac{f(x_0)-f(a)}{x_0-a},\qquad
+ K_2=\frac{f(b)-f(x_0)}{b-x_0}.
+\]
+当 $x_0<x<b$ 时，对三点 $a,x_0,x$ 使用题设，得到
+\[
+ K_1\le \frac{f(x)-f(x_0)}{x-x_0}.
+\]
+对三点 $x_0,x,b$ 使用题设的第一个不等式，得到
+\[
+ \frac{f(x)-f(x_0)}{x-x_0}\le K_2.
+\]
+令 $C=\max\{|K_1|,|K_2|\}$，两边夹逼差商便给出
+\[
+ |f(x)-f(x_0)|\le C(x-x_0)\qquad(x_0<x<b).
+\]
+为完整写出定义证明，给定 $\varepsilon>0$，取
+\[
+ \delta=\min\left\{b-x_0,\frac{\varepsilon}{C+1}\right\}>0.
+\]
+若 $C=0$，前面的估计直接给出 $f(x)=f(x_0)$，满足右连续的要求。若 $C>0$，则 $0<x-x_0<\delta$ 时 $x\in(x_0,b)$，且
+\[
+ |f(x)-f(x_0)|\le C(x-x_0)
+ <\frac{C}{C+1}\varepsilon<\varepsilon.
+\]
+因此右连续得证。
+
+\paragraph{结论}
+$\displaystyle\lim_{x\to x_0^+}f(x)=f(x_0)$。证明没有使用题设未给出的连续性或可导性；固定外侧点提供的有限斜率界就是关键。
+
+
+\chapter{导数与微分}
+\label{exam:05:chapter}
+本章保留题库中的十九道来源题。学年、题号沿用提供的汇编，尚未取得各学年原始试卷逐份核验。含积分的题目使用后续定积分章节的微积分基本定理；含高阶展开的题目使用第八章的有限阶泰勒公式。每次使用均说明条件。两道题干条件疑点保留原式并区分可确定结论与条件性结论。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2024--2025·第7题}
+% EXAM-ID: 2024-2025-7
+\paragraph{题目}设函数 $y=y(x)$ 由 $x^2+xy+y^3=1$ 确定，求 $y''(1)$。来源：演练本第14页，全解析第20页。
+\end{minipage}\par
+\paragraph{考点与思路}隐函数二阶导数。按讲义第5章隐函数求导部分，先求纵坐标并检查分支条件，再顺次求 $y'$、$y''$。
+\paragraph{解析}当 $x=1$，$y+y^3=0$，即 $y(1+y^2)=0$，实解只有 $y=0$。令 $F=x^2+xy+y^3-1$，$F_y=x+3y^2$ 在 $(1,0)$ 为 $1\ne0$，故附近存在光滑分支。对原式求导：
+\[
+ 2x+y+(x+3y^2)y'=0.
+\]
+代入 $(1,0)$，有 $2+y'=0$，故 $y'(1)=-2$。对整个一阶关系继续求导，$xy'$ 的导数含 $y'$，$3y^2y'$ 的导数含 $6y(y')^2$，得到
+\[
+ 2+2y'+6y(y')^2+(x+3y^2)y''=0.
+\]
+代入 $x=1,y=0,y'=-2$，得到 $2-4+y''=0$。
+\paragraph{结论}$y''(1)=2$。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2023--2024·第2题}
+% EXAM-ID: 2023-2024-2
+\paragraph{题目}已知 $f(2)=2,f'(2)=3$，求 $y=f(f(f(x)))$ 在 $x=2$ 处的导数。来源：演练本第14页，全解析第21页。
+\end{minipage}\par
+\paragraph{考点与思路}三层复合的链式法则。必须先确认每层在基点的输入值，再取对应导数。
+\paragraph{解析}三层输入依次是 $x,f(x),f(f(x))$。由于 $f(2)=2$，在 $x=2$ 时所有输入均为 $2$，每层在对应点均可导。链式法则给出
+\[
+ y'=f'(f(f(x)))\,f'(f(x))\,f'(x),
+\]
+所以 $y'(2)=f'(2)f'(2)f'(2)=3^3$。这个结论只需在对应点可导，无需额外假设 $f'$ 连续。
+\paragraph{结论}$y'(2)=27$。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2023--2024·第4题}
+% EXAM-ID: 2023-2024-4
+\paragraph{题目}设
+\[
+ x=3t-\sin t,\qquad y=\ee^t-\cos t,
+\]
+求 $t=0$ 时的 $\dd y/\dd x$ 和 $\dd^2y/\dd x^2$。来源：演练本第14页，全解析第21页。
+\end{minipage}\par
+\paragraph{考点与思路}参数曲线二阶导数。先检查 $x'(0)$，再按“求比值、对 $t$ 求导、除以 $x'$”操作，见讲义第5章参数方程求导部分。
+\paragraph{解析}关于 $t$ 的导数为
+\[
+ x'=3-\cos t,\quad x''=\sin t,\qquad
+ y'=\ee^t+\sin t,\quad y''=\ee^t+\cos t.
+\]
+因 $x'(0)=2\ne0$，所求两阶导数均有意义。于是
+\[
+ \frac{\dd y}{\dd x}=\frac{\ee^t+\sin t}{3-\cos t},
+ \qquad \left.\frac{\dd y}{\dd x}\right|_{t=0}=\frac12.
+\]
+二阶导数为
+\[
+ \frac{\dd^2y}{\dd x^2}=\frac{y''x'-y'x''}{(x')^3}.
+\]
+代入 $x'=2,x''=0,y'=1,y''=2$，得到 $(2\cdot2-1\cdot0)/2^3=1/2$。
+\paragraph{结论}两阶导数在 $t=0$ 均为 $1/2$。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2023--2024·第7题}
+% EXAM-ID: 2023-2024-7
+\paragraph{题目}已知 $x^3+y^3-\sin3x+6y=0$，求 $x=0$ 时的 $y'$ 和 $y''$。来源：演练本第14页，全解析第22页。
+\end{minipage}\par
+\paragraph{考点与思路}隐函数求导，三角项需要内层因子 $3$；二阶时需对 $y^2y'$ 用乘积法则。
+\paragraph{解析}代入 $x=0$，有 $y(y^2+6)=0$，所以 $y(0)=0$。$F_y=3y^2+6$ 始终正，分支的求导条件满足。求导并除以 $3$：
+\[
+ x^2+y^2y'-\cos3x+2y'=0.
+\]
+在原点有 $-1+2y'=0$，故 $y'(0)=1/2$。再次求导：
+\[
+ 2x+2y(y')^2+y^2y''+3\sin3x+2y''=0.
+\]
+原点除 $2y''$ 外各项均为零，故 $y''(0)=0$。
+\paragraph{结论}$y'(0)=1/2,y''(0)=0$。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2022--2023·第3题}
+% EXAM-ID: 2022-2023-3
+\paragraph{题目}设
+\[
+ f(x)=\frac{x}{\pi}+x^2\sin\frac1x\quad(x\ne0),\qquad f(0)=0,
+\]
+求 $f'(0)$。来源：演练本第13页，全解析第18页。
+\end{minipage}\par
+\paragraph{考点与思路}特殊点导数定义和有界振荡的夹逼。图片核实首项为 $x/\pi$，不能按文字识别结果改成 $x^\pi$。
+\paragraph{解析}表达式在 $x=0$ 含 $1/x$，不能在附近导数公式中直接代值。使用实际点值 $f(0)=0$：
+\[
+ f'(0)=\lim_{h\to0}\frac{f(h)-f(0)}h
+ =\lim_{h\to0}\left(\frac1\pi+h\sin\frac1h\right).
+\]
+因为 $|h\sin(1/h)|\le|h|\to0$，夹逼准则给出振荡项的极限为零。
+\paragraph{结论}$f'(0)=1/\pi$。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2022--2023·第4题}
+% EXAM-ID: 2022-2023-4
+\paragraph{题目}由
+\[
+ \int_0^{x+y}\ee^{-t^2}\,\dd t
+ =\int_0^x y\sin((t+1)^2)\,\dd t
+\]
+确定 $y(x)$，求 $y(0),y'(0),y''(0)$。来源：演练本第14页，全解析第22页。
+\end{minipage}\par
+\paragraph{考点与思路}含积分隐函数。右端的 $y(x)$ 相对积分变量 $t$ 是常数，可先提出积分号；之后使用连续被积函数的变限积分求导公式。
+\paragraph{解析}记
+\[
+ B(s)=\int_0^s\ee^{-t^2}\,\dd t,\qquad
+ A(x)=\int_0^x\sin((t+1)^2)\,\dd t.
+\]
+原式为 $B(x+y)=yA(x)$。$B$ 严格递增且 $B(0)=0$，代入 $x=0$ 得 $B(y(0))=0$，故 $y(0)=0$。由微积分基本定理，$B'(s)=\ee^{-s^2}$，$A'(x)=\sin((x+1)^2)$。关系左减右对 $y$ 的偏导数在原点为 $B'(0)-A(0)=1$，且各函数光滑，因此局部分支与二阶导数存在。
+
+一阶关系为
+\[
+ \ee^{-(x+y)^2}(1+y')=y'A+y\sin((x+1)^2).
+\]
+在原点 $A(0)=0,y=0$，得 $1+y'=0$，即 $y'(0)=-1$。继续求导，左端为
+\[
+ \ee^{-(x+y)^2}\big[y''-2(x+y)(1+y')^2\big],
+\]
+右端为
+\[
+ y''A+2y'\sin((x+1)^2)+2y(x+1)\cos((x+1)^2).
+\]
+其中两个 $y'A'$ 来自 $y'A$ 与 $yA'$ 两项。代入原点得 $y''=2(-1)\sin1$。
+\paragraph{结论}$y(0)=0,y'(0)=-1,y''(0)=-2\sin1$。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2021--2022·第8题}
+% EXAM-ID: 2021-2022-8
+\paragraph{题目}设 $x=\ee^t\cos t,y=\ee^t\sin t$，求 $\dd y/\dd x$ 和 $\dd^2y/\dd x^2$。来源：演练本第15页，全解析第23页。
+\end{minipage}\par
+\paragraph{考点与思路}参数曲线的乘积与商求导；须保留正规参数点条件。
+\paragraph{解析}令 $D=\cos t-\sin t,N=\sin t+\cos t$，则
+\[
+ x'=\ee^tD,\qquad y'=\ee^tN,
+ \qquad \frac{\dd y}{\dd x}=\frac ND\quad(D\ne0).
+\]
+有 $N'=D,D'=-N$，所以
+\[
+ \frac{\dd}{\dd t}\frac ND=\frac{D^2+N^2}{D^2}=\frac2{D^2}.
+\]
+最后再除以 $x'=\ee^tD$，得到二阶导数。
+\paragraph{结论}
+\[
+ \frac{\dd y}{\dd x}=\frac{\sin t+\cos t}{\cos t-\sin t},\qquad
+ \frac{\dd^2y}{\dd x^2}=\frac2{\ee^t(\cos t-\sin t)^3},
+ \quad\cos t-\sin t\ne0.
+\]
+在排除的点 $x'=0,y'\ne0$，曲线切线竖直，不能把上述比值作为有限导数。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2019--2020·第3题}
+% EXAM-ID: 2019-2020-3
+\paragraph{题目}设
+\[
+ f(x)=\frac{\arctan x-\sin x}{x^2}\quad(x\ne0),\qquad f(0)=0,
+\]
+求 $f'(0)$。来源：演练本第13页，全解析第18页。
+\end{minipage}\par
+\paragraph{考点与思路}先用导数定义把所求化成三阶差的极限；分子的一次主项抵消，需要三阶精度。这里可使用第八章有限阶泰勒公式，原函数均在零点邻域光滑。
+\paragraph{解析}由定义
+\[
+ f'(0)=\lim_{h\to0}\frac{\arctan h-\sin h}{h^3}.
+\]
+三阶 Peano 展开为
+\[
+ \arctan h=h-\frac{h^3}3+o(h^3),\qquad
+ \sin h=h-\frac{h^3}6+o(h^3).
+\]
+相减时一次项消去，三次系数为 $-1/3+1/6=-1/6$，故差商为 $-1/6+o(1)$。只使用 $\arctan h\sim h$ 与 $\sin h\sim h$ 不能计算两者的差，必须补足抵消后的精度。
+\paragraph{结论}$f'(0)=-1/6$。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2019--2020·第7题（题干待核）}
+% EXAM-ID: 2019-2020-7
+\paragraph{题目}设 $3^y=x+y$，求 $x=0$ 时的 $y'$。来源：演练本第15页，全解析第23页。
+\end{minipage}\par
+\paragraph{考点与思路}隐函数求导前的存在性检查。演练本图片确认是此式；目前尚待原始试卷核实，不能自行改成另一方程。
+\paragraph{解析}在 $x=0$，需要 $3^y=y$。若 $y\le0$，左边正、右边非正，没有解。若 $y>0$，由 $\ee^u\ge1+u$，
+\[
+ 3^y=\ee^{y\ln3}\ge1+y\ln3>y,
+\]
+因为 $\ln3>1$。这也没有解。故原式不存在实数 $y(0)$，该点导数无从定义。
+
+在确实存在且 $3^y\ln3-1\ne0$ 的其他点，形式求导得到
+\[
+ 3^y\ln3\,y'=1+y',\qquad
+ y'=\frac1{3^y\ln3-1}.
+\]
+通式并不能创造 $x=0$ 处不存在的曲线点。
+\paragraph{结论}按所给题干，$x=0$ 处无实数点，$y'$ 无定义。
+\paragraph{审核说明}全解析只列一般公式并猜测题干异文，该猜测不作为本题确定答案。保留原式和无实解结论，待核原卷。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2019--2020·第8题}
+% EXAM-ID: 2019-2020-8
+\paragraph{题目}设
+\[
+ x=t+\ee^t,\qquad y=\int_0^t\ln(1+\ee^u)\,\dd u,
+\]
+求 $\dd y/\dd x$ 和 $\dd^2y/\dd x^2$。来源：演练本第15页，全解析第23页。
+\end{minipage}\par
+\paragraph{考点与思路}参数方程与变限积分。被积函数连续，微积分基本定理可求 $y'(t)$；$x'(t)>0$ 保证参数公式处处适用。
+\paragraph{解析}有 $x'=1+\ee^t>0$，$y'=\ln(1+\ee^t)$。因此
+\[
+ \frac{\dd y}{\dd x}=\frac{\ln(1+\ee^t)}{1+\ee^t}.
+\]
+该商关于 $t$ 的导数为
+\[
+ \frac{[\ee^t/(1+\ee^t)](1+\ee^t)-\ln(1+\ee^t)\ee^t}{(1+\ee^t)^2}
+ =\frac{\ee^t[1-\ln(1+\ee^t)]}{(1+\ee^t)^2}.
+\]
+再除以 $x'=1+\ee^t$，分母应为三次方。
+\paragraph{结论}
+\[
+ \frac{\dd y}{\dd x}=\frac{\ln(1+\ee^t)}{1+\ee^t},\qquad
+ \frac{\dd^2y}{\dd x^2}=\frac{\ee^t[1-\ln(1+\ee^t)]}{(1+\ee^t)^3},\quad t\in\R.
+\]
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2018--2019·第6题（条件待核）}
+% EXAM-ID: 2018-2019-6
+\paragraph{题目}设 $y(x)$ 在 $x=0$ 处一阶可导，且
+\[
+ \lim_{x\to0}\left(1+x+\frac{y(x)}x\right)^{1/x}=\ee^{2019},
+\]
+求 $y(0),y'(0),y''(0)$。来源：演练本第15页，全解析第24页。
+\end{minipage}\par
+\paragraph{考点与思路}幂式极限、可导定义与高阶条件。按实数幂的通常定义，底数在足够小去心邻域内应为正。先由极限确定函数值的渐近式，再区分该式与二阶导数存在性。
+\paragraph{解析}记底数 $b(x)=1+x+y(x)/x$。由所给正极限及对数连续性，
+\[
+ \frac{\ln b(x)}x\to2019,
+ \qquad\ln b(x)=2019x+o(x).
+\]
+故 $b(x)\to1$。使用 $(\ee^u-1)/u\to1$，还原得到
+\[
+ b(x)-1=2019x+o(x),\qquad
+ y(x)=2018x^2+o(x^2).
+\]
+因此 $y(x)\to0$。一阶可导必连续，故 $y(0)=0$；再由定义 $y'(0)=\lim y(x)/x=0$。
+
+但这一二阶渐近式不能推出 $y''(0)$ 存在。构造
+\[
+ y(x)=\begin{cases}2018x^2+x^3\sin(1/x^2),&x\ne0,\\0,&x=0.\end{cases}
+\]
+此函数在 $0$ 一阶可导且导数为零。底数为
+$1+2019x+x^2\sin(1/x^2)$，在零点附近为正，且
+\[
+ \frac1x\ln\big(1+2019x+x^2\sin(1/x^2)\big)\to2019,
+\]
+所以它满足原极限。另一方面，$x\ne0$ 时
+\[
+ \frac{y'(x)-y'(0)}x
+ =4036+3x\sin(1/x^2)-\frac2x\cos(1/x^2).
+\]
+取 $x_n=1/\sqrt{2n\pi}$，此式为 $4036-2/x_n\to-\infty$；取 $z_n=1/\sqrt{(2n+1)\pi}$，此式为 $4036+2/z_n\to+\infty$。二阶导数不存在。
+
+若另加 $y''(0)$ 存在这一条件，则第八章二阶 Peano 公式给出
+$y(x)=\tfrac12 y''(0)x^2+o(x^2)$，与已得式比较可知 $y''(0)=4036$。此处是条件性结论。
+\paragraph{结论}$y(0)=y'(0)=0$；原条件不保证 $y''(0)$ 存在，若存在则为 $4036$。
+\paragraph{审核说明}图片显示仅给“一阶可导”。全解析使用二阶泰勒或重复洛必达时增添了条件。本节保留原题与反例，待核原卷。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2018--2019·第7题}
+% EXAM-ID: 2018-2019-7
+\paragraph{题目}设 $x^3+y^3+3xy=1$，求 $x=1$ 时的 $\dd y/\dd x$。来源：演练本第16页，全解析第25页。
+\end{minipage}\par
+\paragraph{考点与思路}先由指定横坐标确定唯一实纵坐标，再对含 $xy$ 的关系用乘积法则。
+\paragraph{解析}令 $x=1$，有 $y^3+3y=0$，即 $y(y^2+3)=0$，故 $y=0$。$F_y=3y^2+3x$ 在此点为 $3\ne0$。求导并除以 $3$ 得
+\[
+ x^2+y^2y'+y+xy'=0.
+\]
+代入 $(1,0)$，有 $1+y'=0$。
+\paragraph{结论}$\left.\dd y/\dd x\right|_{x=1}=-1$。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2017--2018·第1题}
+% EXAM-ID: 2017-2018-1
+\paragraph{题目}已知
+\[
+ f(x)=\begin{cases}(2017+x)^x+b,&x\ge0,\\a(1-x)^{1/x},&x<0\end{cases}
+\]
+在 $0$ 可导，求 $a,b$。来源：演练本第13页，全解析第19页。
+\end{minipage}\par
+\paragraph{考点与思路}先连续、再左右导数。左侧幂式先取对数，差商要求知道其指数相对极限值的一阶变化；这里用后续泰勒公式求对数的二阶精度。
+\paragraph{解析}右侧点值 $f(0)=1+b$。由 $\ln(1-x)/x\to-1$，左极限为 $a/\ee$，连续性要求
+\[
+ 1+b=a/\ee.
+\]
+右侧可写 $(2017+x)^x=\ee^{x\ln(2017+x)}$，故其在零点的右导数为 $\ln2017$。
+
+左侧不能直接把附近的导函数代入零点。使用 $\ln(1-x)=-x-x^2/2+o(x^2)$，得
+\[
+ (1-x)^{1/x}
+ =\ee^{-1}\exp\big(-x/2+o(x)\big)
+ =\ee^{-1}\big(1-x/2+o(x)\big).
+\]
+利用连续性已知的 $f(0)=a/\ee$，左差商为
+\[
+ \frac{a(1-x)^{1/x}-a/\ee}x\longrightarrow-\frac a{2\ee}.
+\]
+左右导数相等要求 $-a/(2\ee)=\ln2017$。由此求出 $a$，再代入连续性方程求 $b$。所得参数反过来满足连续与左右导数一致，故足够。
+\paragraph{结论}$a=-2\ee\ln2017$，$b=-1-2\ln2017$。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2017--2018·第5题}
+% EXAM-ID: 2017-2018-5
+\paragraph{题目}设 $f(t)=\sin(1/t)$（$t\ne0$），$f(0)=1$，求
+$F(x)=\int_0^x f(t)\,\dd t$ 在 $0$ 的导数。来源：演练本第13页，全解析第20页。
+\end{minipage}\par
+\paragraph{考点与思路}不连续被积函数的积分导数。$f$ 有界且仅在零点间断，在有限区间 Riemann 可积；更改单点值不影响积分。由于 $f$ 在零点不连续，不能直接断言 $F'(0)=f(0)$。应由导数定义估计积分的平均值。
+\paragraph{解析}对 $t\ne0$ 令 $G(t)=t^2\cos(1/t)$，则
+\[
+ G'(t)=2t\cos(1/t)+\sin(1/t).
+\]
+先在不跨零点的区间上积分此恒等式，再令靠近零点的端点趋于零。因为 $G(t)\to0$，且各被积项有界可积，得到对正负 $x$ 均成立的
+\[
+ F(x)=x^2\cos(1/x)-\int_0^x2t\cos(1/t)\,\dd t.
+\]
+负 $x$ 时用有向积分并取绝对值，同样有
+\[
+ |F(x)|\le x^2+\int_{\min(x,0)}^{\max(x,0)}2|t|\,\dd t
+ =2x^2.
+\]
+因为 $F(0)=0$，所以 $|[F(x)-F(0)]/x|\le2|x|\to0$。
+\paragraph{结论}$F'(0)=0$，与指定的单点值 $f(0)=1$ 不同。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2017--2018·第6题}
+% EXAM-ID: 2017-2018-6
+\paragraph{题目}设 $x^y+y^x=2$，求 $x=1$ 时的 $\dd y$。来源：演练本第16页，全解析第25页。
+\end{minipage}\par
+\paragraph{考点与思路}幂指隐函数与微分。采用正实数局部分支，才能把实指数幂表示为指数与对数的复合。
+\paragraph{解析}当 $x=1$，有 $1+y=2$，故 $y=1$。在正象限写
+$x^y=\ee^{y\ln x}$，$y^x=\ee^{x\ln y}$；关系对 $y$ 的偏导数在 $(1,1)$ 为 $1$，故可微分支存在。对 $x$ 求导得
+\[
+ x^y\left(y'\ln x+\frac yx\right)
+ +y^x\left(\ln y+\frac{x}{y}y'\right)=0.
+\]
+在 $(1,1)$，对数项为零，幂项为一，剩下 $1+y'=0$，故 $y'=-1$。微分是导数乘 $\dd x$，不是仅写斜率。
+\paragraph{结论}$\dd y=-\dd x$（在 $x=1$）。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2016--2017·第二大题第4题}
+% EXAM-ID: 2016-2017-二-4
+\paragraph{题目}设 $x\ee^x-y+\tfrac12\sin y=0$，求 $x=0$ 时的 $y'$ 和 $y''$。来源：演练本第16页，全解析第25页。
+\end{minipage}\par
+\paragraph{考点与思路}隐函数一、二阶导数；先证明给定横坐标对应的实数纵坐标只有零。
+\paragraph{解析}$x=0$ 时 $y=\tfrac12\sin y$，由 $|\sin y|\le|y|$ 得 $|y|\le|y|/2$，故 $y=0$。$F_y=-1+\tfrac12\cos y$ 在原点为 $-1/2\ne0$。一阶求导为
+\[
+ (1+x)\ee^x+\left(-1+\tfrac12\cos y\right)y'=0.
+\]
+代入原点得 $1-y'/2=0$，即 $y'(0)=2$。再求导：
+\[
+ (2+x)\ee^x+\left(-1+\tfrac12\cos y\right)y''
+ -\tfrac12\sin y\,(y')^2=0.
+\]
+代入得 $2-y''/2=0$。
+\paragraph{结论}$y'(0)=2,y''(0)=4$。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2016--2017·第一大题第3题}
+% EXAM-ID: 2016-2017-一-3
+\paragraph{题目}设 $x=\cos2t,y=(1-\cos t)^2$，求 $\dd^2y/\dd x^2$。来源：演练本第16页，全解析第25页。
+\end{minipage}\par
+\paragraph{考点与思路}参数二阶导数与三角化简。约掉因子时先记录其非零条件；奇异参数点不能因化简后的式子有值就自动适用公式。
+\paragraph{解析}在 $x'=-2\sin2t=-4\sin t\cos t\ne0$ 处，
+\[
+ y'=2(1-\cos t)\sin t,
+ \qquad \frac{\dd y}{\dd x}
+ =-\frac{1-\cos t}{2\cos t}=\frac12(1-\sec t).
+\]
+对该斜率关于 $t$ 求导，得 $-\tfrac12\sec t\tan t$；再除以 $x'$：
+\[
+ \frac{\dd^2y}{\dd x^2}
+ =\frac{-\tfrac12(\sin t/\cos^2t)}{-4\sin t\cos t}
+ =\frac1{8\cos^3t}.
+\]
+当 $\cos t=0$ 时 $x'=0,y'\ne0$，没有有限的 $\dd y/\dd x$。当 $\sin t=0$ 时，两个参数一阶导数都为零，需另选分支或消参检查，不能直接引用正规参数公式。
+\paragraph{结论}在 $\sin t\cos t\ne0$ 的正规参数点，$\dd^2y/\dd x^2=1/(8\cos^3t)$。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2015--2016·第1题}
+% EXAM-ID: 2015-2016-1
+\paragraph{题目}设
+\[
+ y=\frac{x^3}3\arccos x-\frac19(x^2+2)\sqrt{1-x^2}+\ln5,
+\]
+求 $\dd y$。来源：演练本第16页，全解析第26页。
+\end{minipage}\par
+\paragraph{考点与思路}乘积、反三角函数与微分。先在内部定义域 $-1<x<1$ 求导，根式项合并后会抵消。
+\paragraph{解析}第一项求导为
+\[
+ \left(\frac{x^3}3\arccos x\right)'
+ =x^2\arccos x-\frac{x^3}{3\sqrt{1-x^2}}.
+\]
+第二项求导为
+\begin{align*}
+ \left[-\frac19(x^2+2)\sqrt{1-x^2}\right]'
+ &=-\frac19\left[2x\sqrt{1-x^2}-\frac{x(x^2+2)}{\sqrt{1-x^2}}\right]\\
+ &=\frac{-2x(1-x^2)+x(x^2+2)}{9\sqrt{1-x^2}}
+ =\frac{x^3}{3\sqrt{1-x^2}}.
+\end{align*}
+常数 $\ln5$ 的导数为零，因此两项含根式的分母完全抵消，得到 $y'=x^2\arccos x$。
+\paragraph{结论}$\dd y=x^2\arccos x\,\dd x$，直接求导范围为 $-1<x<1$。原函数在 $\pm1$ 也有定义；若另求端点单侧导数，可用第六章中值定理及内部导数极限得到 $y'_+(-1)=\pi,y'_-(1)=0$，须与内部两侧导数区分。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2015--2016·第2题}
+% EXAM-ID: 2015-2016-2
+\paragraph{题目}设
+\[
+ x=\sqrt{1+t^2},\qquad
+ y=\int_1^{t^2}\frac{3^u}{\sqrt{1+u}}\,\dd u,
+\]
+求 $\dd y/\dd x$ 和 $\dd^2y/\dd x^2$。来源：演练本第17页，全解析第26页。
+\end{minipage}\par
+\paragraph{考点与思路}参数方程与变限积分。上下限之间 $u\ge0$，被积函数连续；先在 $t\ne0$ 用参数公式，$t=0$ 则消参讨论端点。
+\paragraph{解析}由微积分基本定理和链式法则，
+\[
+ x'=\frac t{\sqrt{1+t^2}},\qquad
+ y'=\frac{2t\,3^{t^2}}{\sqrt{1+t^2}}.
+\]
+在 $t\ne0$，相除得 $\dd y/\dd x=2\cdot3^{t^2}$。再对 $t$ 求导，并除以 $x'$：
+\[
+ \frac{\dd^2y}{\dd x^2}
+ =\frac{4t\ln3\,3^{t^2}}{t/\sqrt{1+t^2}}
+ =4\ln3\,3^{t^2}\sqrt{1+t^2}.
+\]
+在 $t=0$，虽然参数比值为 $0/0$，但可消参 $t^2=x^2-1$，写成单值函数
+\[
+ y(x)=\int_1^{x^2-1}\frac{3^u}{\sqrt{1+u}}\,\dd u,
+ \qquad x\ge1.
+\]
+于是对 $x>1$ 直接求导得到 $y'=2\cdot3^{x^2-1}$，它在端点的连续延拓值为 $2$；由同一个积分表达式或中值定理，可确定端点右导数为 $2$。对该右导函数再求右导数，得 $y''_+(1)=4\ln3$。
+\paragraph{结论}在 $t\ne0$，
+\[
+ \frac{\dd y}{\dd x}=2\cdot3^{t^2},\qquad
+ \frac{\dd^2y}{\dd x^2}=4\ln3\,3^{t^2}\sqrt{1+t^2}.
+\]
+$t=0$ 对应 $x=1$，两式分别延拓为单侧导数 $2$ 与 $4\ln3$；原参数范围不提供端点的两侧导数。
+
+
+\chapter{微分中值定理}
+\label{exam:06:chapter}
+本章收录三道独立真题，另提供一道已归入第2章的相关小问入口。学年与题号沿用用户提供的汇编标注，尚未逐份核验原始试卷；下列页码均为资料的物理页码。证明使用导数、中值定理、最值定理和介值定理，不依赖泰勒公式。
+
+\section*{相关题目：2021--2022 学年·第4(1)题}
+% EXAM-ID: 2021-2022-4(1)
+汇编第37页再次列出的对数不等式小问，已包含在第\ref{exam:02:2021-2022-4}节的完整题中；配套解析另见第62页。完整题干和解析仅保留在该处。
+从本章角度复习时，重点观察如何将目标不等式移项，构造在零点取零、导数在正半轴严格为正的差函数。该方法控制全部 $x>0$，不能用零点附近的渐近展开代替。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2021--2022 学年·第10题}
+% EXAM-ID: 2021-2022-10
+\paragraph{来源}《期末真题演练本》第43页；《期末考试真题全解析》第70页。
+\paragraph{题目}
+已知 $f$ 在 $[0,+\infty)$ 上连续，在 $(0,+\infty)$ 上可导，$f(0)<0$，且对每个 $x>0$ 有 $f'(x)>1$。证明 $f$ 在 $[0,+\infty)$ 上有唯一零点。
+\end{minipage}\par
+\paragraph{考点与思路}
+首先用导数下界估计 $f(x)-f(0)$，明确找到一个正值端点，与 $f(0)<0$ 配合证明存在。随后利用严格递增或 Rolle 排除两个零点。无穷区间上的存在性必须落实到某个有限闭区间。
+\paragraph{解析}
+任取 $x>0$，$f$ 在 $[0,x]$ 连续、内部可导。由 Lagrange 定理，存在 $\xi_x\in(0,x)$，使
+\[
+f(x)-f(0)=xf'(\xi_x)>x.
+\]
+取 $B=1-f(0)$，因 $f(0)<0$，有 $B>0$，并且
+\[
+f(B)>f(0)+B=1>0.
+\]
+在 $[0,B]$ 上，连续性与两端异号保证存在 $c\in(0,B)$ 使 $f(c)=0$。
+若另有零点 $d\ne c$，不妨 $c<d$。$f$ 在 $[c,d]$ 连续、内部可导且两端值相等，Rolle 定理给出 $\eta\in(c,d)$ 使 $f'(\eta)=0$，与 $f'(\eta)>1$ 矛盾。因此零点唯一。
+\paragraph{结论}恰有一个零点，位于 $(0,1-f(0))$ 内。端点零不可能是根，因为 $f(0)<0$。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2019--2020 学年·第14题}
+% EXAM-ID: 2019-2020-14
+\paragraph{来源}《期末真题演练本》第44页；《期末考试真题全解析》第71页。
+\paragraph{题目}
+设 $f$ 在 $[0,1]$ 上可导，$f'_+(0)<f'_-(1)$。给定
+\[
+\lambda\in\bigl(f'_+(0),f'_-(1)\bigr),
+\]
+证明存在 $x_0\in(0,1)$，使 $f'(x_0)=\lambda$。闭区间端点的可导性按相应单侧导数理解。
+\end{minipage}\par
+\paragraph{考点与思路}
+这是导数介值性。题设未给出导数连续，不能把 $f'$ 当作连续函数直接使用介值定理。目标 $f'(x_0)-\lambda=0$ 提示构造 $g(x)=f(x)-\lambda x$；端点的导数符号将排除最小值在端点取得，然后用 Fermat。
+\paragraph{解析}
+令 $g(x)=f(x)-\lambda x$。由可导必连续（端点为单侧连续），$g$ 在 $[0,1]$ 连续，在内部可导。端点导数满足
+\[
+g'_+(0)=f'_+(0)-\lambda<0,
+\qquad g'_-(1)=f'_-(1)-\lambda>0.
+\]
+由第一个导数定义，存在足够小的 $u>0$，使
+\[
+\frac{g(u)-g(0)}u<0,
+\qquad\text{因而 }g(u)<g(0).
+\]
+所以左端点 $0$ 不可能是最小值点。由第二个导数定义，存在 $v<1$ 且靠近 $1$，使
+\[
+\frac{g(v)-g(1)}{v-1}>0.
+\]
+分母为负，故 $g(v)-g(1)<0$，即 $g(v)<g(1)$，所以右端点也不可能是最小值点。
+闭区间连续函数的最值定理保证 $g$ 有最小值。其取得点 $x_0$ 必在 $(0,1)$，此点可导，Fermat 定理给出 $g'(x_0)=0$。于是 $f'(x_0)=\lambda$。
+\paragraph{结论}内部导数达到任意给定的中间值 $\lambda$，不需要 $f'$ 连续。右端点差商中负分母的符号是排除端点的关键。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2015--2016 学年·第14题}
+% EXAM-ID: 2015-2016-14
+\paragraph{来源}《期末真题演练本》第44页；《期末考试真题全解析》第71--72页。
+\paragraph{题目}
+设奇函数 $f$ 在 $[-1,1]$ 上具有二阶导数，且 $f(1)=1$。证明存在 $\xi\in(0,1)$，使 $f'(\xi)=1$；并证明存在 $\eta\in(-1,1)$，使 $f''(\eta)+f'(\eta)=1$。
+\end{minipage}\par
+\paragraph{考点与思路}
+奇性先给出 $f(0)=0$、$f(-1)=-1$，左右半区间的割线斜率都等于 $1$。第一问用 Lagrange。第二问令 $h=f'-1$，目标成为 $h'+h=0$，于是选 $G=\ee^xh$。为制造 $G$ 的两个零点，必须分别在左右半区间找到 $f'=1$ 的点，而不能只利用第一问的一个点。
+\paragraph{解析}
+由奇性 $f(0)=-f(0)$，故 $f(0)=0$，且 $f(-1)=-f(1)=-1$。二阶可导保证 $f$ 连续及内部一阶可导。在 $[0,1]$ 上使用 Lagrange，得到 $\xi_+\in(0,1)$，使
+\[
+f'(\xi_+)=\frac{f(1)-f(0)}{1-0}=1.
+\]
+取 $\xi=\xi_+$，完成第一问。在 $[-1,0]$ 上同理得到 $\xi_-\in(-1,0)$，使
+\[
+f'(\xi_-)=\frac{f(0)-f(-1)}{0-(-1)}=1.
+\]
+在 $[\xi_-,\xi_+]$ 上定义 $G(x)=\ee^x[f'(x)-1]$。此闭区间完全位于 $(-1,1)$ 内，$f'$ 在其中可导，因而连续；故 $G$ 在该闭区间连续、内部可导，并且
+\[
+G(\xi_-)=G(\xi_+)=0.
+\]
+由 Rolle 定理存在 $\eta\in(\xi_-,\xi_+)\subset(-1,1)$，使 $G'(\eta)=0$。计算
+\[
+G'(x)=\ee^x[f'(x)-1]+\ee^xf''(x)
+=\ee^x[f''(x)+f'(x)-1].
+\]
+因 $\ee^\eta>0$，可除去该因子，得到 $f''(\eta)+f'(\eta)=1$。
+\paragraph{结论}两个存在性命题均成立。第二问的中值点 $\eta$ 来自两个一阶中值点之间的 Rolle 定理，无须假设 $f''$ 连续。
+
+
+\chapter{洛必达法则}
+\label{exam:07:chapter}
+
+\section{本章真题资料情况}
+
+现有已审核题库中，本章独立归类的真题为 $0$ 题。提供的真题汇编尚未形成可在本章单独列出的题目条目，因此本章保留这一资料缺口，不以自编练习补足真题数量。
+
+洛必达法则常作为函数极限、导数及综合题解析中的工具出现。跨章题仍按主要考查知识归入相应章节；使用本法则时，应核对未定式、邻域可导性、分母导数非零与导数比极限等条件。完整的定理、条件辨析和自编练习见知识讲义第七章。
+
+
+\chapter{泰勒公式}
+\label{exam:08:chapter}
+本章保留原题库的22题。来源学年与题号沿用用户提供的汇编标签，尚未逐份核验原始试卷。资料页码均为PDF物理页；有限展开、余项运算和系数求导的条件见讲义第八章。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2024-2025·第3题}
+% EXAM-ID: 2024-2025-3
+\label{exam:08:q1}
+资料定位：《期末真题演练本》第4页；《期末考试真题全解析》第4、5页。
+\paragraph{题目}
+设当 $x\to0$ 时，$ax+bx^2+\ln(1+x)$ 与 $x^2$ 是等价无穷小，求 $a,b$ 的值。
+\end{minipage}\par
+\paragraph{考点与思路}
+等价无穷小的系数比较。先看等价关系的目标系数，再把一次项消去；只用对数的一阶等价关系无法判断二次系数。
+\paragraph{解析}
+利用 $\ln(1+x)=x-x^2/2+o(x^2)$，有 \[ax+bx^2+\ln(1+x)=(a+1)x+\left(b-\frac12\right)x^2+o(x^2).\]与 $x^2$ 等价要求商趋于 $1$，故一次项系数必须为零，二次项系数必须为 $1$，即 $a+1=0$、$b-1/2=1$。
+\paragraph{结论}
+$a=-1,\ b=\frac32$
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2024-2025·第8题}
+% EXAM-ID: 2024-2025-8
+\label{exam:08:q2}
+资料定位：《期末真题演练本》第21页；《期末考试真题全解析》第32页。
+\paragraph{题目}
+设 $f(x)=x^2(e^x+1)$，求 $f^{(5)}(1)$。
+\end{minipage}\par
+\paragraph{考点与思路}
+Leibniz高阶导数。函数在实轴上光滑。多项式因子的三阶及以上导数均为零，Leibniz公式只留下三项。
+\paragraph{解析}
+$x^2$ 的五阶导为零。由 Leibniz 公式，$(x^2e^x)^{(5)}=e^x[x^2+\binom51(2x)+\binom52(2)]=e^x(x^2+10x+20)$。代入 $x=1$，得 $31e$。
+\paragraph{结论}
+$f^{(5)}(1)=31e$
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2024-2025·第9题}
+% EXAM-ID: 2024-2025-9
+\label{exam:08:q3}
+资料定位：《期末真题演练本》第4页；《期末考试真题全解析》第4页。
+\paragraph{题目}
+计算极限 \[\lim_{x\to\infty}x\left[e^{1/x}-x\ln\left(1+\frac1x\right)\right].\]
+\end{minipage}\par
+\paragraph{考点与思路}
+指数与对数的二阶展开。把无穷远换成零点附近，再通分为二阶分式；指数前还有一个一次因子，所需精度因此降低。
+\paragraph{解析}
+令 $t=1/x\to0$，原式变为 $\lim_{t\to0}[te^t-\ln(1+t)]/t^2$。由 $e^t=1+t+O(t^2)$，$\ln(1+t)=t-t^2/2+o(t^2)$，分子为 \[t+t^2+O(t^3)-t+\frac12t^2+o(t^2)=\frac32t^2+o(t^2).\]除以 $t^2$ 得极限 $3/2$。
+\paragraph{结论}
+$\frac32$
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2023-2024·第1题}
+% EXAM-ID: 2023-2024-1
+\label{exam:08:q4}
+资料定位：《期末真题演练本》第4页；《期末考试真题全解析》第5页。
+\paragraph{题目}
+计算极限 \[\lim_{x\to0}(\cos x)^{\csc^2x}.\]
+\end{minipage}\par
+\paragraph{考点与思路}
+幂指型极限取对数。幂指形式先检查底数为正，再求指数的极限；余弦的首个变化是二阶。
+\paragraph{解析}
+零点附近 $\cos x>0$，可写成 $\exp[\ln(\cos x)/\sin^2x]$。由 $\ln(\cos x)=-x^2/2+o(x^2)$，$\sin^2x=x^2+o(x^2)$，指数趋于 $-1/2$。利用指数函数连续性得到 $e^{-1/2}$。
+\paragraph{结论}
+$e^{-1/2}$
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2023-2024·第9题}
+% EXAM-ID: 2023-2024-9
+\label{exam:08:q5}
+资料定位：《期末真题演练本》第4页；《期末考试真题全解析》第5页。
+\paragraph{题目}
+计算极限 \[\lim_{x\to0}\frac{\frac1x\ln(1+x^2)-\sin x}{x-\sin x}.\]
+\end{minipage}\par
+\paragraph{考点与思路}
+相消后的三阶展开。分子与分母的一次项均消去。对数代入的是二阶变量，且随后要除以x，必须保留其四阶项。
+\paragraph{解析}
+由 $\ln(1+x^2)=x^2-x^4/2+o(x^4)$ 和 $\sin x=x-x^3/6+o(x^3)$，分子为 \[x-\frac12x^3-\left(x-\frac16x^3\right)+o(x^3)=-\frac13x^3+o(x^3),\]分母为 $x^3/6+o(x^3)$，相除得 $-2$。
+\paragraph{结论}
+$-2$
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2022-2023·第1题}
+% EXAM-ID: 2022-2023-1
+\label{exam:08:q6}
+资料定位：《期末真题演练本》第5页；《期末考试真题全解析》第6页。
+\paragraph{题目}
+求极限 \[\lim_{n\to+\infty}\left[\frac{e}{(1+\frac1n)^n}\right]^n.\]
+\end{minipage}\par
+\paragraph{考点与思路}
+指数数列的对数展开。原数列每项为正，先求对数数列的极限，再由指数函数连续性证明原极限存在。
+\paragraph{解析}
+设原数列为 $u_n>0$，先计算对数数列，避免预先假定极限存在。\[\ln u_n=n\left[1-n\ln\left(1+\frac1n\right)\right].\]由 $\ln(1+t)=t-t^2/2+O(t^3)$，取 $t=1/n$ 得 $\ln u_n=1/2+O(1/n)\to1/2$。指数函数连续，故 $u_n\to e^{1/2}$。
+\paragraph{结论}
+$\sqrt e$
+\paragraph{审核说明}
+将解析本先写 ln L 的步骤改为先求对数数列极限，再由连续性证明原极限存在。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2022-2023·第2题}
+% EXAM-ID: 2022-2023-2
+\label{exam:08:q7}
+资料定位：《期末真题演练本》第4页；《期末考试真题全解析》第5、6页。
+\paragraph{题目}
+求极限 \[\lim_{x\to0}\left(\frac1{x^2}-\frac1{\sin^2x}\right).\]
+\end{minipage}\par
+\paragraph{考点与思路}
+无穷大相减与四阶展开。先通分辨认四阶分母，再把正弦平方算到四阶；仅保留正弦的一次等价量会丢失常数。
+\paragraph{解析}
+先通分为 $(\sin^2x-x^2)/(x^2\sin^2x)$。由 $\sin x=x-x^3/6+o(x^3)$ 得 $\sin^2x=x^2-x^4/3+o(x^4)$。分子为 $-x^4/3+o(x^4)$，分母为 $x^4+o(x^4)$，所以极限为 $-1/3$。
+\paragraph{结论}
+$-\frac13$
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2022-2023·第5题}
+% EXAM-ID: 2022-2023-5
+\label{exam:08:q8}
+资料定位：《期末真题演练本》第21页；《期末考试真题全解析》第33页。
+\paragraph{题目}
+设 $f(x)=e^{(1+x/2)^2}=\sum a_kx^k$，求 $a_2,a_3,a_4$。
+\end{minipage}\par
+\paragraph{考点与思路}
+级数乘法。指数先拆成常数因子、一次指数和二次指数。求四次系数时后二次指数只须展开到其变量的二次项。
+\paragraph{解析}
+分解 $f=e\,e^x e^{x^2/4}$。展开并相乘：$e^x=1+x+\frac{x^2}2+\frac{x^3}6+\frac{x^4}{24}+o(x^4)$，$e^{x^2/4}=1+\frac{x^2}4+\frac{x^4}{32}+o(x^4)$。得到 $f=e[1+x+\frac34x^2+\frac5{12}x^3+\frac{19}{96}x^4+o(x^4)]$，故所求三系数依次为 $\frac{3e}4,\frac{5e}{12},\frac{19e}{96}$。
+\paragraph{结论}
+$a_2=\frac{3e}4,\ a_3=\frac{5e}{12},\ a_4=\frac{19e}{96}$
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2021-2022·第2题}
+% EXAM-ID: 2021-2022-2
+\label{exam:08:q9}
+资料定位：《期末真题演练本》第5页；《期末考试真题全解析》第6页。
+\paragraph{题目}
+求极限 \[\lim_{x\to+\infty}\left[(x^7+x^6)^{1/7}-(x^7-x^6)^{1/7}\right].\]
+\end{minipage}\par
+\paragraph{考点与思路}
+无穷远处的二项式展开。在x为正时提出x，根式中的无穷小变成正负1/x，一阶差值乘以x后留下常数。
+\paragraph{解析}
+$x>0$ 时提出 $x$，原式为 $x[(1+1/x)^{1/7}-(1-1/x)^{1/7}]$。由 $(1+t)^{1/7}=1+t/7+o(t)$，括号内为 $2/(7x)+o(1/x)$，乘以 $x$ 后趋于 $2/7$。
+\paragraph{结论}
+$\frac27$
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2021-2022·第6题}
+% EXAM-ID: 2021-2022-6
+\label{exam:08:q10}
+资料定位：《期末真题演练本》第21页；《期末考试真题全解析》第33页。
+\paragraph{题目}
+设 $f(x)=\ln(\cos x)=\sum a_kx^k$，求 $a_0,a_1,a_2,a_3,a_4$。
+\end{minipage}\par
+\paragraph{考点与思路}
+复合函数泰勒展开。余弦在零点附近为正。内部变量cos x-1是二阶，故对数保留到内部变量的二次项便达到四阶。
+\paragraph{解析}
+$\cos x=1-\frac{x^2}2+\frac{x^4}{24}+o(x^4)$。令 $u=\cos x-1$，代入 $\ln(1+u)=u-\frac12u^2+o(u^2)$，得 $\ln(\cos x)=-\frac12x^2+(\frac1{24}-\frac18)x^4+o(x^4)=-\frac12x^2-\frac1{12}x^4+o(x^4)$。故 $a_0=a_1=a_3=0,a_2=-1/2,a_4=-1/12$。
+\paragraph{结论}
+$a_0=a_1=a_3=0,\ a_2=-\frac12,\ a_4=-\frac1{12}$
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2020-2021·第1题}
+% EXAM-ID: 2020-2021-1
+\label{exam:08:q11}
+资料定位：《期末真题演练本》第11页；《期末考试真题全解析》第15页。
+\paragraph{题目}
+试求极限 \[\lim_{n\to+\infty}\left(n^2-\frac1{\sin^2(1/n)}\right).\]
+\end{minipage}\par
+\paragraph{考点与思路}
+数列换元后的泰勒展开。用x=1/n转化为右侧趋零的函数表达式，方法与本章四阶通分模型相同。
+\paragraph{解析}
+令 $x=1/n\to0^+$，表达式为 $(\sin^2x-x^2)/(x^2\sin^2x)$。由 $\sin x=x-x^3/6+o(x^3)$，分子 $-x^4/3+o(x^4)$，分母 $x^4+o(x^4)$，相除得 $-1/3$。
+\paragraph{结论}
+$-\frac13$
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2020-2021·第12题}
+% EXAM-ID: 2020-2021-12
+\label{exam:08:q12}
+资料定位：《期末真题演练本》第43页；《期末考试真题全解析》第70、71页。
+\paragraph{题目}
+设 $f$ 在 $[0,1]$ 上二阶可导，$f(0)=f(1)=0$，$\min_{x\in[0,1]}f(x)=-1$。证明存在 $x_0\in(0,1)$ 使 $f''(x_0)\ge8$。
+\end{minipage}\par
+\paragraph{考点与思路}
+二阶导数下界。最小值为负而两端为零，取得点必在内部。选该点展开能消去一阶项；到两个端点的距离至少有一个不超过1/2。
+\paragraph{解析}
+连续性保证最小值取得。因两端函数值为零且最小值为 $-1$，存在 $c\in(0,1)$ 使 $f(c)=-1$。在此内点可导，由费马定理 $f'(c)=0$。
+
+为产生二阶导数，取一次泰勒多项式并保留二阶拉格朗日余项。题目二阶可导保证 $f'$ 在连接 $c$ 与任一端点的闭区间连续，内部 $f''$ 存在，满足定理条件。分别向两端展开，存在 $\xi_1\in(0,c)$、$\xi_2\in(c,1)$，使
+\[
+0=-1+0\cdot(-c)+\frac{c^2}{2}f''(\xi_1),\qquad
+0=-1+0\cdot(1-c)+\frac{(1-c)^2}{2}f''(\xi_2).
+\]
+故 $f''(\xi_1)=2/c^2$，$f''(\xi_2)=2/(1-c)^2$。若 $c\le1/2$，取 $x_0=\xi_1$；若 $c>1/2$，取 $x_0=\xi_2$。对应分母不超过 $1/4$，从而 $f''(x_0)\ge8$。
+
+常数 $8$ 可以取得：$f(x)=4x(x-1)$ 满足原条件且 $f''\equiv8$。不应把两次展开的中间点认作同一个点。
+\paragraph{结论}
+存在内部点使 $f''\ge8$。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2019-2020·第4题}
+% EXAM-ID: 2019-2020-4
+\label{exam:08:q13}
+资料定位：《期末真题演练本》第21页；《期末考试真题全解析》第34页。
+\paragraph{题目}
+设 $f(x)=(1+x)^{1/x}\ (x\ne0)$，$f(0)=e$。若 $x\to0$ 时 $f(x)=M_0+M_1x+M_2x^2+M_3x^3+o(x^3)$，求 $M_1,M_2,M_3$。
+\end{minipage}\par
+\paragraph{考点与思路}
+幂指函数泰勒展开。先取对数，把除以x造成的一阶精度损失计入，再对指数展开。求三次项须先把对数算到四次。
+\paragraph{解析}
+先展开 $\frac{\ln(1+x)}x=1-\frac x2+\frac{x^2}3-\frac{x^3}4+o(x^3)$。令 $u=-x/2+x^2/3-x^3/4$，$f=e[1+u+u^2/2+u^3/6+o(x^3)]$。$u^2=x^2/4-x^3/3+o(x^3)$，$u^3=-x^3/8+o(x^3)$，合并得 $f=e[1-x/2+11x^2/24-7x^3/16+o(x^3)]$。
+\paragraph{结论}
+$M_1=-\frac e2,\ M_2=\frac{11e}{24},\ M_3=-\frac{7e}{16}$
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2018-2019·第2题}
+% EXAM-ID: 2018-2019-2
+\label{exam:08:q14}
+资料定位：《期末真题演练本》第5页；《期末考试真题全解析》第7页。
+\paragraph{题目}
+求极限 \[\lim_{x\to0}\frac{(3+2x)^x-3^x}{\arcsin(x^2)}.\]
+\end{minipage}\par
+\paragraph{考点与思路}
+变底幂函数的等价无穷小。不要分别展开两个变底幂。提出共同的 $3^x$，使其差变成指数减一，内部变量以二阶起始。
+\paragraph{解析}
+分子为 $3^x[e^{x\ln(1+2x/3)}-1]$。由 $x\ln(1+2x/3)=2x^2/3+o(x^2)$ 和 $e^u-1=u+o(u)$，分子为 $(1+o(1))[2x^2/3+o(x^2)]$。分母 $\arcsin(x^2)=x^2+o(x^2)$，相除得 $2/3$。
+\paragraph{结论}
+$\frac23$
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2018-2019·第3题}
+% EXAM-ID: 2018-2019-3
+\label{exam:08:q15}
+资料定位：《期末真题演练本》第22页；《期末考试真题全解析》第35页。
+\paragraph{题目}
+设 $f(x)=\frac1{1+\frac12x^2}$，求 $f^{(2019)}(0)$。
+\end{minipage}\par
+\paragraph{考点与思路}
+偶函数高阶导数。该有理函数在零点附近任意阶可导且为偶函数，奇数阶导数在零点必为零；无需写无限级数。
+\paragraph{解析}
+令 $f(x)=(1+x^2/2)^{-1}$。分母在零点附近为正，所以函数任意阶可导。由 $f(-x)=f(x)$ 连续求导 $2019$ 次得 $(-1)^{2019}f^{(2019)}(-x)=f^{(2019)}(x)$。令 $x=0$，得 $-f^{(2019)}(0)=f^{(2019)}(0)$，故所求为零。
+\paragraph{结论}
+$f^{(2019)}(0)=0$
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2018-2019·第4题}
+% EXAM-ID: 2018-2019-4
+\label{exam:08:q16}
+资料定位：《期末真题演练本》第21页；《期末考试真题全解析》第35页。
+\paragraph{题目}
+设 $f(x)=\frac{x}{e^x-1}$，利用泰勒展开计算前三项系数 $B_0,B_1,B_2$。
+\end{minipage}\par
+\paragraph{考点与思路}
+商函数泰勒系数。先消去共有的x，使分母常数项为1，再递次比较乘积系数。该零点的表达式应理解为连续延拓后的展开。
+\paragraph{解析}
+设 $f=B_0+B_1x+B_2x^2+o(x^2)$。由 $(e^x-1)f=x$，除以 $x$ 后有 $(1+x/2+x^2/6+o(x^2))(B_0+B_1x+B_2x^2+o(x^2))=1$。比较系数得 $B_0=1,B_1+B_0/2=0,B_2+B_1/2+B_0/6=0$，因此 $B_1=-1/2,B_2=1/12$。
+\paragraph{结论}
+$B_0=1,\ B_1=-\frac12,\ B_2=\frac1{12}$
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2017-2018·第2题}
+% EXAM-ID: 2017-2018-2
+\label{exam:08:q17}
+资料定位：《期末真题演练本》第5页；《期末考试真题全解析》第7、8页。
+\paragraph{题目}
+计算极限 \[\lim_{x\to+\infty}\left(\sqrt[3]{x^3+x^2+1}-\sqrt[4]{x^4+1}\right).\]
+\end{minipage}\par
+\paragraph{考点与思路}
+根式之差的展开。两个根式的主项都是x。提出x后只须控制一次变化；第二个根式修正量是四阶，乘以x仍趋零。
+\paragraph{解析}
+由 $(1+t)^\alpha=1+\alpha t+o(t)$，\[\sqrt[3]{x^3+x^2+1}=x\left(1+\frac1x+\frac1{x^3}\right)^{1/3}=x+\frac13+o(1),\]而 \[\sqrt[4]{x^4+1}=x\left(1+\frac1{x^4}\right)^{1/4}=x+o(1).\]相减得极限 $1/3$。
+\paragraph{结论}
+$\frac13$
+\paragraph{审核说明}
+解析本第7—8页把该题重复列为第10、11条；合并为一个来源题。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2017-2018·第3题}
+% EXAM-ID: 2017-2018-3
+\label{exam:08:q18}
+资料定位：《期末真题演练本》第22页；《期末考试真题全解析》第36页。
+\paragraph{题目}
+设 $f(x)=\arctan x$，求 $f^{(2018)}(0)$。
+\end{minipage}\par
+\paragraph{考点与思路}
+奇函数高阶导数。反正切在零点附近光滑且为奇函数，偶数阶导数在零点为零。奇偶性比连续求导更直接。
+\paragraph{解析}
+$f(x)=\arctan x$ 在实轴上任意阶可导且 $f(-x)=-f(x)$。连续求导 $2018$ 次得 $f^{(2018)}(-x)=-f^{(2018)}(x)$，令 $x=0$ 得 $f^{(2018)}(0)=0$。
+\paragraph{结论}
+$f^{(2018)}(0)=0$
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2016-2017·第二-1题}
+% EXAM-ID: 2016-2017-二-1
+\label{exam:08:q19}
+资料定位：《期末真题演练本》第6页；《期末考试真题全解析》第8页。
+\paragraph{题目}
+求极限 \[\lim_{x\to0}\frac{(\cos x)^{1/x}-1}{x}.\]
+\end{minipage}\par
+\paragraph{考点与思路}
+幂函数减一的极限。零点附近cos x>0。先令指数u趋零，再用exp(u)-1与u等价，避免把幂指形式直接相减。
+\paragraph{解析}
+令 $u=(\ln\cos x)/x$，由 $\ln\cos x=-x^2/2+o(x^2)$ 得 $u=-x/2+o(x)\to0$。原式为 \[\frac{e^u-1}{u}\frac{u}{x}\longrightarrow1\cdot\left(-\frac12\right).\]
+\paragraph{结论}
+$-\frac12$
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2016-2017·第六题}
+% EXAM-ID: 2016-2017-六
+\label{exam:08:q20}
+资料定位：《期末真题演练本》第40页；《期末考试真题全解析》第65页。
+\paragraph{题目}
+证明任意 $x\in(0,\pi/2)$ 有
+\[\tan x>x+\frac{x^3}3+\frac{2x^5}{15}+\frac{x^7}{63}.\]
+\end{minipage}\par
+\paragraph{考点与思路}
+正切多项式下界。这是整个区间上的严格不等式，零点附近的有限展开不足以证明。利用 $y'=1+y^2$ 递次提升下界；正量平方和积分均保留方向。
+\paragraph{解析}
+令 $y(t)=\tan t$。它在 $[0,x]$ 光滑，且 $y(0)=0$、$y'=1+y^2$，对于 $t\in(0,x]$ 有 $y(t)>0$。因此 $y'(t)>1$，由 $y(t)-t$ 在正半区间严格递增及其零点值为零，得到 $y(t)>t$。
+
+为提升精度，用 $F_1(t)=y(t)-t-t^3/3$。对于 $t>0$，
+\[
+F_1'(t)=y(t)^2-t^2>0,
+\]
+故由中值定理 $F_1(t)>F_1(0)=0$，即 $y(t)>t+t^3/3$。两边为正，可以平方，得到
+\[
+y'(t)=1+y(t)^2>1+\left(t+\frac{t^3}3\right)^2
+=1+t^2+\frac23t^4+\frac19t^6.
+\]
+最后令 $F_2(t)=y(t)-t-t^3/3-2t^5/15-t^7/63$。上式恰好说明 $F_2'(t)>0$，而 $F_2(0)=0$。在 $[0,x]$ 上用中值定理，$F_2(x)>0$，得所求严格不等式。
+
+这里每一步对全部 $0<t<\pi/2$ 成立，不依赖局部展开余项的符号，也不需要使用尚待证明的正切无穷级数。
+\paragraph{结论}
+所求严格下界成立。
+\paragraph{审核说明}
+以微分方程递次估计替代解析本未证明的全区间级数正项断言。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2016-2017·第一-1题}
+% EXAM-ID: 2016-2017-一-1
+\label{exam:08:q21}
+资料定位：《期末真题演练本》第22页；《期末考试真题全解析》第36页。
+\paragraph{题目}
+设 $f(x)=x^2e^x$，求 $f^{(10)}(0)$。
+\end{minipage}\par
+\paragraph{考点与思路}
+级数系数与高阶导数。函数光滑。目标是零点十阶导数，可用有限泰勒公式读取十次系数，无须先引入无限级数。
+\paragraph{解析}
+$f$ 任意阶可导。指数函数在零点的八阶有限展开给出
+\[
+x^2\ee^x=x^2+x^3+\frac{x^4}{2!}+\cdots+\frac{x^{10}}{8!}+o(x^{10}).
+\]
+由讲义系数唯一性与泰勒公式，$f^{(10)}(0)=10!/8!=10\cdot9=90$。
+\paragraph{结论}
+$f^{(10)}(0)=90$
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2015-2016·第8题}
+% EXAM-ID: 2015-2016-8
+\label{exam:08:q22}
+资料定位：《期末真题演练本》第6页；《期末考试真题全解析》第8页。
+\paragraph{题目}
+求极限 \[\lim_{x\to0}\frac{e^{\sin x}-e^x}{\sqrt{1-x^3}-1}.\]
+\end{minipage}\par
+\paragraph{考点与思路}
+三阶相消与根式有理化。先提出 $\ee^x$，把相消集中为 $\exp(\sin x-x)-1$；根式差有理化可以直接确定三阶分母。
+\paragraph{解析}
+分子为 $e^x(e^{\sin x-x}-1)$。由 $\sin x-x=-x^3/6+o(x^3)$，$e^u-1\sim u$，分子等于 $-x^3/6+o(x^3)$。分母有理化得 \[\sqrt{1-x^3}-1=\frac{-x^3}{\sqrt{1-x^3}+1}\sim-\frac12x^3.\]故极限为 $1/3$。
+\paragraph{结论}
+$\frac13$
+
+
+\chapter{导数的应用}
+\label{exam:09:chapter}
+本章保留汇编中的18题。学年、题号依汇编标注，尚未取得各年原始试卷逐份核验。变限积分题使用第十一章的微积分基本定理。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2024-2025·第1题}
+% EXAM-ID: 2024-2025-1
+\paragraph{来源}《期末真题演练本》物理页 18；《期末考试真题全解析》物理页 26。
+\paragraph{题目}
+求曲线 $y=x+x\ln(1+\frac1x)$ 的斜渐近线方程。
+\end{minipage}\par
+\paragraph{考点与思路}
+斜渐近线。先求定义域，再分别计算两端的斜率与截距；截距可令 $u=1/x$，使用 $\ln(1+u)/u\to1$。方法见讲义的渐近线小节。
+\paragraph{解析}
+实定义域为 $x>0$ 或 $x<-1$。在 $x\to\pm\infty$ 时，$k=\lim y/x=1$，$b=\lim(y-x)=\lim x\ln(1+1/x)=1$，故两端同一斜渐近线 $y=x+1$。
+\paragraph{结论}
+$y=x+1$
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2024-2025·第2题}
+% EXAM-ID: 2024-2025-2
+\paragraph{来源}《期末真题演练本》物理页 18；《期末考试真题全解析》物理页 27。
+\paragraph{题目}
+求曲线 $\begin{cases}x=1+t^2,\\y=t^3\end{cases}$ 在 $t=2$ 处的切线方程。
+\end{minipage}\par
+\paragraph{考点与思路}
+参数曲线切线。切线要同时确定切点与方向；先代入 $t=2$，再检查 $x'(2)\ne0$，才能使用 $\dd y/\dd x=y'/x'$。
+\paragraph{解析}
+$t=2$ 时切点为 $(5,8)$。斜率 $\frac{dy}{dx}=\frac{3t^2}{2t}=\frac32t$，在 $t=2$ 为 $3$。故切线为 $y-8=3(x-5)$，即 $3x-y-7=0$。
+\paragraph{结论}
+$3x-y-7=0$
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2023-2024·第3题}
+% EXAM-ID: 2023-2024-3
+\paragraph{来源}《期末真题演练本》物理页 18；《期末考试真题全解析》物理页 27。
+\paragraph{题目}
+求曲线 $y=x\arctan x$ 在 $x\to-\infty$ 时的渐近线方程。
+\end{minipage}\par
+\paragraph{考点与思路}
+负无穷处斜渐近线。斜率由 $\arctan x$ 的极限决定；截距中的常数项不能省略，利用负无穷方向的反正切恒等式化为零点极限。
+\paragraph{解析}
+$k=\lim_{x\to-\infty}\arctan x=-\frac\pi2$。令 $t=-x\to+\infty$，$b=\lim x(\arctan x+\pi/2)=\lim(-t)\arctan(1/t)=-1$。故渐近线为 $y=-\frac\pi2x-1$。
+\paragraph{结论}
+$y=-\frac\pi2x-1$
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2023-2024·第12题}
+% EXAM-ID: 2023-2024-12
+\paragraph{来源}《期末真题演练本》物理页 49；《期末考试真题全解析》物理页 79、80。
+\paragraph{题目}
+设 $n$ 为正整数且 $n\ne7$，比较 $(\sqrt n)^{\sqrt n+1}$ 与 $(\sqrt n+1)^{\sqrt n}$ 的大小。
+\end{minipage}\par
+\paragraph{考点与思路}
+幂比较。两个底数均为正，可以取对数；再除以两个指数对应的正乘积，把大小关系化为同一函数在相邻两点的比较。两点跨过 $\ee$ 时，单调性不能直接判断，须另外处理有限个整数。
+\paragraph{解析}
+令 $s=\sqrt n$。两数取对数再除以 $s(s+1)>0$，等价于比较 $H(s)=\ln s/s$ 和 $H(s+1)=\ln(s+1)/(s+1)$。$H'(s)=(1-\ln s)/s^2$，故 $H$ 在 $(0,e)$ 递增、在 $(e,\infty)$ 递减。$n=1,2$ 时 $s+1<e$，故前者较小；$n\ge8$ 时 $s>e$，故前者较大。中间的 $n=3,4,5,6$ 可作有误差界的对数估计，结果如下：
+\[\begin{array}{c|cc}n&H(\sqrt n)&H(\sqrt n+1)\\\hline3&(0.3171,0.3172)&(0.3678,0.3679)\\4&(0.3465,0.3466)&(0.3662,0.3663)\\5&(0.3598,0.3599)&(0.3628,0.3629)\\6&(0.3657,0.3658)&(0.3589,0.3590)\end{array}\]
+这些区间可用有限计算严格限定，而非只凭计算器四舍五入。对 $u>1$，令 $z=(u-1)/(u+1)$，有
+\[\ln u=2\sum_{k=0}^{40}\frac{z^{2k+1}}{2k+1}+E,\qquad
+0<E\le\frac{2z^{83}}{83(1-z^2)}.\]
+该式来自恒等式 $1/(1-z^2)=\sum_{k=0}^{40}z^{2k}+z^{82}/(1-z^2)$ 的积分。平方根可用平方比较限定，例如
+\begin{align*}
+1.732050807568&<\sqrt3<1.732050807569,\\
+2.236067977499&<\sqrt5<2.236067977500,\\
+2.449489742783&<\sqrt6<2.449489742784.
+\end{align*}
+将这些有理端点代入对数有限和与误差上界，再除以正分母，即得表中的不交叠区间。这里所有 $z<0.56$，余项远小于 $10^{-4}$。故 $n=1,\ldots,5$ 时左小右大，$n\ge6$ 且 $n\ne7$ 时左大右小。
+\paragraph{结论}
+$1\le n\le5$：左式小于右式；$n\ge6,n\ne7$：左式大于右式。
+\paragraph{审核说明}
+保留演练本所列 $n\ne7$ 条件；解析本有限项小数较粗，已改为不交叠误差区间。此处复核演练本物理页49图像，指数确为 $\sqrt n+1$，排除条件确为 $n\ne7$。不能从排除 $7$ 猜测 $7$ 是等号情形。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2022-2023·第3(2)题}
+% EXAM-ID: 2022-2023-3(2)
+\paragraph{来源}《期末真题演练本》物理页 42；《期末考试真题全解析》物理页 68。
+\paragraph{题目}
+设 $f(x)=x/\pi+x^2\sin(1/x)$（$x\ne0$），$f(0)=0$。是否存在 $\delta>0$，使得 $f$ 在 $(-\delta,\delta)$ 内严格单调递增？
+\end{minipage}\par
+\paragraph{考点与思路}
+导数符号与局部单调性。正的零点导数只控制零点处的差商，并不保证邻域单调。要否定某个邻域内的递增性，在任意小邻域内找一个负导数点即可。
+\paragraph{解析}
+不存在。对 $x\ne0$，
+\[f'(x)=\frac1\pi+2x\sin\frac1x-\cos\frac1x.\]
+令 $x_n=1/(2n\pi)\to0^+$，则 $f'(x_n)=1/\pi-1<0$。任何 $\delta>0$ 都包含充分大的 $x_n$。若可导函数在区间单调递增，各点差商均非负，因此每个存在的导数必须非负，这与 $f'(x_n)<0$ 矛盾。
+\paragraph{结论}
+不存在这样的 $\delta$。
+\paragraph{审核说明}
+既有审核核实首项是 $x/\pi$ 而非 $x^\pi$；单个负导数已足够否定单调性，无需解析本提及的稠密性。另外 $f'(0)=\lim_{h\to0}(1/\pi+h\sin(1/h))=1/\pi>0$，说明一点的正导数不能替代全邻域导数检查。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2022-2023·第10题}
+% EXAM-ID: 2022-2023-10
+\paragraph{来源}《期末真题演练本》物理页 37；《期末考试真题全解析》物理页 62。
+\paragraph{题目}
+设 $\alpha$ 为给定正实数，$n=2^{2023}$。证明当 $0<x<1$ 时，
+\[nx^n\le e^{-\alpha}x^{-\alpha}(-\ln x)^{-\alpha}.\]
+\end{minipage}\par
+\paragraph{考点与思路}
+幂指数不等式的最大值检验。此题待核原卷：按当前题面命题不成立。令 $t=-\ln x$ 将可行域变为 $(0,+\infty)$，再求左侧变形后的全局最大值，检查它是否超过所称上界。
+\paragraph{解析}
+按题面，该命题并非对任意 $\alpha>0$ 成立。令 $t=-\ln x>0$，原式等价于 $nt^\alpha e^{-(n+\alpha)t}\le e^{-\alpha}$。函数 $t^\alpha e^{-(n+\alpha)t}$ 的导数符号由 $\alpha-(n+\alpha)t$ 决定，故最大值在 $t=\alpha/(n+\alpha)$ 取得，等于 $[\alpha/(n+\alpha)]^\alpha e^{-\alpha}$。因此原不等式对全部 $x$ 成立的充要条件为
+\[n\left(\frac{\alpha}{n+\alpha}\right)^\alpha\le1.\]
+取 $\alpha=1/2$，左侧为 $n/\sqrt{2n+1}>1$（$n\ge3$）。取 $x=\exp[-1/(2n+1)]$ 即得到反例。
+\paragraph{结论}
+原题不成立；$\alpha=1/2$，$x=e^{-1/(2n+1)}$ 为反例。
+\paragraph{审核说明}
+本次复核演练本物理页37图像，原式确为 $nx^n$；解析本把仅对 $\alpha\ge1$ 成立的伯努利估计用于任意 $\alpha$，且大 $n$ 不能补救。不能按原条件证明，也不将补加条件后的题目伪称原题。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2021-2022·第7题}
+% EXAM-ID: 2021-2022-7
+\paragraph{来源}《期末真题演练本》物理页 18；《期末考试真题全解析》物理页 28。
+\paragraph{题目}
+求函数 $f(x)=-3x^5+5x^3+2$ 的极值。
+\end{minipage}\par
+\paragraph{考点与思路}
+多项式极值。导数分解后，把全部零点列入符号表；偶次因子 $x^2$ 在零点两侧不变号，因此零点虽为驻点，却未必是极值点。
+\paragraph{解析}
+$f'(x)=15x^2(1-x^2)$，驻点为 $-1,0,1$。在 $(-\infty,-1)$ 为负，在 $(-1,0)$ 和 $(0,1)$ 为正，在 $(1,+\infty)$ 为负。故 $x=-1$ 为极小值点，$f(-1)=0$；$x=1$ 为极大值点，$f(1)=4$；$x=0$ 无极值。
+\paragraph{结论}
+极小值 $0$（$x=-1$），极大值 $4$（$x=1$）。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2021-2022·第9题}
+% EXAM-ID: 2021-2022-9
+\paragraph{来源}《期末真题演练本》物理页 42；《期末考试真题全解析》物理页 68、69、70。
+\paragraph{题目}
+已知 $f$ 在 $(0,+\infty)$ 上连续，且有唯一极值点 $x_0$。若 $x_0$ 是极大值点，证明 $f(x_0)$ 是 $f$ 的最大值。
+\end{minipage}\par
+\paragraph{考点与思路}
+唯一极大值点推出最大值。题目只给连续性，不能假设可导或用导数符号表。若远处存在更高的函数值，局部极大点与该点之间应有低谷；闭区间最值定理会把这个低谷变成另一个极值点。
+\paragraph{解析}
+反设存在 $x_1$ 使 $f(x_1)>f(x_0)$。先设 $x_1<x_0$。因为 $x_0$ 是局部极大值点，其左侧某邻域满足 $f(x)\le f(x_0)$。此邻域不能恒有等号，否则其中每一点都是极值点，与唯一性矛盾。所以可取 $z\in(x_1,x_0)$ 使 $f(z)<f(x_0)<f(x_1)$。连续函数在 $[x_1,x_0]$ 上取得最小值，因为两端均大于 $f(z)$，最小值点必在内部，因而产生不同于 $x_0$ 的极小值点，矛盾。若 $x_1>x_0$，同理在右邻域取 $z$ 并考察 $[x_0,x_1]$ 即得矛盾。故最大值为 $f(x_0)$。
+\paragraph{结论}
+$f(x)\le f(x_0)$ 对所有 $x>0$ 成立。
+\paragraph{审核说明}
+解析本68-70页重复同一题，按唯一出处合并。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2020-2021·第7题}
+% EXAM-ID: 2020-2021-7
+\paragraph{来源}《期末真题演练本》物理页 18；《期末考试真题全解析》物理页 28。
+\paragraph{题目}
+求椭圆 $\frac{x^2}9+\frac{y^2}4=1$ 上到直线 $3x+5y=15$ 距离最短的点。
+\end{minipage}\par
+\paragraph{考点与思路}
+椭圆上点到直线最短距离。距离含绝对值，应先确定椭圆是否与直线相交。缩放坐标把椭圆化成单位圆，再用柯西不等式求线性表达式的全局上界，同时给出等号点。
+\paragraph{解析}
+令 $x=3u,y=2v$，则 $u^2+v^2=1$。柯西不等式给出 $3x+5y=9u+10v\le\sqrt{181}<15$，所以全部椭圆点位于直线同一侧，距离为
+\[d=\frac{|3x+5y-15|}{\sqrt{34}}=\frac{15-(3x+5y)}{\sqrt{34}}.\]
+最小化距离等价于最大化 $3x+5y$。柯西等号要求 $(u,v)$ 与 $(9,10)$ 同向，再由单位长度得到 $(u,v)=(9,10)/\sqrt{181}$。故所求点为 $(27,20)/\sqrt{181}$，最短距离为 $(15-\sqrt{181})/\sqrt{34}$。
+\paragraph{结论}
+$\left(\frac{27}{\sqrt{181}},\frac{20}{\sqrt{181}}\right)$
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2020-2021·第8题}
+% EXAM-ID: 2020-2021-8
+\paragraph{来源}《期末真题演练本》物理页 19；《期末考试真题全解析》物理页 29。
+\paragraph{题目}
+设函数 $y=y(x)$ 满足 $\begin{cases}x=t-\sin t,\quad t\in(0,2\pi),\\y=1-\cos t,\quad t\in(0,2\pi),\end{cases}$ 试求 $\frac{dy}{dx},\frac{d^2y}{dx^2}$，并求函数 $y=y(x)$ 的极值。
+\end{minipage}\par
+\paragraph{考点与思路}
+摆线导数与极值。先检查 $x(t)$ 是否严格单调，保证参数确实描述单值函数；二阶导数需要将一阶导数对 $t$ 求导后再除以 $x'(t)$。
+\paragraph{解析}
+在给定区间 $x'=1-\cos t>0$。$\frac{dy}{dx}=\frac{\sin t}{1-\cos t}=\cot\frac t2$，$\frac{d^2y}{dx^2}=\frac{-\frac12\csc^2(t/2)}{2\sin^2(t/2)}=-\frac1{4\sin^4(t/2)}$。一阶导在 $t<\pi$ 为正、$t>\pi$ 为负，故 $t=\pi$（$x=\pi$）处极大值为 $2$；开区间上无极小值。
+\paragraph{结论}
+$\frac{dy}{dx}=\cot\frac t2,\quad\frac{d^2y}{dx^2}=-\frac1{4\sin^4(t/2)}$；极大值 $2$，无极小值。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2019-2020·第2题}
+% EXAM-ID: 2019-2020-2
+\paragraph{来源}《期末真题演练本》物理页 19；《期末考试真题全解析》物理页 30。
+\paragraph{题目}
+求曲线 $y=\frac{\ln x}x$ 的拐点坐标。
+\end{minipage}\par
+\paragraph{考点与思路}
+拐点。求二阶导数的零点后检查左右符号；分母在实定义域上为正，符号只由分子决定。拐点结论对应讲义的凸、凹定义。
+\paragraph{解析}
+定义域 $x>0$。$y'=\frac{1-\ln x}{x^2}$，$y''=\frac{2\ln x-3}{x^3}$。二阶导在 $x=e^{3/2}$ 两侧由负变正，故拐点为 $(e^{3/2},\frac32e^{-3/2})$。
+\paragraph{结论}
+$\left(e^{3/2},\frac32e^{-3/2}\right)$
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2019-2020·第5题}
+% EXAM-ID: 2019-2020-5
+\paragraph{来源}《期末真题演练本》物理页 19；《期末考试真题全解析》物理页 30。
+\paragraph{题目}
+求函数 $f(x)=\int_1^{x^2}(x^2-t)e^{-t^2}\,dt$ 的所有极值点及极值。
+\end{minipage}\par
+\paragraph{考点与思路}
+含参变限积分极值。被积式与积分上限同时含 $x$，先拆成两个变限积分，分别求导；积分内正函数的性质可直接给出积分符号，无需求出难以表达的原函数。
+\paragraph{解析}
+写成 $x^2\int_1^{x^2}e^{-t^2}\,dt-\int_1^{x^2}te^{-t^2}\,dt$，用第十一章的微积分基本定理与链式法则得
+\begin{align*}
+f'(x)&=2x\int_1^{x^2}e^{-t^2}\,dt+x^2e^{-x^4}(2x)-x^2e^{-x^4}(2x)\\
+&=2x\int_1^{x^2}e^{-t^2}\,dt.
+\end{align*}
+因 $e^{-t^2}>0$，该积分在上限大于 $1$ 时为正、上限小于 $1$ 时为负，符号等于 $x^2-1$ 的符号。因此导数依次在 $(-\infty,-1),(-1,0),(0,1),(1,+\infty)$ 为负、正、负、正。故 $x=\pm1$ 为极小值点，值为 $0$；$x=0$ 为极大值点，值
+\[f(0)=\int_1^0(-t)e^{-t^2}\,dt=\int_0^1te^{-t^2}\,dt
+=\left[-\frac12e^{-t^2}\right]_0^1=\frac12(1-e^{-1}).\]
+\paragraph{结论}
+极小值点 $x=\pm1$，极小值 $0$；极大值点 $x=0$，极大值 $\frac12(1-e^{-1})$。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2018-2019·第5题}
+% EXAM-ID: 2018-2019-5
+\paragraph{来源}《期末真题演练本》物理页 15；《期末考试真题全解析》物理页 24。
+\paragraph{题目}
+设 $f(x)=x^{1/x}\ (x>0)$，求 $f(x)$ 的最大值。
+\end{minipage}\par
+\paragraph{考点与思路}
+幂指函数最大值。取对数把变动的幂化成商，利用对数的严格递增性保持大小关系；求出驻点后，还要说明两侧导数符号才能得到全局最大值。
+\paragraph{解析}
+取对数得 $\ln f=\frac{\ln x}x$，故 $f'(x)=x^{1/x}\frac{1-\ln x}{x^2}$。在 $0<x<e$ 时导数正，在 $x>e$ 时导数负，故 $x=e$ 是唯一最大值点，最大值为 $e^{1/e}$。
+\paragraph{结论}
+$\max_{x>0}f(x)=e^{1/e}$
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2017-2018·第9题}
+% EXAM-ID: 2017-2018-9
+\paragraph{来源}《期末真题演练本》物理页 19；《期末考试真题全解析》物理页 31。
+\paragraph{题目}
+求函数 $y=x^3-3\lvert x\rvert+1$ 的极值。
+\end{minipage}\par
+\paragraph{考点与思路}
+绝对值函数极值。以零点为分界去绝对值；零点处虽然不可导，函数连续，仍可通过两侧增减判别极值，不能仅找 $y'=0$。
+\paragraph{解析}
+$x<0$ 时 $y'=3x^2+3>0$；$x>0$ 时 $y'=3x^2-3$，在 $(0,1)$ 为负、$(1,+\infty)$ 为正。故不可导点 $x=0$ 两侧由增到减，为极大值点，值 $1$；$x=1$ 两侧由减到增，为极小值点，值 $-1$。
+\paragraph{结论}
+极大值 $1$（$x=0$），极小值 $-1$（$x=1$）。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2017-2018·第11题}
+% EXAM-ID: 2017-2018-11
+\paragraph{来源}《期末真题演练本》物理页 19、49、50；《期末考试真题全解析》物理页 31、80、81。
+\paragraph{题目}
+从半径 $R>0$ 的圆形铁皮中剪去一个顶点在圆心的扇形，使剩下铁皮卷成的漏斗（圆锥面）容积最大。求应剪去扇形的中心角。
+\end{minipage}\par
+\paragraph{考点与思路}
+圆锥漏斗最大容积。铁皮半径成为母线长，保留弧长成为底面周长。用高作变量可消去根号，求出最大容积后再把底半径转换成角度，最后扣除保留角。
+\paragraph{解析}
+设圆锥底半径 $r$、高 $h$，母线为 $R$，故 $r^2+h^2=R^2$。非退化漏斗要求 $0<h<R$；为检查边界，将容积连续延拓到 $[0,R]$。容积
+\[V(h)=\frac\pi3(R^2h-h^3),\qquad V'(h)=\frac\pi3(R^2-3h^2).\]
+在 $h=R/\sqrt3$ 前导数正、之后负，端点容积均零，所以最大容积在此取得，此时 $r=R\sqrt{2/3}$。保留扇形弧长等于底面周长 $2\pi r$，故保留中心角为 $2\pi r/R=2\pi\sqrt{2/3}$。剪去中心角为 $2\pi(1-\sqrt{2/3})$。
+\paragraph{结论}
+$2\pi(1-\sqrt{2/3})=2\pi(1-\sqrt6/3)$ 弧度。
+\paragraph{审核说明}
+演练本第19页简写未区分保留角与剪去角；第49--50页完整题面明确求剪去角，本次复核其图像并按完整题面收录。两角相加为 $2\pi$。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2016-2017·第一-4题}
+% EXAM-ID: 2016-2017-一-4
+\paragraph{来源}《期末真题演练本》物理页 20；《期末考试真题全解析》物理页 31。
+\paragraph{题目}
+求 $f(x)=\int_0^x e^{-t^2/2}\,dt$ 的拐点。
+\end{minipage}\par
+\paragraph{考点与思路}
+积分函数拐点。连续被积函数可以用微积分基本定理求导；指数始终为正，二阶导数的符号仅由 $-x$ 决定。
+\paragraph{解析}
+$f'(x)=e^{-x^2/2}$，$f''(x)=-xe^{-x^2/2}$。二阶导在 $x<0$ 为正、$x>0$ 为负，唯一符号改变点为 $0$，且 $f(0)=0$，故拐点为 $(0,0)$。
+\paragraph{结论}
+$(0,0)$
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2015-2016·第3题}
+% EXAM-ID: 2015-2016-3
+\paragraph{来源}《期末真题演练本》物理页 20；《期末考试真题全解析》物理页 31。
+\paragraph{题目}
+求曲线 $y^3+xy^2+x^2y-3=0$ 在点 $(1,1)$ 处的曲率。
+\end{minipage}\par
+\paragraph{考点与思路}
+隐曲线曲率。先验证点在曲线上且 $F_y\ne0$，得到局部函数 $y(x)$；两次隐式求导求出该点的 $y'$ 和 $y''$，再代入曲率公式。
+\paragraph{解析}
+记 $F=y^3+xy^2+x^2y-3$。代入 $(1,1)$ 得 $F=0$，且该点 $F_y=6\ne0$，可以在附近看成二阶可导的 $y(x)$。直接对原式求导为
+\[(y^2+2xy)+(3y^2+2xy+x^2)y'=0.\]
+代入得 $3+6y'=0$，故 $y'=-1/2$。二次求导可组织为
+\[F_{xx}+2F_{xy}y'+F_{yy}(y')^2+F_y y''=0.\]
+该点 $F_{xx}=2y=2$、$F_{xy}=2x+2y=4$、$F_{yy}=6y+2x=8$，故 $2-4+2+6y''=0$，所以 $y''=0$。曲率 $K=\lvert y''\rvert/(1+(y')^2)^{3/2}=0$。曲率为零不意味着邻域是一段直线，也不能仅据此认定拐点。
+\paragraph{结论}
+$K=0$
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2015-2016·第10题}
+% EXAM-ID: 2015-2016-10
+\paragraph{来源}《期末真题演练本》物理页 50；《期末考试真题全解析》物理页 81。
+\paragraph{题目}
+已知
+\[f(x)=\int_x^1\sqrt{1+t^2}\,dt+\int_1^{x^2}\sqrt{1+t}\,dt.\]
+求 $f(x)$ 的零点个数。
+\end{minipage}\par
+\paragraph{考点与思路}
+变限积分函数零点数。求导可以跳过原函数的复杂表达式。单调性负责零点的至多性，介值定理负责至少性；必须同时完成这两步才能确定零点个数。
+\paragraph{解析}
+两积分对所有实数 $x$ 均有定义。变限积分求导得
+\[f'(x)=-\sqrt{1+x^2}+2x\sqrt{1+x^2}=(2x-1)\sqrt{1+x^2}.\]
+故 $f$ 在 $(-\infty,1/2)$ 严格递减，在 $(1/2,\infty)$ 严格递增。$f(1)=0$，所以 $f(1/2)<0$，并且右侧区间只含零点 $1$。当 $x\to-\infty$，第一积分至少为 $1-x\to+\infty$，第二积分在 $x^2>1$ 时非负，故 $f(x)\to+\infty$。介值定理及左侧严格递减性保证 $(-\infty,1/2)$ 恰有一个零点。因此总共有两个零点。
+\paragraph{结论}
+恰有 $2$ 个零点，其中一个为 $x=1$。
+
+
+\chapter{不定积分}
+\label{exam:10:chapter}
+本章保留原题库全部八题。学年、题号沿用用户提供的汇编标注，尚未取得各学年原始试卷逐份核验；页码均为资料物理页码。方法依据见讲义第十章换元、分部积分及部分分式各节。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2024--2025学年·第11题}
+% EXAM-ID: 2024-2025-11
+\paragraph{题目}求不定积分 $\displaystyle\int x\ln\left(\frac{x-1}{x+1}\right)\,\dd x$。
+来源：《期末真题演练本》第23页；《期末考试真题全解析》第37页。
+\end{minipage}\par
+\paragraph{考点与思路}对数求导后成为有理式，取其为 $u$；$x\dd x$ 易积分。先检查对数内部为正，得到实定义域 $|x|>1$。
+\paragraph{解析}令 $h=(x-1)/(x+1)>0$，则 $h'=2/(x+1)^2$，所以
+\[
+\left(\ln\frac{x-1}{x+1}\right)'=\frac{h'}h=\frac2{x^2-1}.
+\]
+取 $u=\ln h$、$\dd v=x\dd x$，$v=x^2/2$。分部积分得
+\begin{align*}
+I&=\frac{x^2}2\ln h-\int\frac{x^2}{x^2-1}\,\dd x\\
+&=\frac{x^2}2\ln h-x-\int\frac{\dd x}{x^2-1}\\
+&=\frac{x^2}2\ln h-x-\frac12\ln\left|\frac{x-1}{x+1}\right|+C.
+\end{align*}
+本题 $h>0$，最后的绝对值可去掉。求导结果的第一项给 $x\ln h+(x^2-1)/(x^2-1)$，减去 $x$ 的导数后即恢复被积函数。
+\paragraph{结论}
+\[
+\boxed{\frac{x^2-1}2\ln\left(\frac{x-1}{x+1}\right)-x+C},\qquad |x|>1.
+\]
+$(-\infty,-1)$、$(1,\infty)$ 上常数可独立。解析本将对数拆为 $\ln(x-1)-\ln(x+1)$，在 $x<-1$ 时两个实对数无意义；本解直接对正比值求导，保留全部实定义域。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2023--2024学年·第11题}
+% EXAM-ID: 2023-2024-11
+\paragraph{题目}求 $\displaystyle\int\frac{3x^2+x+1}{(x-1)(x^2+2x+2)}\,\dd x$。
+来源：《期末真题演练本》第26页；《期末考试真题全解析》第43页。
+\end{minipage}\par
+\paragraph{考点与思路}分母由一个一次因子和一个不可约二次因子组成，设部分分式；二次项分子拆成分母导数与常数。
+\paragraph{解析}因 $x^2+2x+2=(x+1)^2+1>0$，定义域仅排除 $x=1$。设
+\[
+\frac{3x^2+x+1}{(x-1)(x^2+2x+2)}
+=\frac A{x-1}+\frac{Bx+D}{x^2+2x+2}.
+\]
+去分母得
+\[
+3x^2+x+1=A(x^2+2x+2)+(Bx+D)(x-1).
+\]
+取 $x=1$ 得 $5=5A$，故 $A=1$；比较二次项给 $A+B=3$，故 $B=2$；常数项给 $2A-D=1$，故 $D=1$。因此
+\begin{align*}
+I&=\int\frac{\dd x}{x-1}
++\int\frac{2x+2}{x^2+2x+2}\,\dd x
+-\int\frac{\dd x}{(x+1)^2+1}\\
+&=\ln|x-1|+\ln(x^2+2x+2)-\arctan(x+1)+C.
+\end{align*}
+求导后第二、三项合为 $(2x+1)/(x^2+2x+2)$，与第一项通分可复核原分子。
+\paragraph{结论}$\boxed{\ln|x-1|+\ln(x^2+2x+2)-\arctan(x+1)+C}$，在 $x<1$ 或 $x>1$ 的区间上使用。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2021--2022学年·第3题}
+% EXAM-ID: 2021-2022-3
+\paragraph{题目}求不定积分（$x\in(0,\pi/2)$）：$\displaystyle\int\frac{1+\sin x}{(1+\cos x)\sin x}\,\dd x$。
+来源：《期末真题演练本》第24页；《期末考试真题全解析》第41页。
+\end{minipage}\par
+\paragraph{考点与思路}分子、分母同时含正弦和余弦，半角代换将其统一有理化；题给区间保证 $t=\tan(x/2)>0$，对数无需绝对值。
+\paragraph{解析}令 $t=\tan(x/2)\in(0,1)$，则
+\[
+1+\sin x=\frac{(1+t)^2}{1+t^2},\quad
+1+\cos x=\frac2{1+t^2},\quad
+\sin x=\frac{2t}{1+t^2},\quad
+\dd x=\frac2{1+t^2}\dd t.
+\]
+原被积式连同微分成为
+\[
+\frac{(1+t)^2}{1+t^2}\frac{(1+t^2)^2}{4t}
+\frac2{1+t^2}\dd t
+=\left(\frac1{2t}+1+\frac t2\right)\dd t.
+\]
+积分得 $\frac12\ln t+t+t^2/4+C$。验算先对 $t$ 求导，再乘 $t'=(1+t^2)/2$，得 $(1+t)^2(1+t^2)/(4t)$，与原三角分式相同。
+\paragraph{结论}$\boxed{\frac12\ln\tan\frac x2+\tan\frac x2+\frac14\tan^2\frac x2+C}$。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2020--2021学年·第3题}
+% EXAM-ID: 2020-2021-3
+\paragraph{题目}求 $\displaystyle\int\frac{\arctan\sqrt{x}}{\sqrt{x}}\,\dd x$。
+来源：《期末真题演练本》第24页；《期末考试真题全解析》第41页。
+\end{minipage}\par
+\paragraph{考点与思路}实定义域为 $x>0$。根式及分母共同提示 $t=\sqrt{x}$，换元后分部积分反三角函数。
+\paragraph{解析}令 $x=t^2$、$t>0$，$\dd x=2t\dd t$，故
+\begin{align*}
+I&=2\int\arctan t\,\dd t
+=2t\arctan t-2\int\frac{t}{1+t^2}\,\dd t\\
+&=2t\arctan t-\ln(1+t^2)+C.
+\end{align*}
+其中分部取 $u=\arctan t$、$v=t$。回代后第一项求导为 $\arctan\sqrt{x}/\sqrt{x}+1/(1+x)$，对数项导数恰消去后一项。
+\paragraph{结论}$\boxed{2\sqrt{x}\arctan\sqrt{x}-\ln(1+x)+C}$，$x>0$。虽然被积函数可在零点作连续延拓，原题写出的分式在零点没有定义。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2019--2020学年·第10题}
+% EXAM-ID: 2019-2020-10
+\paragraph{题目}求 $\displaystyle\int\left(\frac{\arctan x}{x^2(1+x^2)}+\frac{\ln x}{x}\right)\,\dd x$。
+来源：《期末真题演练本》第26页；《期末考试真题全解析》第44页。
+\end{minipage}\par
+\paragraph{考点与思路}$\ln x$ 限制 $x>0$。先把 $1/[x^2(1+x^2)]$ 拆开：一项适合分部，一项恰能凑 $\dd\arctan x$；最后的对数项凑 $\dd\ln x$。
+\paragraph{解析}由
+\[
+\frac1{x^2(1+x^2)}=\frac1{x^2}-\frac1{1+x^2},
+\]
+第一部分拆成 $A-B$。对 $A=\int x^{-2}\arctan x\,\dd x$，取 $u=\arctan x$、$v=-1/x$，得
+\begin{align*}
+A&=-\frac{\arctan x}{x}+\int\frac{\dd x}{x(1+x^2)}\\
+&=-\frac{\arctan x}{x}+\int\left(\frac1x-\frac{x}{1+x^2}\right)\dd x\\
+&=-\frac{\arctan x}{x}+\ln x-\frac12\ln(1+x^2).
+\end{align*}
+而 $B=\int\arctan x\,\dd(\arctan x)=(\arctan x)^2/2$，最后一项为 $\int\ln x\,\dd\ln x=(\ln x)^2/2$。
+\paragraph{结论}
+\[
+\boxed{-\frac{\arctan x}{x}+\ln x-\frac12\ln(1+x^2)
+-\frac12(\arctan x)^2+\frac12(\ln x)^2+C},\quad x>0.
+\]
+验算中 $A'$ 的有理余项相消后留下 $\arctan x/x^2$，减去 $B'$ 得 $\arctan x/[x^2(1+x^2)]$；最后一项导数为 $\ln x/x$。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2018--2019学年·第8题}
+% EXAM-ID: 2018-2019-8
+\paragraph{题目}求 $\displaystyle\int\frac{x\ln x}{(1+x^2)^2}\,\dd x$。
+来源：《期末真题演练本》第23页；《期末考试真题全解析》第38页。
+\end{minipage}\par
+\paragraph{考点与思路}定义域 $x>0$。对数求导能简化，而 $x\dd x/(1+x^2)^2$ 可凑分母微分，因此选择分部。
+\paragraph{解析}取 $u=\ln x$，$\dd v=x(1+x^2)^{-2}\dd x$。令 $s=1+x^2$ 即得 $v=-1/[2(1+x^2)]$。于是
+\begin{align*}
+I&=-\frac{\ln x}{2(1+x^2)}+\frac12\int\frac{\dd x}{x(1+x^2)}\\
+&=-\frac{\ln x}{2(1+x^2)}+\frac12\ln x-\frac14\ln(1+x^2)+C\\
+&=\frac{x^2\ln x}{2(1+x^2)}-\frac14\ln(1+x^2)+C.
+\end{align*}
+第二步用 $1/[x(1+x^2)]=1/x-x/(1+x^2)$。验算最后表达式时，第一项导数为 $x\ln x/(1+x^2)^2+x/[2(1+x^2)]$，后一项恰与对数项导数相消。
+\paragraph{结论}$\boxed{\frac{x^2\ln x}{2(1+x^2)}-\frac14\ln(1+x^2)+C}$，$x>0$。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2017--2018学年·第8题}
+% EXAM-ID: 2017-2018-8
+\paragraph{题目}求不定积分（$x\in(-1,1)$）：$\displaystyle\int\arctan\sqrt{\frac{1-x}{1+x}}\,\dd x$。
+来源：《期末真题演练本》第25页；指定解析汇编没有对应解析，本解独立补写。
+\end{minipage}\par
+\paragraph{考点与思路}$1\pm x$ 提示余弦半角公式。先确定角的范围，才能把 $\arctan\tan(\theta/2)$ 化成 $\theta/2$，随后分部。
+\paragraph{解析}令 $\theta=\arccos x\in(0,\pi)$，则 $\theta/2\in(0,\pi/2)$。由于此处半角正切为正，
+\[
+\sqrt{\frac{1-x}{1+x}}
+=\sqrt{\frac{1-\cos\theta}{1+\cos\theta}}
+=\tan\frac\theta2.
+\]
+反正切的主值区间是 $(-\pi/2,\pi/2)$，所以被积函数等于 $\frac12\arccos x$。取 $u=\arccos x$、$v=x$，得
+\begin{align*}
+\int\arccos x\,\dd x
+&=x\arccos x+\int\frac{x}{\sqrt{1-x^2}}\,\dd x\\
+&=x\arccos x-\sqrt{1-x^2}+C.
+\end{align*}
+余项令 $s=1-x^2$，$\dd s=-2x\dd x$，故积分为 $-\sqrt{s}$。验算时 $x\arccos x$ 导数中的 $-x/\sqrt{1-x^2}$ 与根式项导数相消。
+\paragraph{结论}$\boxed{\frac12\left(x\arccos x-\sqrt{1-x^2}\right)+C}$，$-1<x<1$。补解不改变演练本题干，不给缺失的参考解析猜测页码。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2016--2017学年·第二大题第2小题}
+% EXAM-ID: 2016-2017-二-2
+\paragraph{题目}求 $\displaystyle\int\frac{x^5}{\sqrt[4]{x^3+1}}\,\dd x$。
+来源：《期末真题演练本》第25页；《期末考试真题全解析》第42页。
+\end{minipage}\par
+\paragraph{考点与思路}四次根在分母要求 $x^3+1>0$，即 $x>-1$。将 $x^5\dd x$ 写成 $x^3(x^2\dd x)$，恰好凑出 $x^3+1$ 的微分，因此不必把根式作为新变量。
+\paragraph{解析}取 $u=x^3+1>0$，$\dd u=3x^2\dd x$，$x^3=u-1$，所以
+\begin{align*}
+I&=\frac13\int(u-1)u^{-1/4}\,\dd u
+=\frac13\int(u^{3/4}-u^{-1/4})\,\dd u\\
+&=\frac4{21}u^{7/4}-\frac49u^{3/4}+C.
+\end{align*}
+此计算无需反函数求导，故 $x=0$ 也包含在公式中。若取 $t=(x^3+1)^{1/4}$，利用 $x^2\dd x=4t^3\dd t/3$ 会得到同一结果；不应除以 $x^2$ 而人为排除零点。
+求导回代结果得
+\[
+x^2(x^3+1)^{3/4}-x^2(x^3+1)^{-1/4}
+=\frac{x^2[(x^3+1)-1]}{(x^3+1)^{1/4}},
+\]
+即原被积函数。
+\paragraph{结论}$\boxed{\frac4{21}(x^3+1)^{7/4}-\frac49(x^3+1)^{3/4}+C}$，$x>-1$。
+
+
+\chapter{定积分}
+\label{exam:11:chapter}
+本章保留汇编中的全部34道来源题。年份题号为汇编标签，未取得逐年原始试卷核验。跨用反常积分的题目采用第十三章的定义：先在有限区间运算，再取端点极限。待核题保留原文含义，条件性解答另行标明。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2024-2025·第6题}
+% EXAM-ID: 2024-2025-6
+\label{exam:11:q1}
+\paragraph{来源} 《期末真题演练本》物理页26；《期末考试真题全解析》物理页43。
+\paragraph{题目}
+计算反常积分 $\int_1^{+\infty}\frac1{x(x+1)}\,dx$。
+\end{minipage}\par
+\paragraph{考点与思路}
+部分分式反常积分。先把反常积分截断到有限区间，再做部分分式。两项分别在无穷远发散，必须保留差的整体，不能把它写成两个发散积分之差。
+\paragraph{解析}
+分解 $1/[x(x+1)]=1/x-1/(x+1)$。积分为 $\lim_{b\to+\infty}[\ln x-\ln(x+1)]_1^b=\lim\ln\frac b{b+1}-\ln\frac12=\ln2$。
+在有限上限 $R>1$ 上，\[
+I(R)=\left[\ln\frac{x}{x+1}\right]_1^R
+=\ln\frac R{R+1}+\ln2.
+\]
+因 $R/(R+1)\to1$，对数项趋零。作为收敛的独立检查，$0\le1/[x(x+1)]\le x^{-2}$ 于 $x\ge1$。
+\paragraph{结论}
+$\ln2$
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2024-2025·第12题}
+% EXAM-ID: 2024-2025-12
+\label{exam:11:q2}
+\paragraph{来源} 《期末真题演练本》物理页28；《期末考试真题全解析》物理页48。
+\paragraph{题目}
+已知 $f(x)=x\int_1^x\frac{\sin t^2}{t}\,dt$，求 $\int_0^1 f(x)\,dx$。
+\end{minipage}\par
+\paragraph{考点与思路}
+变限积分与分部积分。内层函数没有方便的初等原函数，但其导数就是被积函数。将内层积分作为分部积分中被求导的因子，外层的 $x$ 积成 $x^2/2$；先确认零端点没有真正奇点。
+\paragraph{解析}
+令 $u=\int_1^x\sin(t^2)/t\,dt$，$dv=x\,dx$，得 $I=[\frac{x^2}2u]_0^1-\frac12\int_0^1x\sin(x^2)\,dx$。因被积函数在 $0$ 可连续补为零，$u$ 有界，边界项为零。令 $v=x^2$，余项为 $-\frac14\int_0^1\sin v\,dv=\frac14(\cos1-1)$。
+令 $q(t)=\sin(t^2)/t$（$t>0$）。由 $\sin(t^2)/t=t\,[\sin(t^2)/t^2]\to0$，补 $q(0)=0$ 后连续。于是 $U(x)=\int_1^xq(t)\dd t$ 在 $[0,1]$ 连续有界，$\lim_{x\downarrow0}x^2U(x)=0$，且 $U(1)=0$。因此分部中的两端边界项确实均为零。最后 $\int_0^1x\sin(x^2)\dd x=(1-\cos1)/2$，故所得答案为负，与 $U(x)\le0$、$x\ge0$ 一致。
+\paragraph{结论}
+$\frac{\cos1-1}4$
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2024-2025·第15题}
+% EXAM-ID: 2024-2025-15
+\label{exam:11:q3}
+\paragraph{来源} 《期末真题演练本》物理页41；《期末考试真题全解析》物理页66、67。
+\paragraph{题目}
+已知 $f\in C^2[0,1]$，$f''<0$，$f(0)=f(1)=0$。(a) 证明 $f'$ 在 $(0,1)$ 内存在唯一零点 $x_0$，且 $f(x)>0$ 对 $x\in(0,1)$ 成立；(b) 证明存在 $x_1\in(0,x_0),x_2\in(x_0,1)$，使得 $f(x_1)=f(x_2)=f(x_0)/2$，且
+\[\int_0^1f(x)\,dx<f(x_0)(x_2-x_1).\]
+\end{minipage}\par
+\paragraph{考点与思路}
+凹函数水平截面与积分不等式。先由 $f''<0$ 确定唯一峰值，再用水平截面的宽度表示面积。两支反函数在最高点导数可能发散，所有求导只在开区间进行；面积恒等式用截断后的一元分部积分证明。
+\paragraph{解析}
+(a) Rolle 定理给出 $f'(x_0)=0$；由 $f''<0$ 知 $f'$ 严格递减，故零点唯一。左侧 $f'>0$，右侧 $f'<0$，结合两端函数值为零得内部 $f>0$。
+(b) 记 $M=f(x_0)>0$。$f$ 在 $[0,x_0]$ 严格递增、在 $[x_0,1]$ 严格递减，故介值定理给出唯一 $x_1,x_2$ 达到 $M/2$。设两支反函数为 $L(y),R(y)$，$0\le y\le M$，并令 $W(y)=R(y)-L(y)$。$W$ 在闭区间连续，在 $(0,M)$ 上二阶可导。反函数求导给出
+\[L''=-\frac{f''(L)}{[f'(L)]^3}>0,\qquad R''=-\frac{f''(R)}{[f'(R)]^3}<0.\]
+故 $W''<0$，$W$ 严格凹。对 $0<y<M$ 且 $y\ne M/2$，有 $W(y)+W(M-y)<2W(M/2)$。积分并利用连续性得
+\[\int_0^M W(y)\,dy<MW(M/2).\]
+水平截面积公式（对区域 $0\le y\le f(x)$ 交换积分次序）给出 $\int_0^M W(y)\,dy=\int_0^1f(x)\,dx$，而 $W(M/2)=x_2-x_1$，于是结论成立。
+补足水平截面积恒等式的一元证明。对 $0<v<M$，$L,R$ 在 $[0,v]$ 上可微且 $f'$ 不为零，换元与分部得
+\begin{align*}
+\int_0^vL(y)\dd y&=vL(v)-\int_0^{L(v)}f(x)\dd x,\\
+\int_0^vR(y)\dd y&=vR(v)+\int_{R(v)}^1f(x)\dd x.
+\end{align*}
+当 $v\uparrow M$，$L(v),R(v)\to x_0$，连续性使上式分别趋于 $Mx_0-\int_0^{x_0}f$ 和 $Mx_0+\int_{x_0}^1f$。相减即得 $\int_0^MW=\int_0^1f$，不需要未经证明的二重积分换序。严格凹性给出的差 $2W(M/2)-W(y)-W(M-y)$ 在内部除中点外严格为正；它连续且在某个正长度区间为正，所以积分后的不等号仍严格。
+\paragraph{结论}
+$f'$ 的零点唯一，两支半高点各唯一，积分严格小于 $f(x_0)(x_2-x_1)$。
+\paragraph{审核说明}
+反函数二阶导数只在 0<y<M 有定义；已避免把顶点处 f'=0 的反函数误称为闭区间二阶可导。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2023-2024·第5题}
+% EXAM-ID: 2023-2024-5
+\label{exam:11:q4}
+\paragraph{来源} 《期末真题演练本》物理页23；《期末考试真题全解析》物理页37。
+\paragraph{题目}
+已知 $\int_0^1x^2f(x)\,dx=3$，求 $\int_0^1x\left(\int_1^x f(t)\,dt\right)\,dx$。
+\end{minipage}\par
+\paragraph{考点与思路}
+分部积分与变限积分。已知的是 $f$ 的二次矩，因此要把外层 $x$ 积成 $x^2/2$，让分部积分产生恰好已知的积分。题面可积条件按通常定积分存在的背景理解。
+\paragraph{解析}
+令 $u(x)=\int_1^x f(t)\,dt$，$dv=x\,dx$，则 $u'=f(x),v=x^2/2$。分部积分得 $I=[\frac{x^2}2u(x)]_0^1-\frac12\int_0^1x^2f(x)\,dx=0-3/2=-3/2$（按通常可积条件理解）。
+若 $f$ 连续，分部积分可以直接进行。若只假设 $f$ 黎曼可积，不能声称积分上限函数处处满足 $U'=f$，但结论仍成立。可用阶梯函数按小区间逼近 $f$：达布判据保证存在阶梯函数 $s$ 使 $\int_0^1|f-s|<\varepsilon$，阶梯函数上逐段计算该恒等式；两侧误差分别不超过 $\varepsilon/2$ 和 $\varepsilon$，令 $\varepsilon\downarrow0$ 即得所需恒等式。
+\paragraph{结论}
+$-\frac32$
+\paragraph{审核说明}
+同题在演练本第28页重复，解析本第49页亦重复；仅保留一个条目，覆盖两处出处。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2023-2024·第10题}
+% EXAM-ID: 2023-2024-10
+\label{exam:11:q5}
+\paragraph{来源} 《期末真题演练本》物理页9；《期末考试真题全解析》物理页11。
+\paragraph{题目}
+计算极限 \[\lim_{n\to+\infty}\sum_{k=1}^n\frac{n}{n^2+k(k-1)}.\]
+\end{minipage}\par
+\paragraph{考点与思路}
+黎曼和的扰动夹逼。分母的 $k(k-1)$ 不能直接当作 $k^2$ 而省略误差。用左、右端点的平方夹住，两个界恰好是同一个连续函数的黎曼和。
+\paragraph{解析}
+因 $(k-1)^2\le k(k-1)\le k^2$，有 \[\frac1n\sum_{k=1}^n\frac1{1+(k/n)^2}\le\sum_{k=1}^n\frac{n}{n^2+k(k-1)}\le\frac1n\sum_{k=1}^n\frac1{1+((k-1)/n)^2}.\]两端分别是连续函数 $1/(1+t^2)$ 在 $[0,1]$ 上的右端与左端黎曼和，都趋于 $\int_0^1dt/(1+t^2)=\pi/4$，由夹逼定理得结论。
+左右两端采用同一 $n$ 等分网格，区别只有取样点：左界取 $k/n$，右界取 $(k-1)/n$。函数在 $[0,1]$ 连续，其积分是 $[\arctan t]_0^1=\pi/4$。这里的夹逼对全部 $1\le k\le n$ 一致有效。
+\paragraph{结论}
+$\frac\pi4$
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2023-2024·第15题}
+% EXAM-ID: 2023-2024-15
+\label{exam:11:q6}
+\paragraph{来源} 《期末真题演练本》物理页41；指定解析本未收录，解析独立补写。
+\paragraph{题目}
+已知 $f\in C^2[0,1]$，$f''>0$，$f(0)=\int_0^1 f(x)\,dx=0$。证明：(a) $f$ 在 $(0,1)$ 内存在唯一零点 $c$；(b) $0<x<c$ 时 $f(x)<0$；(c) $\int_0^1xf(x)\,dx>0$。
+\end{minipage}\par
+\paragraph{考点与思路}
+严格凸函数零点与加权积分。端点零值与严格凸性使割线斜率 $f(x)/x$ 严格递增。积分为零迫使函数变号，再利用这一递增量证明只有一次变号；最后将权 $x$ 平移为 $x-c$。
+\paragraph{解析}
+$f''>0$ 知 $f$ 严格凸。积分为零且 $f$ 不恒为零，故 $f$ 在内部有负值和正值，否则连续性将使积分严格为正或负。对 $x>0$ 令 $h(x)=f(x)/x$。严格凸性与 $f(0)=0$ 保证 $h$ 严格递增：若 $0<u<v$，则 $f(u)<(u/v)f(v)$。取一负值点和一正值点，$h$ 的递增性保证负值点在前。由介值定理，在两点间有唯一 $c$ 满足 $f(c)=0$；递增性又得 $f(x)<0$ 对 $x<c$ 成立，$f(x)>0$ 对 $x>c$ 成立。最后
+\[\int_0^1xf(x)\,dx=\int_0^1(x-c)f(x)\,dx.\]
+右侧在 $(0,c)$ 和 $(c,1)$ 的被积函数均严格为正，所以积分严格大于零。
+为说明必须同时有正值与负值：若 $f\ge0$ 且积分为零，连续性迫使 $f\equiv0$，与 $f''>0$ 矛盾；$f\le0$ 同理。取得正负值的点可选在内部。严格凸性给出 $f(u)/u<f(v)/v$（$0<u<v$），故内部根 $c$ 唯一。$f(0)=0$ 是端点根，不与“内部零点唯一”矛盾。
+\paragraph{结论}
+内部零点唯一；$f<0$ 于 $(0,c)$，$f>0$ 于 $(c,1)$，且加权积分为正。
+\paragraph{审核说明}
+所提供解析本的第59--81页未收录本题的对应解析；以下证明独立补写。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2022-2023·第6题}
+% EXAM-ID: 2022-2023-6
+\label{exam:11:q7}
+\paragraph{来源} 《期末真题演练本》物理页24；《期末考试真题全解析》物理页39。
+\paragraph{题目}
+求反常积分 $\int_0^{+\infty}\frac{\arctan e^x}{e^x}\,dx$。
+\end{minipage}\par
+\paragraph{考点与思路}
+指数换元反常积分。指数同时出现在反三角函数与分母中，令 $t=\ee^x$ 后会出现 $t^{-2}$。再把反三角函数求导，化为有理积分。
+\paragraph{解析}
+令 $t=e^x$，则 $dx=dt/t$，积分变为 $\int_1^{+\infty}\frac{\arctan t}{t^2}\,dt$。分部积分得 $[-\arctan t/t]_1^{+\infty}+\int_1^{+\infty}\frac1{t(1+t^2)}\,dt=\frac\pi4+\frac12\ln2$。
+剩余有理式逐项化简为
+\[
+\frac1{t(1+t^2)}=\frac1t-\frac{t}{1+t^2},\qquad
+\int_1^R\frac{\dd t}{t(1+t^2)}
+=\left[\ln t-\frac12\ln(1+t^2)\right]_1^R.
+\]
+上端等于 $-\frac12\ln(1+R^{-2})\to0$，下端为 $-\frac12\ln2$。另一边界项 $\arctan R/R\to0$，因为反正切有界。
+\paragraph{结论}
+$\frac\pi4+\frac12\ln2$
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2022-2023·第8题}
+% EXAM-ID: 2022-2023-8
+\label{exam:11:q8}
+\paragraph{来源} 《期末真题演练本》物理页24；《期末考试真题全解析》物理页40。
+\paragraph{题目}
+求定积分 $\int_0^{\pi/4}\frac{e^{t/2}(\cos t-\sin t)}{\sqrt{\cos t}}\,dt$。
+\end{minipage}\par
+\paragraph{考点与思路}
+识别全微分。分子同时出现 $\cos t$ 与 $-\sin t$，提示乘积求导：指数的导数给余弦项，根式的导数给正弦项。先试求 $\ee^{t/2}\sqrt{\cos t}$ 的导数。
+\paragraph{解析}
+直接求导有
+\[
+ \frac{\dd}{\dd t}\bigl(\ee^{t/2}\sqrt{\cos t}\bigr)
+ =\frac{\ee^{t/2}(\cos t-\sin t)}{2\sqrt{\cos t}}.
+\]
+因此积分为
+\[
+ [2\ee^{t/2}\sqrt{\cos t}]_0^{\pi/4}
+ =2(2^{-1/4}\ee^{\pi/8}-1).
+\]
+乘积求导的两项分别为 $\frac12\ee^{t/2}\sqrt{\cos t}$ 与 $-\ee^{t/2}\sin t/(2\sqrt{\cos t})$，通分后正好为被积函数的一半。$0\le t\le\pi/4$ 时 $\cos t>0$，导数及基本公式的条件均成立。上限根式为 $\sqrt{\sqrt2/2}=2^{-1/4}$。
+\paragraph{结论}
+$2\left(2^{-1/4}e^{\pi/8}-1\right)$
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2022-2023·第11题}
+% EXAM-ID: 2022-2023-11
+\label{exam:11:q9}
+\paragraph{来源} 《期末真题演练本》物理页45；《期末考试真题全解析》物理页72。
+\paragraph{题目}
+已知 $f,g$ 在 $[0,1]$ 上连续，且 $g(x)\ge0$。证明存在 $x_0\in[0,1]$ 使
+\[\int_0^1 f(x)g(x)\,dx=f(x_0)\int_0^1g(x)\,dx.\]
+\end{minipage}\par
+\paragraph{考点与思路}
+加权积分中值定理。把 $g$ 看成非负权。先以 $f$ 的最大、最小值夹住积分，再应用介值定理；权积分为零时要单独讨论，不能直接除。
+\paragraph{解析}
+设 $m=\min f,M=\max f$，连续性保证两最值存在。由 $g\ge0$ 得 $mg\le fg\le Mg$。积分后，若 $\int g>0$，则
+\[m\le\frac{\int_0^1fg}{\int_0^1g}\le M.\]
+由连续函数的介值性，可取 $x_0$ 使 $f(x_0)$ 等于此商，即得结论。若 $\int g=0$，非负连续函数 $g$ 必恒为零（否则在某邻域有正积分），故两边都为零，任意 $x_0$ 均成立。
+非负权的作用是保证乘法保序。若 $\int_0^1g=0$，连续性使 $g\equiv0$，从而任意 $x_0$ 都成立；此分支无需除以零。若权积分为正，商在 $f$ 的值域内。相应知识见讲义第十一章“性质、估值与积分中值”。
+\paragraph{结论}
+存在所求 $x_0$。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2022-2023·第12题}
+% EXAM-ID: 2022-2023-12
+\label{exam:11:q10}
+\paragraph{来源} 《期末真题演练本》物理页45；《期末考试真题全解析》物理页72、73。
+\paragraph{题目}
+已知 $f$ 在 $(-1,2)$ 上连续，$g$ 在该区间单调递增且导函数连续。证明存在 $\xi\in[0,1]$ 使
+\[\int_0^1f(x)g(x)\,dx=g(0)\int_0^\xi f(x)\,dx+g(1)\int_\xi^1f(x)\,dx.\]
+\end{minipage}\par
+\paragraph{考点与思路}
+积分第二中值定理。令 $F(x)=\int_0^xf$，把 $g$ 的单调性转成非负权 $g'$。分部积分后对 $Fg'$ 用加权中值定理，就得到题目中的两段积分。
+\paragraph{解析}
+令 $F(x)=\int_0^xf(t)\,dt$，则 $F'=f,F(0)=0$。因 $g$ 递增，$g'\ge0$。分部积分得
+\[\int_0^1fg=g(1)F(1)-\int_0^1Fg'.\]
+加权积分中值定理（连续的 $F$ 及非负连续权 $g'$）给出 $\xi\in[0,1]$ 满足 $\int_0^1Fg'=F(\xi)[g(1)-g(0)]$，包括 $g'\equiv0$ 的情形。代回得 $g(0)F(\xi)+g(1)[F(1)-F(\xi)]$，就是题面右侧。
+代回的代数步骤是
+\[
+g(1)F(1)-[g(1)-g(0)]F(\xi)
+=g(0)F(\xi)+g(1)[F(1)-F(\xi)].
+\]
+其中 $F(\xi)=\int_0^\xi f$，$F(1)-F(\xi)=\int_\xi^1f$。若 $g$ 为常数，权 $g'$ 恒零，任何 $\xi$ 都给同一恒等式。
+\paragraph{结论}
+存在所求 $\xi$。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2021-2022·第1题}
+% EXAM-ID: 2021-2022-1
+\label{exam:11:q11}
+\paragraph{来源} 《期末真题演练本》物理页24；《期末考试真题全解析》物理页40。
+\paragraph{题目}
+求反常积分 $\int_0^{+\infty}e^{-\sqrt x}\,dx$。
+\end{minipage}\par
+\paragraph{考点与思路}
+根式换元反常积分。根式指数最自然的代换是 $t=\sqrt x$。微分带来 $2t$，因而再用一次分部积分；无穷端的边界值须计算。
+\paragraph{解析}
+令 $t=\sqrt x$，则 $dx=2t\,dt$。$I=2\int_0^{+\infty}te^{-t}\,dt=2[-(t+1)e^{-t}]_0^{+\infty}=2$，极限项为零，故积分收敛。
+在上限 $R$ 的原积分中先换元，得到 $2\int_0^{\sqrt R}t\ee^{-t}\dd t$。因为 $t\ee^{-t}\to0$ 且 $\ee^{-t}\to0$，原函数 $-(t+1)\ee^{-t}$ 在无穷端趋零。下限原函数值为 $-1$，故结果 $2$。
+\paragraph{结论}
+$2$
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2021-2022·第12题}
+% EXAM-ID: 2021-2022-12
+\label{exam:11:q12}
+\paragraph{来源} 《期末真题演练本》物理页46；《期末考试真题全解析》物理页73、74。
+\paragraph{题目}
+设 $f$ 在 $[0,1]$ 上连续，且任意 $x\in[0,1]$ 有
+\[\int_x^1f(t)\,dt\ge\frac{1-x^3}2.\]
+证明 $\int_0^1[f(t)]^2\,dt\ge5/12$。
+\end{minipage}\par
+\paragraph{考点与思路}
+积分放缩与Cauchy-Schwarz。已知的是每一个尾积分的下界。把尾积分再积一次得到 $\int xf$ 的下界，再用柯西不等式把一次矩转成平方积分的界。不能对给定不等式直接求导。
+\paragraph{解析}
+令 $F(x)=\int_x^1f(t)\,dt$，则 $F'=-f,F(1)=0$。分部积分得
+\[\int_0^1xf(x)\,dx=\int_0^1F(x)\,dx\ge\int_0^1\frac{1-x^3}2\,dx=\frac38.\]
+Cauchy-Schwarz 不等式给出
+\[\left(\int_0^1xf(x)\,dx\right)^2\le\left(\int_0^1x^2\,dx\right)\left(\int_0^1f(x)^2\,dx\right)=\frac13\int_0^1f(x)^2\,dx.\]
+故 $\int_0^1f^2\ge27/64>5/12$，从而满足要求。
+所获界确实足以完成题目，因为 $27/64-5/12=(81-80)/192=1/192>0$。使用柯西不等式前，一次矩已知至少为 $3/8>0$，所以平方仍保持下界方向。所得 $27/64$ 是本方法的有效下界，这里没有宣称它是全部约束下的最佳值。
+\paragraph{结论}
+$\int_0^1f^2\ge27/64>5/12$。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2020-2021·第4(2)题}
+% EXAM-ID: 2020-2021-4(2)
+\label{exam:11:q13}
+\paragraph{来源} 《期末真题演练本》物理页11；《期末考试真题全解析》物理页14、15。
+\paragraph{题目}
+求极限 \[\lim_{n\to+\infty}\left(\int_1^2e^{-nt^2}\,dt\right)^{1/n}.\]
+\end{minipage}\par
+\paragraph{考点与思路}
+积分的 n 次根与局部夹逼。开 $n$ 次根的极限反映 $\ee^{-t^2}$ 的最大值。上界来自整个区间，下界只需最大值点附近固定长度的一小段。
+\paragraph{解析}
+令 $I_n=\int_1^2e^{-nt^2}\,dt>0$。由 $t\ge1$，$I_n\le e^{-n}$，故 $I_n^{1/n}\le e^{-1}$。任取固定 $0<\eta<1$，只在 $[1,1+\eta]$ 积分得到 \[I_n\ge\eta e^{-n(1+\eta)^2},\qquad I_n^{1/n}\ge\eta^{1/n}e^{-(1+\eta)^2}.\]于是 $\liminf I_n^{1/n}\ge e^{-(1+\eta)^2}$，$\limsup I_n^{1/n}\le e^{-1}$。再令 $\eta\downarrow0$，得到上下极限都为 $e^{-1}$。
+下界中的 $\eta$ 必须先固定，才有 $\eta^{1/n}\to1$；若未经控制让 $\eta$ 随 $n$ 改变，此极限可能失效。取完 $n$ 的上下极限，再让固定邻域宽度趋零，是这个模型的关键次序。
+\paragraph{结论}
+$e^{-1}$
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2020-2021·第6题}
+% EXAM-ID: 2020-2021-6
+\label{exam:11:q14}
+\paragraph{来源} 《期末真题演练本》物理页23；《期末考试真题全解析》物理页38。
+\paragraph{题目}
+求反常积分 $\int_0^{+\infty}\frac{xe^x}{(1+e^x)^2}\,dx$。
+\end{minipage}\par
+\paragraph{考点与思路}
+反常积分与分部积分。分母平方与分子 $\ee^x$ 是 $1/(1+\ee^x)$ 的导数结构。让 $x$ 求导可去掉它，再检查无穷端的边界项。
+\paragraph{解析}
+取 $u=x,dv=\frac{e^x}{(1+e^x)^2}\,dx$，则 $v=-\frac1{1+e^x}$。边界项 $[-x/(1+e^x)]_0^{+\infty}=0$，故 $I=\int_0^{+\infty}\frac1{1+e^x}\,dx=[x-\ln(1+e^x)]_0^{+\infty}=0-(-\ln2)=\ln2$。
+对有限区间 $[0,R]$ 分部后，边界项是 $-R/(1+\ee^R)$，趋零。剩余原函数应整体写成
+\[
+x-\ln(1+\ee^x)=-\ln(1+\ee^{-x}),
+\]
+从而无穷端为零，而零端为 $-\ln2$；不能把 $x$ 与 $\ln(1+\ee^x)$ 的无穷极限分开相减。
+\paragraph{结论}
+$\ln2$
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2020-2021·第9题}
+% EXAM-ID: 2020-2021-9
+\label{exam:11:q15}
+\paragraph{来源} 《期末真题演练本》物理页11、46；《期末考试真题全解析》物理页13、14、74、75。
+\paragraph{待核说明} 本题题干或条件存在疑点，须核对原始试卷；下文区分原题与条件性结论。
+\paragraph{题目}
+设 $f$ 以 $T$ 为周期。
+
+证明 \[\lim_{x\to+\infty}\frac1x\int_0^x f(t)\,dt=\frac1T\int_0^T f(u)\,du;\]
+
+计算 \[\lim_{x\to+\infty}\frac1x\int_0^x|\sin t|\,dt.\]
+\end{minipage}\par
+\paragraph{考点与思路}
+周期函数的积分平均值。把长区间拆成整数个周期和不足一个周期的余段。余段长度有界，周期可积函数有界，所以除以 $x$ 后误差消失；题干中可积性缺失必须先说明。
+\paragraph{解析}
+第一问需要 $T>0$ 且 $f$ 在一个周期上可积，周期性本身不足以保证积分存在。以下在 $f$ 于 $[0,T]$ 黎曼可积的前提下证明。写 $x=nT+r$，$n=\lfloor x/T\rfloor$，$0\le r<T$。由周期性和积分可加性，\[\frac1x\int_0^x f(t)\,dt=\frac nx\int_0^T f(u)\,du+\frac1x\int_0^r f(u)\,du.\]可积函数有界，若 $|f|\le M$，余项绝对值不超过 $MT/x\to0$，且 $n/x=(x-r)/(Tx)\to1/T$，得结论。
+
+第二问中 $|\sin t|$ 连续且以 $\pi$ 为周期，一个周期积分为 $\int_0^\pi\sin t\,dt=2$，故平均值极限为 $2/\pi$。
+原条件的反例可取一个周期上有理点为 $1$、无理点为 $0$ 的函数，并周期延拓；它有周期而不黎曼可积，题面积分没有定义。对 $|\sin t|$，一个周期上非负且连续，不存在上述问题。
+\paragraph{结论}
+可积性前提下第一问成立；第二问 $\frac2\pi$。
+\paragraph{审核说明}
+演练本与解析本题干仅给周期性，未写可积或连续条件；解析本直接使用连续周期函数的有界性，增加了未给条件。已明确证明所需前提，待核原始题。
+
+第11页版本未写连续性，另有求 |sin t| 的平均值；第46页版本写明连续性。这里保留含两问的版本并明确所需可积条件，出处异文待核原卷。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2020-2021·第10题}
+% EXAM-ID: 2020-2021-10
+\label{exam:11:q16}
+\paragraph{来源} 《期末真题演练本》物理页47；《期末考试真题全解析》物理页75。
+\paragraph{题目}
+设 $f$ 在 $[0,1]$ 上连续且恒正。证明存在唯一 $c\in(0,1)$，使
+\[\int_0^cf(x)\,dx=\int_c^1\frac{dt}{f(t)}.\]
+\end{minipage}\par
+\paragraph{考点与思路}
+变限积分等式的唯一解。移到同一边构造 $H$。端点异号负责存在性，严格递增负责唯一性；连续恒正还保证倒数函数没有奇点。
+\paragraph{解析}
+$f$ 连续且恒正保证 $1/f$ 也连续。令 $H(x)=\int_0^xf(t)\,dt-\int_x^1dt/f(t)$。$H(0)<0,H(1)>0$，故连续性给出内部零点。$H'(x)=f(x)+1/f(x)>0$，所以 $H$ 严格递增，内部零点唯一。
+严格递增可由任意 $u<v$ 的差直接验证：
+\[
+H(v)-H(u)=\int_u^v\left(f(t)+\frac1{f(t)}\right)\dd t>0.
+\]
+这也说明端点异号只保证至少一个解，唯一性来自额外的正性。
+\paragraph{结论}
+恰有一个 $c\in(0,1)$。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2019-2020·第9题}
+% EXAM-ID: 2019-2020-9
+\label{exam:11:q17}
+\paragraph{来源} 《期末真题演练本》物理页25；《期末考试真题全解析》物理页41。
+\paragraph{题目}
+计算反常积分 $\int_1^{+\infty}\frac{dx}{x\sqrt{1+x^4}}$。
+\end{minipage}\par
+\paragraph{考点与思路}
+根式换元反常积分。根式外有 $x$，可将微分改写成 $x^3\dd x$，与 $1+x^4$ 的导数匹配。新分母成为 $u^2-1$，可做部分分式。
+\paragraph{解析}
+令 $u=\sqrt{1+x^4}$，则 $x^3dx=u\,du/2$，$x^4=u^2-1$。将原式写成 $\int\frac{x^3dx}{x^4\sqrt{1+x^4}}$，得 $I=\frac12\int_{\sqrt2}^{+\infty}\frac{du}{u^2-1}=\frac14[\ln\frac{u-1}{u+1}]_{\sqrt2}^{+\infty}$。利用 $(\sqrt2-1)(\sqrt2+1)=1$，得到 $I=\frac12\ln(1+\sqrt2)$。
+换元细节为 $2u\dd u=4x^3\dd x$，故 $x^3\dd x=u\dd u/2$，而原式先乘 $x^3/x^3$ 改写为 $x^3\dd x/[x^4\sqrt{1+x^4}]$。积分上端对数趋零，下端可用 $\sqrt2-1=1/(\sqrt2+1)$ 化简为 $\frac12\ln(1+\sqrt2)$。
+\paragraph{结论}
+$\frac12\ln(1+\sqrt2)$
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2019-2020·第12题}
+% EXAM-ID: 2019-2020-12
+\label{exam:11:q18}
+\paragraph{来源} 《期末真题演练本》物理页27；《期末考试真题全解析》物理页45。
+\paragraph{题目}
+计算定积分 $\int_0^1\frac{\ln(1+2x+x^2)}{1+x^2}\,dx$。
+\end{minipage}\par
+\paragraph{考点与思路}
+区间再现。先将对数中的平方提出，再用 $x=\tan\theta$ 消去 $1+x^2$。在 $[0,\pi/4]$ 对称替换，会把 $\ln(1+\tan\theta)$ 变成常数减自身。
+\paragraph{解析}
+令 $x=\tan\theta$，原式 $I=2J$，其中 $J=\int_0^{\pi/4}\ln(1+\tan\theta)\,d\theta$。代换 $\theta=\pi/4-u$，有 $1+\tan(\pi/4-u)=2/(1+\tan u)$，故 $J=\pi\ln2/4-J$。因此 $J=\pi\ln2/8$，$I=\pi\ln2/4$。
+因 $1+2x+x^2=(1+x)^2$ 且 $1+x>0$，对数等于 $2\ln(1+x)$。对称变换中的恒等式由
+\[
+\tan(\pi/4-u)=\frac{1-\tan u}{1+\tan u}
+\]
+得到 $1+\tan(\pi/4-u)=2/(1+\tan u)$。所有对数参数在 $[0,\pi/4]$ 上为正。
+\paragraph{结论}
+$\frac\pi4\ln2$
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2019-2020·第13题}
+% EXAM-ID: 2019-2020-13
+\label{exam:11:q19}
+\paragraph{来源} 《期末真题演练本》物理页47；《期末考试真题全解析》物理页75。
+\paragraph{待核说明} 本题题干或条件存在疑点，须核对原始试卷；下文区分原题与条件性结论。
+\paragraph{题目}
+设 $f$ 在 $(-1,2)$ 上有一阶连续导数，$f(0)=0,f(1)=1$。试证明
+\[\int_0^1[f(x)-f'(x)]\,dx\ge\frac1e.\]
+\end{minipage}\par
+\paragraph{考点与思路}
+原题疑误与积分绝对值变体。先检查命题本身。端点值不能控制 $\int(f-f')$ 的正下界，线性函数即可反证。绝对值变体利用积分因子成立，但必须与原题分开。
+\paragraph{解析}
+题面命题不成立。取 $f(x)=x$，满足全部条件，但
+\[\int_0^1(x-1)\,dx=-\frac12<\frac1e.\]
+因此题面所要求的证明无法成立。解析本采用的绝对值变体则成立。为证明这一变体，令 $G=\ee^{-x}f(x)$，则
+\[\frac1e=G(1)-G(0)=\int_0^1e^{-x}[f'(x)-f(x)]\,dx\le\int_0^1|f'(x)-f(x)|\,dx.\]
+此处 $e^{-x}\le1$ 且使用积分三角不等式。该变体仅作说明，不能代替原题。
+原题积分还可由基本公式写为 $\int_0^1f(x)\dd x-1$，没有任何条件强迫它为正。绝对值变体的完整估计为
+\[
+\left|\int_0^1\ee^{-x}(f'-f)\dd x\right|
+\le\int_0^1\ee^{-x}|f'-f|\dd x
+\le\int_0^1|f'-f|\dd x.
+\]
+这依赖 $0<\ee^{-x}\le1$，其与题面不带绝对值的命题有实质差别。
+\paragraph{结论}
+原题不成立；$f(x)=x$ 为反例。
+\paragraph{审核说明}
+图片核实确无绝对值；解析本明示可能回忆偏差，并改证标准变体。原题待核原卷。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2018-2019·第9题}
+% EXAM-ID: 2018-2019-9
+\label{exam:11:q20}
+\paragraph{来源} 《期末真题演练本》物理页27；《期末考试真题全解析》物理页46。
+\paragraph{题目}
+已知 $\int_0^{+\infty}\frac{\sin x}x\,dx=\frac\pi2$，求 $\int_0^{+\infty}\frac{(\sin x)^2}{x^2}\,dx$。
+\end{minipage}\par
+\paragraph{考点与思路}
+分部积分与Dirichlet积分。平方正弦与 $x^{-2}$ 分部后产生 $\sin2x/x$，可换元成已知的狄利克雷积分。先在 $[\varepsilon,R]$ 操作，再分别处理两个端点。
+\paragraph{解析}
+对有限截断积分分部积分，取 $u=\sin^2x,dv=x^{-2}\,dx$，得边界项 $-\sin^2x/x$ 和积分 $\int\sin2x/x\,dx$。在 $0$ 与 $+\infty$ 边界项均趋零。令 $t=2x$，得到 $I=\int_0^{+\infty}\sin t/t\,dt=\pi/2$。
+原目标积分在零端由 $\sin x/x\to1$ 可连续补值，在无穷端由 $\sin^2x/x^2\le1/x^2$ 收敛。有限截断公式为
+\[
+\int_\varepsilon^R\frac{\sin^2x}{x^2}\dd x
+=\left[-\frac{\sin^2x}{x}\right]_\varepsilon^R+\int_\varepsilon^R\frac{\sin2x}{x}\dd x.
+\]
+零端边界绝对值不超过 $\varepsilon$，无穷端不超过 $1/R$。最后 $t=2x$ 连微分一起替换，所得正是题给收敛积分。
+\paragraph{结论}
+$\frac\pi2$
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2018-2019·第13题}
+% EXAM-ID: 2018-2019-13
+\label{exam:11:q21}
+\paragraph{来源} 《期末真题演练本》物理页39、48；《期末考试真题全解析》物理页64、76。
+\paragraph{待核说明} 本题题干或条件存在疑点，须核对原始试卷；下文区分原题与条件性结论。
+\paragraph{题目}
+设 $f$ 在 $[0,+\infty)$ 上具有连续导函数，严格单调增加，$f(0)=0$。设 $a>0,b>0$，证明
+\[\int_0^a f(x)\,dx+\int_0^b f^{-1}(y)\,dy\ge ab.\]
+演练本第39页同题未明确写出 $a,b$ 的范围，第48页写明 $a,b>0$。
+\end{minipage}\par
+\paragraph{考点与思路}
+Young不等式。先检查反函数是否对整个 $[0,b]$ 有定义。令 $c=f^{-1}(b)$，把反函数积分化成边界矩形减原函数积分，最终比较 $a$ 与 $c$。
+\paragraph{解析}
+必须先要求 $b$ 属于 $f$ 的值域，否则 $f^{-1}(b)$ 可能不存在。以下在 $b\in f([0,\infty))$ 时证明。令 $c=f^{-1}(b)$。因 $f$ 严格递增且连续，反函数连续。换元 $y=f(x)$ 并分部积分得
+\[\int_0^b f^{-1}(y)\,dy=\int_0^c x f'(x)\,dx=cb-\int_0^c f(x)\,dx.\]
+于是左侧减去 $ab$ 等于 $\int_c^a[f(x)-b]\,dx$。若 $a\ge c$，被积函数非负；若 $a<c$，被积函数在 $[a,c]$ 非正，积分方向相反后仍非负。故不等式成立，且严格递增保证等号当且仅当 $a=c$，即 $b=f(a)$。
+条件缺口的具体反例是 $f(x)=1-\ee^{-x}$：连续可导、严格递增且 $f(0)=0$，但 $b=2$ 时 $f^{-1}(b)$ 不存在。补充 $b$ 属于值域后，证明不需要反函数具有导数，也不要求 $f'>0$ 处处；仅使用连续严格单调与原函数的换元公式。
+\paragraph{结论}
+当反函数积分有定义时成立；等号当且仅当 $b=f(a)$。
+\paragraph{审核说明}
+原条件不能保证任意 $b>0$ 属于值域，例如 $f(x)=1-\ee^{-x}$。保留原题并指出缺少值域条件；重复来源合并。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2018-2019·第14题}
+% EXAM-ID: 2018-2019-14
+\label{exam:11:q22}
+\paragraph{来源} 《期末真题演练本》物理页9、35；《期末考试真题全解析》物理页12、61。
+\paragraph{题目}
+对任意 $n\in\N$，设
+\[a_n=\sum_{i=1}^{n}\frac{\sqrt i}{n\sqrt{n+1/i}}.\]
+证明 $\lim_{n\to+\infty}a_n=2/3$。
+\end{minipage}\par
+\paragraph{考点与思路}
+黎曼和与夹逼。先把分母写成 $\sqrt n\sqrt{1+1/(ni)}$，留下标准黎曼和 $\frac1n\sqrt{i/n}$。因所有 $i$ 都满足统一界，扰动可以夹逼掉。
+\paragraph{解析}
+将通项写为 $\frac1n\sqrt{i/n}/\sqrt{1+1/(ni)}$。由于 $1<1+1/(ni)\le1+1/n$，令 $S_n=\frac1n\sum_{i=1}^n\sqrt{i/n}$，可得
+\[\frac{S_n}{\sqrt{1+1/n}}\le a_n<S_n.\]
+$S_n$ 是连续函数 $\sqrt x$ 在 $[0,1]$ 上的黎曼和，故 $S_n\to\int_0^1\sqrt x\,dx=2/3$。左侧也趋于 $2/3$，夹逼定理即得结论。
+标准和 $S_n$ 中每项非负，才能把分母的统一界乘上并求和。端点函数 $\sqrt{x}$ 在 $0$ 虽导数无界，但仍连续，黎曼可积完全足够。
+\paragraph{结论}
+$\lim a_n=2/3$。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2017-2018·第10题}
+% EXAM-ID: 2017-2018-10
+\label{exam:11:q23}
+\paragraph{来源} 《期末真题演练本》物理页23；《期末考试真题全解析》物理页39。
+\paragraph{题目}
+计算反常积分 $\int_1^{+\infty}\frac{\arctan x}{x^2}\,dx$。
+\end{minipage}\par
+\paragraph{考点与思路}
+反常积分与分部积分。选择 $u=\arctan x$，让它求导成有理式；$x^{-2}$ 积成 $-1/x$。无穷端先整体取极限，避免拆成发散的对数项。
+\paragraph{解析}
+取 $u=\arctan x,dv=x^{-2}\,dx$，得 $I=[-\arctan x/x]_1^{+\infty}+\int_1^{+\infty}\frac1{x(1+x^2)}\,dx$。边界项为 $\pi/4$；后项为 $[\ln x-\frac12\ln(1+x^2)]_1^{+\infty}=\frac12\ln2$。故 $I=\pi/4+\frac12\ln2$。
+收敛也可先由 $0\le\arctan x/x^2\le(\pi/2)x^{-2}$ 判断。部分分式的对数差在无穷端为 $-\frac12\ln(1+x^{-2})$，所以其极限为零，而不是“两个无穷大相减”。
+\paragraph{结论}
+$\frac\pi4+\frac12\ln2$
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2017-2018·第12题}
+% EXAM-ID: 2017-2018-12
+\label{exam:11:q24}
+\paragraph{来源} 《期末真题演练本》物理页39；《期末考试真题全解析》物理页64、65。
+\paragraph{题目}
+设 $f''(x)>0$。证明对任意 $x_1<x_2$（函数定义区间内）有
+\[f\left(\frac{x_1+x_2}{2}\right)\le\frac1{x_2-x_1}\int_{x_1}^{x_2}f(t)\,dt\le\frac{f(x_1)+f(x_2)}2.\]
+\end{minipage}\par
+\paragraph{考点与思路}
+Hermite-Hadamard不等式。凸函数图像位于中点切线上方、端点弦下方。分别积分，线性奇偏差抵消，得到平均值的两侧界。
+\paragraph{解析}
+设 $c=(x_1+x_2)/2$。$f''>0$ 保证 $f$ 严格凸，所以切线在图像下方：
+\[f(t)\ge f(c)+f'(c)(t-c).\]
+在 $[x_1,x_2]$ 上积分，因 $\int_{x_1}^{x_2}(t-c)\,dt=0$，得左侧不等式。另一方面，凸性给出
+\[f(t)\le\frac{x_2-t}{x_2-x_1}f(x_1)+\frac{t-x_1}{x_2-x_1}f(x_2).\]
+积分右侧得 $(x_2-x_1)[f(x_1)+f(x_2)]/2$，除以区间长度便得右側不等式。
+严格性来自 $f''>0$：对 $t\ne c$，切线下界严格；对内部 $t$，弦上界严格。两处连续差在正长度区间为正，因此积分后均为严格不等式。题目只要求非严格式，严格式当然满足。
+\paragraph{结论}
+两侧不等式成立（$x_1<x_2$ 且 $f''>0$ 时实际上均严格）。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2017-2018·第13题}
+% EXAM-ID: 2017-2018-13
+\label{exam:11:q25}
+\paragraph{来源} 《期末真题演练本》物理页48；《期末考试真题全解析》物理页76、77、78。
+\paragraph{题目}
+设 $I_n=\int_0^{\pi/2}(\sin x)^n\,dx$。(a) 证明 $I_n=\int_0^{\pi/2}(\cos x)^n\,dx$；(b) 证明 $I_n=(n-1)I_{n-2}/n$，并求 $I_{2n},I_{2n+1}$；(c) 证明
+\[\lim_{n\to+\infty}\frac{(n!)^2\,2^{2n}}{(2n)!\sqrt n}=\sqrt\pi.\]
+\end{minipage}\par
+\paragraph{考点与思路}
+Wallis积分与公式。前两问建立正弦幂积分的通项。第三问把阶乘表达式改写成 $I_{2n}$，再通过相邻积分夹逼得到渐近量；不需要另引斯特林公式。
+\paragraph{解析}
+(a) 令 $x=\pi/2-t$，直接换元得结论。
+(b) 对 $n\ge2$ 分部积分，边界项为零，得到
+\[I_n=-\int_0^{\pi/2}\sin^{n-1}x\,d(\cos x)=(n-1)\int_0^{\pi/2}\sin^{n-2}x\cos^2x\,dx=(n-1)(I_{n-2}-I_n).\]
+移项得递推式。由 $I_0=\pi/2,I_1=1$ 可得
+\[I_{2n}=\frac{(2n-1)!!}{(2n)!!}\frac\pi2,\qquad I_{2n+1}=\frac{(2n)!!}{(2n+1)!!}.\]
+(c) $I_{2n+2}<I_{2n+1}<I_{2n}$ 及递推式给出 $(2n+1)/(2n+2)<I_{2n+1}/I_{2n}<1$，故比值趋于 $1$。又 $I_{2n}I_{2n+1}=\pi/[2(2n+1)]$，于是 $I_{2n}\sqrt n\to\sqrt\pi/2$。因 $I_{2n}=(2n)!\pi/[2^{2n}(n!)^2\,2]$，题面式等于 $\pi/(2I_{2n}\sqrt n)$，其极限即 $\sqrt\pi$。
+补足第三问中的正量开方。记 $A_n=I_{2n}$、$B_n=I_{2n+1}$，则 $B_n/A_n\to1$，且 $nA_nB_n=n\pi/[2(2n+1)]\to\pi/4$。因此
+\[
+nA_n^2=\frac{nA_nB_n}{B_n/A_n}\to\frac\pi4.
+\]
+$A_n>0$ 保证 $\sqrt n A_n\to\sqrt\pi/2$，然后才对题面中其倒数取极限。递推要求 $n\ge2$，$I_0,I_1$ 是独立初值。
+\paragraph{结论}
+两通项如证明所列；Wallis 极限为 $\sqrt\pi$。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2016-2017·第二-3题}
+% EXAM-ID: 2016-2017-二-3
+\label{exam:11:q26}
+\paragraph{来源} 《期末真题演练本》物理页26；《期末考试真题全解析》物理页45。
+\paragraph{题目}
+求广义积分 $\int_0^{+\infty}\frac{dx}{1+x^4}$。
+\end{minipage}\par
+\paragraph{考点与思路}
+倒代换反常积分。倒代换使分子从 $1$ 变为 $x^2$；两式相加后，分子恰好是 $x-1/x$ 的微分乘 $x^2$。先证明收敛，才可以合并两个积分。
+\paragraph{解析}
+记积分为 $I$。倒代换 $x=1/t$ 并重命名积分变量后，
+\[
+ I=\int_0^{+\infty}\frac{x^2}{1+x^4}\,\dd x.
+\]
+两种表达式相加得
+\[
+ 2I=\int_0^{+\infty}\frac{1+x^2}{1+x^4}\,\dd x
+ =\int_0^{+\infty}\frac{\dd(x-1/x)}{(x-1/x)^2+2}.
+\]
+令 $u=x-1/x$，上下限为 $-\infty,+\infty$，因此
+\[
+ 2I=\frac1{\sqrt2}\left[\arctan\frac{u}{\sqrt2}\right]_{-\infty}^{+\infty}
+ =\frac\pi{\sqrt2},\qquad I=\frac\pi{2\sqrt2}.
+\]
+先由区间 $[0,1]$ 上被积函数有界，及 $x\ge1$ 时 $1/(1+x^4)\le x^{-4}$，确认收敛。对正数 $x$，
+\[
+\frac{1+x^2}{1+x^4}\dd x
+=\frac{(1+x^{-2})\dd x}{(x-x^{-1})^2+2}.
+\]
+新变量 $u=x-1/x$ 严格递增，$\dd u=(1+x^{-2})\dd x$，从 $-\infty$ 走到 $+\infty$；双端极限都需保留。
+\paragraph{结论}
+$\frac\pi{2\sqrt2}$
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2016-2017·第四题}
+% EXAM-ID: 2016-2017-四
+\label{exam:11:q27}
+\paragraph{来源} 《期末真题演练本》物理页27；《期末考试真题全解析》物理页47。
+\paragraph{题目}
+求 $F(t)=\int_0^\pi\lvert\sin x-t\rvert\,dx$ 的最小值。
+\end{minipage}\par
+\paragraph{考点与思路}
+绝对值含参积分最值。绝对值符号由 $\sin x=t$ 的交点决定。先排除 $t<0$ 与 $t>1$，再按三个子区间拆开，得到可求导的表达式。
+\paragraph{解析}
+$t<0$ 时 $F=2-\pi t$ 单调减，$t>1$ 时 $F=\pi t-2$ 单调增，所以只需 $t\in[0,1]$。令 $a=\arcsin t$，在 $[0,a],[a,\pi-a],[\pi-a,\pi]$ 拆绝对值，得到 $F(t)=4\sqrt{1-t^2}-2+t(4\arcsin t-\pi)$。求导为 $F'(t)=4\arcsin t-\pi$，唯一零点 $t=1/\sqrt2$，两侧由负变正。代入得最小值 $2\sqrt2-2$。
+在 $0<t<1$，令 $a=\arcsin t$。三个区间积分为
+\[
+F(t)=2\int_0^a(t-\sin x)\dd x+\int_a^{\pi-a}(\sin x-t)\dd x
+=4\cos a-2+t(4a-\pi).
+\]
+求导时 $4\cos a$ 的导数为 $-4t/\sqrt{1-t^2}$，与 $4ta'$ 抵消，故 $F'=4a-\pi$。此导数严格递增，在 $a=\pi/4$ 时为零；两端区间的单调性排除了其他全局最小点。
+\paragraph{结论}
+$F_{\min}=2\sqrt2-2$，在 $t=\frac{\sqrt2}2$ 取得。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2016-2017·第一-2题}
+% EXAM-ID: 2016-2017-一-2
+\label{exam:11:q28}
+\paragraph{来源} 《期末真题演练本》物理页27；《期末考试真题全解析》物理页46。
+\paragraph{题目}
+$\int_{-\pi/2}^{\pi/2}\frac{1+\sin x}{1+\cos x}\,dx$。
+\end{minipage}\par
+\paragraph{考点与思路}
+奇偶性。分子拆成偶项与奇项；奇项在对称区间抵消。剩余分母使用半角公式，从而成为正切的导数。
+\paragraph{解析}
+将分子拆成 $1$ 与 $\sin x$。第二部分为奇函数，在对称区间积分为零。第一部分为偶函数，故 $I=2\int_0^{\pi/2}\frac{dx}{1+\cos x}=\int_0^{\pi/2}\sec^2(x/2)\,dx=[2\tan(x/2)]_0^{\pi/2}=2$。
+分母 $1+\cos x$ 在该区间至少为 $1$，没有奇点。半角式 $1+\cos x=2\cos^2(x/2)$，所以偶项的积分为 $2\int_0^{\pi/2}\frac12\sec^2(x/2)\dd x$。求原函数时还要补链式系数 $2$。
+\paragraph{结论}
+$2$
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2016-2017·第一-5题}
+% EXAM-ID: 2016-2017-一-5
+\label{exam:11:q29}
+\paragraph{来源} 《期末真题演练本》物理页9；《期末考试真题全解析》物理页12。
+\paragraph{题目}
+计算极限 \[\lim_{n\to\infty}\left(\frac1{n+1}+\frac1{n+2}+\cdots+\frac1{n+n}\right).\]
+\end{minipage}\par
+\paragraph{考点与思路}
+标准黎曼和。分母统一提出 $n$，得到步长 $1/n$ 与取样点 $k/n$，区间是 $[0,1]$。连续性保证该黎曼和的极限等于积分。
+\paragraph{解析}
+将和式写为 $\frac1n\sum_{k=1}^n1/(1+k/n)$。因 $f(t)=1/(1+t)$ 在 $[0,1]$ 连续，这是其等分区间右端点黎曼和，故趋于 \[\int_0^1\frac{dt}{1+t}=\ln2.\]
+有限项的转换是精确等式：
+\[
+\sum_{k=1}^n\frac1{n+k}=\frac1n\sum_{k=1}^n\frac1{1+k/n}.
+\]
+最后积分用 $\ln(1+t)$，上下限分别给出 $\ln2$ 与 $0$。
+\paragraph{结论}
+$\ln2$
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2016-2017·第一-6题}
+% EXAM-ID: 2016-2017-一-6
+\label{exam:11:q30}
+\paragraph{来源} 《期末真题演练本》物理页27；《期末考试真题全解析》物理页47。
+\paragraph{题目}
+已知 $f(x+2)-f(x)=x$，$\int_0^2f(x)\,dx=1$，求 $\int_1^3f(x)\,dx$。
+\end{minipage}\par
+\paragraph{考点与思路}
+函数平移与积分。把目标区间在 $2$ 处分开，将右半段平移到 $[0,1]$；差分关系把平移后的 $f$ 还原，恰好与剩余段拼成已知整段。
+\paragraph{解析}
+拆成 $\int_1^2f(x)\,dx+\int_2^3f(x)\,dx$，第二项令 $x=t+2$ 得 $\int_0^1[f(t)+t]\,dt$。合并得到 $\int_0^2f(x)\,dx+\int_0^1t\,dt=1+1/2=3/2$。
+平移后有
+\[
+\int_2^3f(x)\dd x=\int_0^1f(t+2)\dd t
+=\int_0^1f(t)\dd t+\int_0^1t\dd t.
+\]
+与 $\int_1^2f$ 拼接后变成已知的 $\int_0^2f$；无需求出满足差分方程的全部函数。
+\paragraph{结论}
+$\frac32$
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2015-2016·第4题}
+% EXAM-ID: 2015-2016-4
+\label{exam:11:q31}
+\paragraph{来源} 《期末真题演练本》物理页25；《期末考试真题全解析》物理页42。
+\paragraph{题目}
+求积分 $\int_0^2x^2\sqrt{2x-x^2}\,dx$。
+\end{minipage}\par
+\paragraph{考点与思路}
+三角换元与对称性。先配方 $2x-x^2=1-(x-1)^2$，所以选 $x=1+\sin t$。选择余弦非负的区间后根式无绝对值，展开时奇项可直接消去。
+\paragraph{解析}
+令 $x=1+\sin t$，$t\in[-\pi/2,\pi/2]$。根式为 $\cos t$，$dx=\cos t\,dt$。原式变为 $\int_{-\pi/2}^{\pi/2}(1+2\sin t+\sin^2t)\cos^2t\,dt$。奇函数项积分为零，其余为 $2\int_0^{\pi/2}(\cos^2t+\sin^2t\cos^2t)\,dt=2(\pi/4+\pi/16)=5\pi/8$。
+偶项进一步计算为
+\[
+\int_0^{\pi/2}\cos^2t\dd t=\frac\pi4,\qquad
+\int_0^{\pi/2}\sin^2t\cos^2t\dd t
+=\frac18\int_0^{\pi/2}(1-\cos4t)\dd t=\frac\pi{16}.
+\]
+三角代换的区间上 $\cos t\ge0$，故根式为 $\cos t$，结果 $2(\pi/4+\pi/16)=5\pi/8$。
+\paragraph{结论}
+$\frac{5\pi}8$
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2015-2016·第5题}
+% EXAM-ID: 2015-2016-5
+\label{exam:11:q32}
+\paragraph{来源} 《期末真题演练本》物理页25；《期末考试真题全解析》物理页43。
+\paragraph{题目}
+求广义积分 $\int_0^{+\infty}\frac{\arctan x}{(\sqrt{1+x^2})^3}\,dx$。
+\end{minipage}\par
+\paragraph{考点与思路}
+三角换元反常积分。分母是 $(1+x^2)^{3/2}$，三角换元后恰好剩一个余弦因子；同时 $\arctan x$ 变成新变量 $t$，最后分部。
+\paragraph{解析}
+令 $x=\tan t$，$t\in[0,\pi/2)$，则原式为 $\int_0^{\pi/2}t\cos t\,dt$。分部积分得 $[t\sin t]_0^{\pi/2}-\int_0^{\pi/2}\sin t\,dt=\pi/2-1$。
+有限上限换元时 $t=\arctan R<\pi/2$；$\dd x=\sec^2t\dd t$，$(1+x^2)^{3/2}=\sec^3t$，故比值为 $\cos t$。新被积函数 $t\cos t$ 在 $[0,\pi/2]$ 连续，端点极限可直接延拓，基本公式给 $[t\sin t+\cos t]_0^{\pi/2}=\pi/2-1$。
+\paragraph{结论}
+$\frac\pi2-1$
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2015-2016·第6题}
+% EXAM-ID: 2015-2016-6
+\label{exam:11:q33}
+\paragraph{来源} 《期末真题演练本》物理页28；《期末考试真题全解析》物理页49。
+\paragraph{题目}
+已知 $f(x)=\int_1^x\frac{\ln(1+t)}t\,dt$，计算 $\int_0^1\frac{f(x)}{\sqrt x}\,dx$。
+\end{minipage}\par
+\paragraph{考点与思路}
+变限积分与两次分部积分。零端点的内层被积式可连续补值，故 $f$ 有界。外层 $1/\sqrt x$ 先积成 $2\sqrt x$，再把对数求导；根式有理项用 $x=t^2$。
+\paragraph{解析}
+先取 $u=f(x),dv=dx/\sqrt x$，边界项为零（$f$ 在 $0$ 有界），得到 $I=-2J$，$J=\int_0^1\frac{\ln(1+x)}{\sqrt x}\,dx$。再次分部积分，$J=2\ln2-2K$，$K=\int_0^1\frac{\sqrt x}{1+x}\,dx$。令 $x=t^2$，$K=2\int_0^1\frac{t^2}{1+t^2}\,dt=2-\pi/2$，故 $J=2\ln2-4+\pi$，$I=8-4\ln2-2\pi$。
+连续补值来自 $\ln(1+t)/t\to1$，故 $f(0)$ 有限，$2\sqrt x\,f(x)\to0$。为合法处理外层反常积分，先在 $[\varepsilon,1]$ 分部，再令 $\varepsilon\downarrow0$。第二次分部也有零边界 $\sqrt x\ln(1+x)\to0$。最后
+\[
+K=2\int_0^1\left(1-\frac1{1+t^2}\right)\dd t=2-\frac\pi2.
+\]
+所求积分为负，因为 $f(x)\le0$ 于 $[0,1]$；最终数值约为 $-1.056$，符号符合此检验。
+\paragraph{结论}
+$8-4\ln2-2\pi$
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2015-2016·第9题}
+% EXAM-ID: 2015-2016-9
+\label{exam:11:q34}
+\paragraph{来源} 《期末真题演练本》物理页10；《期末考试真题全解析》物理页13。
+\paragraph{题目}
+求极限 \[\lim_{n\to\infty}\left(\frac{\sin(\pi/n)}{n+1}+\cdots+\frac{\sin\pi}{n+1/n}\right).\]
+\end{minipage}\par
+\paragraph{考点与思路}
+含分母扰动的三角黎曼和。题目只显示首末项与省略号，明确采用通常的第 $k$ 项解释。分子非负使分母的统一上下界可逐项求和，再夹逼到标准三角黎曼和。
+\paragraph{解析}
+按省略号表示的通常序列，记 $S_n=\sum_{k=1}^n\sin(k\pi/n)/(n+1/k)$。各分子非负，且 $n<n+1/k\le n+1$，故 \[\frac1{n+1}\sum_{k=1}^n\sin\frac{k\pi}n\le S_n\le\frac1n\sum_{k=1}^n\sin\frac{k\pi}n.\]右端是 $\sin(\pi t)$ 在 $[0,1]$ 上的黎曼和，趋于 $\int_0^1\sin(\pi t)\,dt=2/\pi$；左端是该黎曼和乘以 $n/(n+1)$，有相同极限。夹逼得 $2/\pi$。
+夹逼界均对全部下标成立，不需要为每项单独使用等价无穷小。若原卷中间项的排列不同，仍须按原卷重新解释；当前结论对应已明确的 $S_n$，没有将省略号中的未显示项冒充原文。
+\paragraph{结论}
+$\frac2\pi$
+\paragraph{审核说明}
+图片确认末项分子为 $\sin\pi$，分母为 $n+1/n$；两本仅写首末项与省略号，解析按第 $k$ 项 $\sin(k\pi/n)/(n+1/k)$ 解释。未将未显示的中间项伪作原文。
+
+
+\chapter{定积分的应用}
+\label{exam:12:chapter}
+本章保留原题库全部14题。学年、题号按汇编标注，尚未逐份核对历年原始试卷；来源页均为PDF物理页。两道题面缺漏的题保留原文，另列条件性解答。建模方法见讲义本章的面积、体积、弧长及含参最值各节。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2024--2025学年·第4题}
+% EXAM-ID: 2024-2025-4
+\paragraph{题目}曲线 $y=1-x^2$ 与 $x$ 轴围成区域绕 $y$ 轴旋转的体积。
+\paragraph{来源}演练本第31页；全解析第54页。
+\end{minipage}\par
+\paragraph{考点与思路}区域跨轴，先观察左右半区域旋转产生的实体重合。取水平条可直接得到圆盘，避免重复柱壳。
+\paragraph{解析}区域为 $-1\le x\le1,0\le y\le1-x^2$。固定 $0\le y\le1$，横条满足 $|x|\le\sqrt{1-y}$，旋转后截面半径为 $\sqrt{1-y}$。于是
+\[
+ V=\pi\int_0^1(1-y)\dd y
+ =\pi[y-y^2/2]_0^1=\frac\pi2.
+\]
+也可仅对右半区域用 $V=2\pi\int_0^1x(1-x^2)\dd x=\pi/2$。对整个 $[-1,1]$ 积分 $2\pi|x|(1-x^2)$ 会计数两次。
+\paragraph{结论}$V=\pi/2$。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2024--2025学年·第5题}
+% EXAM-ID: 2024-2025-5
+\paragraph{题目}求极坐标曲线 $r=\sin3\theta$（$0\le\theta\le\pi/3$）围成的面积。
+\paragraph{来源}演练本第31页；全解析第54页。
+\end{minipage}\par
+\paragraph{考点与思路}在给定区间内半径非负，两端为零，恰好描出一瓣。使用扇形微元，不能乘整个玫瑰线的瓣数。
+\paragraph{解析}
+\begin{align*}
+ A&=\frac12\int_0^{\pi/3}\sin^2(3\theta)\dd\theta
+ =\frac14\int_0^{\pi/3}(1-\cos6\theta)\dd\theta\\
+ &=\frac14\left[\theta-\frac16\sin6\theta\right]_0^{\pi/3}
+ =\frac\pi{12}.
+\end{align*}
+\paragraph{结论}$A=\pi/12$。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2024--2025学年·第10题}
+% EXAM-ID: 2024-2025-10
+\paragraph{题目}求曲线 $x=\cos^3t,y=\sin^3t$（$0\le t\le2\pi$）的弧长。
+\paragraph{来源}演练本第29页；全解析第51页。
+\end{minipage}\par
+\paragraph{考点与思路}星形线单次描出四象限，利用对称性只算第一象限。导数平方和可提取公共因子，开方后保留绝对值。
+\paragraph{解析}
+\[
+ x'=-3\cos^2t\sin t,\quad y'=3\sin^2t\cos t,
+\]
+\[
+ v=\sqrt{9\cos^4t\sin^2t+9\sin^4t\cos^2t}
+ =3|\sin t\cos t|.
+\]
+在 $0\le t\le\pi/2$ 两因子非负，故
+\[
+ L=4\int_0^{\pi/2}3\sin t\cos t\dd t
+ =12[\sin^2t/2]_0^{\pi/2}=6.
+\]
+尖点处速度为零，但导数连续，参数弧长公式仍成立。
+\paragraph{结论}$L=6$。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2024--2025学年·第13题}
+% EXAM-ID: 2024-2025-13
+\paragraph{题目}设 $D$ 由 $y=x\ee^{-2x},x=t,x=2t$ 围成，求其面积 $S(t)$ 的最大值。
+\paragraph{来源}演练本第32页；全解析第56页。
+\paragraph{题面待核}演练本图片只有曲线和两竖线，未列闭合边界，也未给 $t>0$。这些对象不能按所列条件确定通常意义的有限闭合区域。以下按全解析采用的 $t>0$，并补足 $x$ 轴边界给出条件性解答，不能作为原题已完整的证明。
+\end{minipage}\par
+\paragraph{考点与思路}在补足模型中函数在正半轴为正。积分上下限同时变化，求导时两端均须乘各自的导数。
+\paragraph{解析}
+\[
+ S(t)=\int_t^{2t}x\ee^{-2x}\dd x,
+\quad S'(t)=2(2t)\ee^{-4t}-t\ee^{-2t}
+ =t\ee^{-2t}(4\ee^{-2t}-1).
+\]
+对 $t>0$，前两因子为正，所以 $S'$ 在 $t<\ln2$ 时为正，在 $t>\ln2$ 时为负。由此得到全局最大点 $t=\ln2$。分部积分给原函数
+\[
+ \int x\ee^{-2x}\dd x=-\frac14(2x+1)\ee^{-2x}+C.
+\]
+令 $l=\ln2$，则
+\[
+ S(l)=\frac{2l+1}{16}-\frac{4l+1}{64}
+ =\frac{4l+3}{64}.
+\]
+\paragraph{结论}在 $t>0$ 且补足 $x$ 轴边界的解释下，$S_{\max}=(4\ln2+3)/64$，在 $t=\ln2$ 取得；原题边界和参数条件待核原卷。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2023--2024学年·第8题}
+% EXAM-ID: 2023-2024-8
+\paragraph{题目}求曲线 $x=t+\sin t,y=2+\cos t$（$0\le t\le2\pi$）的弧长。
+\paragraph{来源}演练本第29页；全解析第51页（后续计算见第52页）。
+\end{minipage}\par
+\paragraph{考点与思路}半角公式化简弧速后，$\cos(t/2)$ 在 $t=\pi$ 变号，必须分段。
+\paragraph{解析}
+\[
+ x'=1+\cos t,\quad y'=-\sin t,
+ \quad v=\sqrt{2+2\cos t}=2|\cos(t/2)|.
+\]
+\begin{align*}
+ L&=2\int_0^\pi\cos(t/2)\dd t
+ -2\int_\pi^{2\pi}\cos(t/2)\dd t\\
+ &=4[\sin(t/2)]_0^\pi-4[\sin(t/2)]_\pi^{2\pi}=8.
+\end{align*}
+全解析第52页有自注“不准确”的中间换元式；本解以分段绝对值计算替代该步。
+\paragraph{结论}$L=8$。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2023--2024学年·第13题}
+% EXAM-ID: 2023-2024-13
+\paragraph{题目}求由 $y=\arctan x,x=1,y=0$ 围成区域的面积及绕 $y$ 轴旋转的体积。
+\paragraph{来源}演练本第31页；全解析第55页。
+\end{minipage}\par
+\paragraph{考点与思路}曲线与 $y=0$ 交于 $x=0$，区域位于 $y$ 轴右侧，用竖条分别计算面积和柱壳体积。两次分部积分的剩余有理式都可拆分。
+\paragraph{解析}面积为
+\[
+ A=\int_0^1\arctan x\dd x
+ =\left[x\arctan x-\frac12\ln(1+x^2)\right]_0^1
+ =\frac\pi4-\frac12\ln2.
+\]
+柱壳半径为 $x$，高度为 $\arctan x$，所以 $V=2\pi I$，其中
+\begin{align*}
+ I&=\int_0^1x\arctan x\dd x
+ =\left[\frac{x^2}2\arctan x\right]_0^1
+ -\frac12\int_0^1\frac{x^2}{1+x^2}\dd x\\
+ &=\frac\pi8-\frac12\int_0^1\left(1-\frac1{1+x^2}\right)\dd x
+ =\frac\pi4-\frac12.
+\end{align*}
+\paragraph{结论}$A=\pi/4-(\ln2)/2$，$V=\pi^2/2-\pi$。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2022--2023学年·第7题}
+% EXAM-ID: 2022-2023-7
+\paragraph{题目}求极坐标曲线 $r=2^\theta$（$\theta\in[\ee,\pi]$）的弧长。
+\paragraph{来源}演练本第29页；全解析第52页。
+\end{minipage}\par
+\paragraph{考点与思路}题面图片已经复核为 $2$ 的 $\theta$ 次方。指数求导产生 $\ln2$，用极坐标速度公式；若误读为 $2\theta$，方法和结果都会改变。
+\paragraph{解析}
+\[
+ r'=2^\theta\ln2,
+ \quad \sqrt{r^2+r'^2}=2^\theta\sqrt{1+(\ln2)^2}.
+\]
+于是
+\[
+ L=\sqrt{1+(\ln2)^2}\int_\ee^\pi2^\theta\dd\theta
+ =\frac{\sqrt{1+(\ln2)^2}}{\ln2}(2^\pi-2^\ee).
+\]
+\paragraph{结论}$L=\dfrac{\sqrt{1+(\ln2)^2}}{\ln2}(2^\pi-2^\ee)$。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2021--2022学年·第5题}
+% EXAM-ID: 2021-2022-5
+\paragraph{题目}求曲线 $y=(\ee^x+\ee^{-x})/2$ 在 $[0,1]$ 上的长度。
+\paragraph{来源}演练本第29页；全解析第52页。
+\end{minipage}\par
+\paragraph{考点与思路}导数是指数差，根号内部可配成指数和的完全平方。无需先引入双曲函数。
+\paragraph{解析}
+\[
+ 1+y'^2=1+\left(\frac{\ee^x-\ee^{-x}}2\right)^2
+ =\left(\frac{\ee^x+\ee^{-x}}2\right)^2.
+\]
+指数和恒正，故
+\[
+ L=\int_0^1\frac{\ee^x+\ee^{-x}}2\dd x
+ =\left[\frac{\ee^x-\ee^{-x}}2\right]_0^1
+ =\frac{\ee-\ee^{-1}}2.
+\]
+\paragraph{结论}$L=(\ee-\ee^{-1})/2$。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2020--2021学年·第5题}
+% EXAM-ID: 2020-2021-5
+\paragraph{题目}求极坐标曲线 $r=1+\cos\theta$（$0\le\theta\le2\pi$）的弧长。
+\paragraph{来源}演练本第30页；全解析第52页。
+\end{minipage}\par
+\paragraph{考点与思路}给定区间单次描出心形线。半角余弦变号，利用对称性只算半条，再乘2。
+\paragraph{解析}
+\[
+ r'=-\sin\theta,
+ \quad \sqrt{r^2+r'^2}=\sqrt{2+2\cos\theta}
+ =2|\cos(\theta/2)|.
+\]
+两半弧的长度相等，而 $0\le\theta\le\pi$ 上余弦非负，所以
+\[
+ L=2\int_0^\pi2\cos(\theta/2)\dd\theta
+ =8[\sin(\theta/2)]_0^\pi=8.
+\]
+\paragraph{结论}$L=8$。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2019--2020学年·第6题}
+% EXAM-ID: 2019-2020-6
+\paragraph{题目}求 $y=2\ee^{x/2}$ 在 $x\in[\ln3,3\ln2]$ 上的弧长。
+\paragraph{来源}演练本第30页；全解析第53页。
+\end{minipage}\par
+\paragraph{考点与思路}导数为 $\ee^{x/2}$。用根式本身作新变量，将指数和根号同时消去，并把积分限变成整数。
+\paragraph{解析}因 $3\ln2=\ln8$，
+\[
+ L=\int_{\ln3}^{\ln8}\sqrt{1+\ee^x}\dd x.
+\]
+令 $u=\sqrt{1+\ee^x}$，则 $\ee^x=u^2-1$，$\dd x=2u\dd u/(u^2-1)$。上下限为 $2,3$，故
+\begin{align*}
+ L&=2\int_2^3\frac{u^2}{u^2-1}\dd u
+ =\int_2^3\left(2+\frac1{u-1}-\frac1{u+1}\right)\dd u\\
+ &=\left[2u+\ln\frac{u-1}{u+1}\right]_2^3
+ =2+\ln\frac32.
+\end{align*}
+对数内比值在本区间为正。
+\paragraph{结论}$L=2+\ln(3/2)$。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2018--2019学年·第10题}
+% EXAM-ID: 2018-2019-10
+\paragraph{题目}求参数曲线 $x=t-\sin t,y=1-\cos t$（$0\le t\le1$）的弧长。
+\paragraph{来源}演练本第30页；全解析第53页。
+\end{minipage}\par
+\paragraph{考点与思路}这只是摆线一拱的初始部分，不能直接用整拱长 $8$。参数上限按题目保留为 $1$。
+\paragraph{解析}
+\[
+ x'=1-\cos t,\quad y'=\sin t,
+ \quad v=\sqrt{2-2\cos t}=2|\sin(t/2)|.
+\]
+在 $[0,1]$ 上 $\sin(t/2)\ge0$，所以
+\[
+ L=\int_0^12\sin(t/2)\dd t
+ =[-4\cos(t/2)]_0^1=4(1-\cos(1/2)).
+\]
+\paragraph{结论}$L=4(1-\cos(1/2))$。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2016--2017学年·第二部分第5题}
+% EXAM-ID: 2016-2017-二-5
+\paragraph{题目}求曲线 $y=\ee^x$ 在 $0\le x\le\ln\sqrt3$ 上的弧长。
+\paragraph{来源}演练本第30页；全解析第53页。
+\end{minipage}\par
+\paragraph{考点与思路}令 $u=\sqrt{1+\ee^{2x}}$，注意指数是 $2x$，微分比前一题少一个因子2。
+\paragraph{解析}
+\[
+ L=\int_0^{\ln\sqrt3}\sqrt{1+\ee^{2x}}\dd x,
+ \quad \dd x=\frac{u}{u^2-1}\dd u.
+\]
+新积分限为 $\sqrt2,2$，因而
+\[
+ L=\int_{\sqrt2}^2\frac{u^2}{u^2-1}\dd u
+ =\left[u+\frac12\ln\frac{u-1}{u+1}\right]_{\sqrt2}^2.
+\]
+利用 $(\sqrt2-1)(\sqrt2+1)=1$，得
+\[
+ \frac12\ln\frac{\sqrt2-1}{\sqrt2+1}=-\ln(1+\sqrt2),
+\]
+所以 $L=2-\sqrt2-\frac12\ln3+\ln(1+\sqrt2)$。
+\paragraph{结论}$L=2-\sqrt2-(\ln3)/2+\ln(1+\sqrt2)$。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2016--2017学年·第三题}
+% EXAM-ID: 2016-2017-三
+\paragraph{题目}已知 $f(x)=ax^2+bx$ 满足 $f(x)\ge0$（$x\in[0,1]$）。设由 $y=f(x),x=1$ 及 $x$ 轴围成区域 $D$ 的面积为 $1/3$，求 $a,b$ 的值使 $D$ 绕 $x$ 轴旋转的体积 $V_0$ 最小。
+\paragraph{来源}演练本第32页；全解析第56页。
+\end{minipage}\par
+\paragraph{考点与思路}面积约束把两个参数化为一个，非负条件限制可行区间，再对体积二次式配方。必须检查最小点在区间内。
+\paragraph{解析}由于函数非负，
+\[
+ \frac a3+\frac b2=\frac13,\qquad b=\frac{2(1-a)}3.
+\]
+对 $x>0$，$f(x)\ge0$ 等价于 $ax+b\ge0$。后者为线性函数，在 $[0,1]$ 非负等价于 $b\ge0$ 及 $a+b\ge0$；其中 $b\ge0$ 也由 $x\to0^+$ 的极限得到。代入可得 $-2\le a\le1$。
+\begin{align*}
+ \frac{V_0}\pi&=\int_0^1(a^2x^4+2abx^3+b^2x^2)\dd x
+ =\frac{a^2}{5}+\frac{ab}{2}+\frac{b^2}{3}\\
+ &=\frac{2a^2}{135}+\frac a{27}+\frac4{27}
+ =\frac2{135}\left(a+\frac54\right)^2+\frac18.
+\end{align*}
+因 $-5/4\in[-2,1]$，最小值可达。对应 $b=3/2$，且
+$f(x)=x(3/2-5x/4)\ge0$ 在 $[0,1]$ 成立。
+\paragraph{结论}$a=-5/4,b=3/2$，最小体积为 $\pi/8$。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2015--2016学年·第13题}
+% EXAM-ID: 2015-2016-13
+\paragraph{题目}设 $l_1$ 为 $y=x^2$ 在 $A(a,a^2)$（$a>0$）处的切线，$l_2$ 是另一条与 $l_1$ 垂直的切线。
+\paragraph{来源}演练本第32页；全解析第57页。
+\paragraph{题面待核}演练本图片没有求解任务。全解析新增“求交点及围成面积最小值”。下文按照新增任务条件性求解，保留原题并待核原试卷。
+\end{minipage}\par
+\paragraph{考点与思路}切线斜率乘积确定另一切点；交点横坐标决定上下边界切换的位置。抛物线与切线之差可写成完全平方，简化面积积分。
+\paragraph{解析}设另一切点为 $B(b,b^2)$，垂直条件为 $(2a)(2b)=-1$，故 $b=-1/(4a)<0$。两切线为
+\[
+ l_1:y=2ax-a^2,\qquad l_2:y=2bx-b^2.
+\]
+联立得 $x=(a+b)/2$、$y=ab=-1/4$，故交点
+\[
+ P=\left(\frac{a-1/(4a)}2,-\frac14\right).
+\]
+令 $m=(a+b)/2$。在 $[b,m]$ 上，$l_2$ 是区域的下边界，在 $[m,a]$ 上为 $l_1$。因为
+$x^2-(2bx-b^2)=(x-b)^2$，$x^2-(2ax-a^2)=(x-a)^2$，所以
+\begin{align*}
+ S&=\int_b^m(x-b)^2\dd x+\int_m^a(x-a)^2\dd x\\
+ &=\frac{(m-b)^3+(a-m)^3}{3}
+ =\frac{(a-b)^3}{12}
+ =\frac1{12}\left(a+\frac1{4a}\right)^3.
+\end{align*}
+由于 $a>0$，均值不等式给 $a+1/(4a)\ge2\sqrt{1/4}=1$，等号当且仅当 $a=1/2$。此时 $b=-1/2$、$P=(0,-1/4)$。
+\paragraph{结论}按全解析新增任务，交点如上，$S_{\min}=1/12$，在 $a=1/2$ 取得；原题提问待核。
+
+
+\chapter{反常积分}
+\label{exam:13:chapter}
+
+本章保留现有题库中的一道独立真题。年份、题号沿用用户提供的汇编标签，题面已与汇编页面核对；尚未取得逐年原始试卷独立核验。其他章节中以换元、分部积分为主要工具的反常积分计算题，仍在其主要方法对应章节保留。
+
+\par\addvspace{18pt}\noindent\begin{minipage}{\linewidth}
+\section{2023--2024学年·第6题}
+% EXAM-ID: 2023-2024-6
+\label{exam:13:2023-2024-6}
+\paragraph{来源} 《期末真题演练本》物理页49；《期末考试真题全解析》物理页79。基准备考讲义物理页58亦收录同题。
+\paragraph{题目} 设反常积分
+\[
+\int_1^{+\infty}\left(1-\cos\frac1{x^p}\right)\,\dd x
+\]
+收敛，求实参数 $p$ 的取值范围。
+\end{minipage}\par
+\paragraph{考点与思路} 被积函数非负，只有无穷远这一反常端点。先按 $p$ 的符号分类：$p>0$ 时 $x^{-p}\to0$，可以利用 $1-\cos u\sim u^2/2$，再用无穷远幂积分的临界指数；$p=0$ 时函数为正常数；$p<0$ 时余弦自变量趋于无穷，零点处等价无穷小不适用，需要用周期中函数保持正下界的区间证明发散。对应方法见讲义本章的极限比较判别法与振荡边界讨论。
+
+\paragraph{解析}
+\textbf{第一种情形：$p>0$。} 当 $x\to+\infty$ 时 $u=x^{-p}\to0$，而
+\[
+\frac{1-\cos u}{u^2}
+=\frac12\left(\frac{\sin(u/2)}{u/2}\right)^2\to\frac12.
+\]
+因此
+\[
+\lim_{x\to+\infty}\frac{1-\cos(x^{-p})}{x^{-2p}}=\frac12.
+\]
+分子非负、比较函数正，极限属于 $(0,+\infty)$，由极限比较判别法，原积分与 $\int_1^\infty x^{-2p}\,\dd x$ 同敛散。该幂积分恰在 $2p>1$ 时收敛，所以本情形中要求 $p>1/2$。临界值 $p=1/2$ 与 $1/(2x)$ 同阶，发散。
+
+\textbf{第二种情形：$p=0$。} 被积函数为 $1-\cos1>0$，故
+\[
+\int_1^T(1-\cos1)\,\dd x=(T-1)(1-\cos1)\to+\infty.
+\]
+此时发散。
+
+\textbf{第三种情形：$p<0$。} 记 $q=-p>0$。在有限截断区间 $[1,T]$ 上令 $u=x^q$。该代换单调递增，$\dd x=q^{-1}u^{1/q-1}\dd u$，新积分限为 $1,T^q$；当 $T\to\infty$ 时 $T^q\to\infty$。所以原积分的敛散性等同于
+\[
+\frac1q\int_1^{+\infty}(1-\cos u)u^\beta\,\dd u,
+\qquad \beta=\frac1q-1>-1.
+\]
+取互不相交的区间
+\[
+J_k=[2k\pi+\pi/2,\,2k\pi+3\pi/2],\qquad k\ge1.
+\]
+其长度为 $\pi$，且 $\cos u\le0$，故 $1-\cos u\ge1$。对于 $u\in J_k$ 有 $2\pi k\le u\le4\pi k$。若 $\beta\ge0$，则 $u^\beta\ge(2\pi)^\beta k^\beta$；若 $-1<\beta<0$，幂函数递减，故 $u^\beta\ge(4\pi)^\beta k^\beta$。因而存在与 $k$ 无关的常数 $C_\beta>0$，使
+\[
+\int_{J_k}(1-\cos u)u^\beta\,\dd u
+\ge\pi C_\beta k^\beta.
+\]
+由于 $\beta>-1$，对 $k\ge1$ 有 $k^\beta\ge k^{-1}$，故下界累加发散。非负被积函数的截断积分包含前 $N$ 个区间时，至少为 $\pi C_\beta\sum_{k=1}^N k^\beta$，因此无上界，积分发散。常数 $1/q>0$ 不改变结论。
+
+\paragraph{结论} 三种情形合并，所求范围为
+\[
+\boxed{p\in(1/2,+\infty)}.
+\]
+
+\paragraph{审核与易错说明} 参考解析曾以“反常积分收敛必须有被积函数趋零”排除 $p\le0$，这不是一般成立的必要条件。本题已用常数截断计算处理 $p=0$，用周期区间正下界处理 $p<0$，不依赖该错误断言。周期性使函数反复出现正值，还必须估计这些区间的宽度及权重；单独看到某些点上的值不趋零不足以证明积分发散。
+\chapter*{来源与题干核验说明}
+
+\markboth{来源与题干核验说明}{}
+
+\addcontentsline{toc}{chapter}{来源与题干核验说明}
+
+真题依据用户提供的《微积分（甲）I 期末真题演练》及配套解析汇编整理。年份、题号属于汇编来源标签；未取得逐年原卷独立核验。既有题库的137个来源条目经跨章核对，进一步合并两处包含于完整题的重复小问，本册保留135个独立解答条目（部分题目按小问分列），并保留全部来源对应关系。2019--2020学年第1题的第一问已并入完整题；2021--2022学年第4题的第一问在第6章仅保留交叉引用。以下题目的题干或条件仍需核对原卷，正文给出反例、条件性解答或缺失信息说明，不将修订后的命题冒充原题。
+
+\section*{2023-2024 · 第14题}
+
+原条件不能保证第一问在 $n=1$ 时成立。正文给出反例，并证明 $n\ge2$ 时的正确结论，随后独立证明数列极限。
+
+\section*{2019-2020 · 第7题}
+
+汇编题干为 $3^y=x+y$，在 $x=0$ 时没有实数 $y$ 满足方程，因而所问实导数无定义。不能擅自猜测并替换原题。
+
+\section*{2018-2019 · 第6题}
+
+原条件只有一阶可导，不能由二阶渐近展开直接推出二阶导数存在。正文区分可确定的一阶结论、二阶导存在时的条件性结论与反例。
+
+\section*{2022-2023 · 第10题}
+
+汇编原不等式含 $nx^n$，对任意正参数的主张不成立。正文通过最大值分析给出适用条件和反例，不将伯努利不等式用于不满足条件的参数。
+
+\section*{2020-2021 · 第9题}
+
+不同出现位置对连续性条件的记载不一致。长时积分平均值的证明需要一个周期上的可积性等条件；正文明确补充前提后给出条件性证明。
+
+\section*{2019-2020 · 第13题}
+
+汇编中的积分不等式未含绝对值，现有条件不能推出原结论。正文保留题干，给出反例，并将可证明的标准变体明确分开。
+
+\section*{2018-2019 · 第13题}
+
+严格递增及初值条件不能保证任意 $b>0$ 属于函数值域，例如 $f(x)=1-\ee^{-x}$。正文说明反函数的定义域条件后再证明相应命题。
+
+\section*{2024-2025 · 第13题}
+
+曲线与两条竖线不能单独围成题意所需闭合区域，且参数范围缺失。正文将补入横轴与 $t>0$ 后的模型作为条件性解答。
+
+\section*{2015-2016 · 第13题}
+
+演练汇编仅给出切线配置，缺少求解任务。配套解析增加了交点和面积最小值问题；正文将其明确标作补充问题，仍待核对原卷。
+
+\section*{使用与复核}
+
+解题依据是题目给出的条件；使用更强条件时在原题解析中明确标注。计算与证明经重新推导、章节审核及全书整合检查。数值或符号计算用于辅助核对，不能替代数学证明。
+
+\end{document}
