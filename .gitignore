@@ -1,8 +1,10 @@
 # 本地中间产物
+参考资料/
 tmp/
 __pycache__/
 *.pyc
 .venv/
+node_modules/
 
 # 编辑器与系统文件
 .vscode/
